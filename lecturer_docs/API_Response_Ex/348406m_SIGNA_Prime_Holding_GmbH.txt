@@ -1,0 +1,440 @@
+{
+    'FIRMA': {
+        'FI_DKZ02': [
+            {
+                'BEZEICHNUNG': [
+                    'SIGNA Prime Holding GmbH'
+                ],
+                'AUSLAND': None,
+                'VNR': '005',
+                'AUFRECHT': True,
+                'MIT_FIRMA_GELOESCHT_DURCH_VNR': None,
+                'MIT_ZWL_GELOESCHT_DURCH_VNR': None
+            }
+        ],
+        'FI_DKZ03': [
+            {
+                'STELLE': [],
+                'ZUSTELLANWEISUNG': None,
+                'STRASSE': 'Freyung',
+                'HAUSNUMMER': '3',
+                'STIEGE': None,
+                'TUERNUMMER': None,
+                'STAAT': 'AUT',
+                'PLZ': '1010',
+                'ORT': 'Wien',
+                'ZUSTELLBAR': True,
+                'VNR': '001',
+                'AUFRECHT': True,
+                'MIT_FIRMA_GELOESCHT_DURCH_VNR': None,
+                'MIT_ZWL_GELOESCHT_DURCH_VNR': None
+            }
+        ],
+        'FI_DKZ04': [],
+        'FI_DKZ05': [
+            {
+                'TEXT': [
+                    'der Erwerb, der Besitz, die Verwertung, die Verwaltung,',
+                    'die Vermittlung, der Handel mit/von Immobilien, die',
+                    'Eiinbringung von Dienstleistungen im Rahmen der',
+                    'Immobilienbewirtschaftung, die Beratung auf dem',
+                    'Immobiliensektor, die Finanzierung von Gesellschaften',
+                    'der SIGNA-Gruppe unter Ausschluss der anderen',
+                    'Berufsgruppen vorbehaltenen Tätigkeiten sowie der',
+                    'Erwerb, der Besitz, die Verwaltung und Verwertung',
+                    'von Beteiligungen an anderen Unternehmen jeder',
+                    'Rechtsform im In- und Ausland.'
+                ],
+                'VNR': '001',
+                'AUFRECHT': True,
+                'MIT_FIRMA_GELOESCHT_DURCH_VNR': None,
+                'MIT_ZWL_GELOESCHT_DURCH_VNR': None
+            }
+        ],
+        'FI_DKZ06': [
+            {
+                'ORTNR': {
+                    'CODE': '90001',
+                    'TEXT': 'Wien'
+                },
+                'SITZ': 'Wien',
+                'VNR': '001',
+                'AUFRECHT': True,
+                'MIT_FIRMA_GELOESCHT_DURCH_VNR': None,
+                'MIT_ZWL_GELOESCHT_DURCH_VNR': None
+            }
+        ],
+        'FI_DKZ07': [
+            {
+                'RECHTSFORM': {
+                    'CODE': 'GES',
+                    'TEXT': 'Gesellschaft mit beschränkter Haftung'
+                },
+                'VNR': '001',
+                'AUFRECHT': True,
+                'MIT_FIRMA_GELOESCHT_DURCH_VNR': None,
+                'MIT_ZWL_GELOESCHT_DURCH_VNR': None
+            }
+        ],
+        'FI_DKZ09': [],
+        'FI_DKZ14': [],
+        'FI_DKZ15': [],
+        'FI_DKZ16': [],
+        'FI_DKZ17': [],
+        'FI_DKZ20': [],
+        'FI_DKZ21': [],
+        'FI_DKZ22': [],
+        'FI_DKZ25': [],
+        'FI_DKZ30': [],
+        'FI_DKZ31': [],
+        'FI_DKZ32': [],
+        'FI_DKZ33': [],
+        'FI_DKZ34': [],
+        'FI_DKZ40': [],
+        'FI_DKZ41': [],
+        'FI_DKZ42': [],
+        'FI_DKZ43': [],
+        'FI_DKZ44': [],
+        'FI_DKZ45': [],
+        'RECHTSTATSACHE': [
+            {
+                'RTS_DKZ50': [
+                    {
+                        'CODE': '0904',
+                        'DATUM_VOM': datetime.date(2024, 5, 28),
+                        'ZEICHEN': '9 S 240/24v',
+                        'MULTI': [
+                            {
+                                'TXTZUS': None,
+                                'ABSCDE': 'BG007',
+                                'RTS_NAME': {
+                                    'BEZEICHNUNG': [
+                                        'Handelsgericht Wien'
+                                    ],
+                                    'TITELVOR': None,
+                                    'VORNAME': None,
+                                    'NACHNAME': None,
+                                    'TITELNACH': None,
+                                    'NAME_FORMATIERT': None,
+                                    'GEBURTSDATUM': None
+                                },
+                                'RTS_ADRESSE': None,
+                                'RTS': [
+                                    'ohne Eigenverwaltung'
+                                ],
+                                'AUSLHG': None,
+                                'AUSLFN': None,
+                                'BEHOERDE': None,
+                                'FORM': None
+                            }
+                        ],
+                        'TEXT': [
+                            'Beschluss des Gerichtes vom 28.05.2024 9 S 240/24v',
+                            'Handelsgericht Wien',
+                            'Eröffnung des Sanierungsverfahrens',
+                            'ohne Eigenverwaltung'
+                        ],
+                        'VNR': '022',
+                        'AUFRECHT': True,
+                        'MIT_FIRMA_GELOESCHT_DURCH_VNR': None,
+                        'MIT_ZWL_GELOESCHT_DURCH_VNR': None
+                    }
+                ],
+                'UNR': '004'
+            },
+            {
+                'RTS_DKZ50': [
+                    {
+                        'CODE': '0961',
+                        'DATUM_VOM': datetime.date(2024, 7, 8),
+                        'ZEICHEN': '9 S 240/24v',
+                        'MULTI': [
+                            {
+                                'TXTZUS': None,
+                                'ABSCDE': 'BG007',
+                                'RTS_NAME': {
+                                    'BEZEICHNUNG': [
+                                        'Handelsgericht Wien'
+                                    ],
+                                    'TITELVOR': None,
+                                    'VORNAME': None,
+                                    'NACHNAME': None,
+                                    'TITELNACH': None,
+                                    'NAME_FORMATIERT': None,
+                                    'GEBURTSDATUM': None
+                                },
+                                'RTS_ADRESSE': None,
+                                'RTS': [],
+                                'AUSLHG': None,
+                                'AUSLFN': None,
+                                'BEHOERDE': None,
+                                'FORM': None
+                            }
+                        ],
+                        'TEXT': [
+                            'Beschluss des Gerichtes vom 08.07.2024 9 S 240/24v',
+                            'Handelsgericht Wien',
+                            'Änderung der Bezeichnung von Sanierungs- auf',
+                            'Konkursverfahren'
+                        ],
+                        'VNR': '023',
+                        'AUFRECHT': True,
+                        'MIT_FIRMA_GELOESCHT_DURCH_VNR': None,
+                        'MIT_ZWL_GELOESCHT_DURCH_VNR': None
+                    }
+                ],
+                'UNR': '005'
+            }
+        ]
+    },
+    'FUN': [
+        {
+            'FU_DKZ10': [
+                {
+                    'DATVON': '20200819',
+                    'DATBIS': None,
+                    'WHR': None,
+                    'KAPITAL': None,
+                    'BEZUGSPERSON': None,
+                    'VART': {
+                        'CODE': 'E',
+                        'TEXT': 'Einzelvertretung'
+                    },
+                    'VSBEIDE': None,
+                    'TXTVERTR': [],
+                    'VERTRETUNGSBEFUGTNURFUER': [],
+                    'TEXT': [
+                        'vertritt seit 19.08.2020 selbständig'
+                    ],
+                    'VNR': '013',
+                    'AUFRECHT': True,
+                    'MIT_FIRMA_GELOESCHT_DURCH_VNR': None,
+                    'MIT_ZWL_GELOESCHT_DURCH_VNR': None
+                }
+            ],
+            'FU_DKZ11': [],
+            'FU_DKZ12': [],
+            'RECHTSTATSACHE': [],
+            'PNR': '  E',
+            'FKEN': 'GF',
+            'FKENTEXT': 'GESCHÄFTSFÜHRER/IN (handelsrechtlich)'
+        },
+        {
+            'FU_DKZ10': [
+                {
+                    'DATVON': '20240529',
+                    'DATBIS': None,
+                    'WHR': None,
+                    'KAPITAL': None,
+                    'BEZUGSPERSON': None,
+                    'VART': None,
+                    'VSBEIDE': None,
+                    'TXTVERTR': [],
+                    'VERTRETUNGSBEFUGTNURFUER': [],
+                    'TEXT': [
+                        'seit 29.05.2024'
+                    ],
+                    'VNR': '022',
+                    'AUFRECHT': True,
+                    'MIT_FIRMA_GELOESCHT_DURCH_VNR': None,
+                    'MIT_ZWL_GELOESCHT_DURCH_VNR': None
+                }
+            ],
+            'FU_DKZ11': [],
+            'FU_DKZ12': [],
+            'RECHTSTATSACHE': [],
+            'PNR': '  F',
+            'FKEN': 'MW',
+            'FKENTEXT': 'MASSEVERWALTER/IN'
+        },
+        {
+            'FU_DKZ10': [
+                {
+                    'DATVON': '20240529',
+                    'DATBIS': None,
+                    'WHR': None,
+                    'KAPITAL': None,
+                    'BEZUGSPERSON': None,
+                    'VART': None,
+                    'VSBEIDE': {
+                        'CODE': 'S',
+                        'TEXT': 'Stellvertreter/in'
+                    },
+                    'TXTVERTR': [],
+                    'VERTRETUNGSBEFUGTNURFUER': [],
+                    'TEXT': [
+                        'seit 29.05.2024'
+                    ],
+                    'VNR': '022',
+                    'AUFRECHT': True,
+                    'MIT_FIRMA_GELOESCHT_DURCH_VNR': None,
+                    'MIT_ZWL_GELOESCHT_DURCH_VNR': None
+                }
+            ],
+            'FU_DKZ11': [],
+            'FU_DKZ12': [],
+            'RECHTSTATSACHE': [],
+            'PNR': '  G',
+            'FKEN': 'MW',
+            'FKENTEXT': 'MASSEVERWALTER/IN'
+        }
+    ],
+    'ZWL': [],
+    'PER': [
+        {
+            'PE_DKZ02': [
+                {
+                    'VNR': '013',
+                    'AUFRECHT': True,
+                    'MIT_FIRMA_GELOESCHT_DURCH_VNR': None,
+                    'MIT_ZWL_GELOESCHT_DURCH_VNR': None,
+                    'TITELVOR': 'Mag.',
+                    'VORNAME': 'Manuel',
+                    'NACHNAME': 'Pirolt',
+                    'TITELNACH': None,
+                    'NAME_FORMATIERT': [
+                        'Mag. Manuel Pirolt'
+                    ],
+                    'GEBURTSDATUM': '19831010',
+                    'BEZEICHNUNG': None
+                }
+            ],
+            'PE_DKZ03': [],
+            'PE_DKZ06': [],
+            'PE_DKZ09': [],
+            'PE_STAAT': [],
+            'RECHTSTATSACHE': [],
+            'PNR': '  E'
+        },
+        {
+            'PE_DKZ02': [
+                {
+                    'VNR': '022',
+                    'AUFRECHT': True,
+                    'MIT_FIRMA_GELOESCHT_DURCH_VNR': None,
+                    'MIT_ZWL_GELOESCHT_DURCH_VNR': None,
+                    'BEZEICHNUNG': [
+                        'Dr. Georg Freimüller'
+                    ],
+                    'TITELVOR': None,
+                    'VORNAME': None,
+                    'NACHNAME': None,
+                    'TITELNACH': None,
+                    'NAME_FORMATIERT': None,
+                    'GEBURTSDATUM': None
+                }
+            ],
+            'PE_DKZ03': [],
+            'PE_DKZ06': [],
+            'PE_DKZ09': [],
+            'PE_STAAT': [],
+            'RECHTSTATSACHE': [],
+            'PNR': '  F'
+        },
+        {
+            'PE_DKZ02': [
+                {
+                    'VNR': '022',
+                    'AUFRECHT': True,
+                    'MIT_FIRMA_GELOESCHT_DURCH_VNR': None,
+                    'MIT_ZWL_GELOESCHT_DURCH_VNR': None,
+                    'BEZEICHNUNG': [
+                        'MMag. Michaela Tschiderer'
+                    ],
+                    'TITELVOR': None,
+                    'VORNAME': None,
+                    'NACHNAME': None,
+                    'TITELNACH': None,
+                    'NAME_FORMATIERT': None,
+                    'GEBURTSDATUM': None
+                }
+            ],
+            'PE_DKZ03': [],
+            'PE_DKZ06': [],
+            'PE_DKZ09': [],
+            'PE_STAAT': [],
+            'RECHTSTATSACHE': [],
+            'PNR': '  G'
+        }
+    ],
+    'VOLLZ': [
+        {
+            'VNR': '001',
+            'VOLLZUGSDATUM': datetime.date(2010, 7, 8),
+            'HG': {
+                'CODE': '007',
+                'TEXT': 'Handelsgericht Wien'
+            },
+            'AZ': '007 075 Fr 7905/10 k',
+            'ANTRAGSTEXT': [
+                'Antrag auf Neueintragung einer Firma eingelangt am 02.07.2010'
+            ],
+            'EINGELANGTAM': datetime.date(2010, 7, 2)
+        },
+        {
+            'VNR': '005',
+            'VOLLZUGSDATUM': datetime.date(2011, 11, 3),
+            'HG': {
+                'CODE': '007',
+                'TEXT': 'Handelsgericht Wien'
+            },
+            'AZ': '007 074 Fr 22794/11 h',
+            'ANTRAGSTEXT': [
+                'Antrag auf Änderung eingelangt am 25.10.2011'
+            ],
+            'EINGELANGTAM': datetime.date(2011, 10, 25)
+        },
+        {
+            'VNR': '013',
+            'VOLLZUGSDATUM': datetime.date(2020, 9, 15),
+            'HG': {
+                'CODE': '007',
+                'TEXT': 'Handelsgericht Wien'
+            },
+            'AZ': '007 074 Fr 7972/20 s',
+            'ANTRAGSTEXT': [
+                'Antrag auf Änderung eingelangt am 09.09.2020'
+            ],
+            'EINGELANGTAM': datetime.date(2020, 9, 9)
+        },
+        {
+            'VNR': '022',
+            'VOLLZUGSDATUM': datetime.date(2024, 5, 30),
+            'HG': {
+                'CODE': '007',
+                'TEXT': 'Handelsgericht Wien'
+            },
+            'AZ': '007 073 Fr 18393/24 v',
+            'ANTRAGSTEXT': [
+                'Mitteilung des Insolvenzgerichtes eingelangt am 28.05.2024'
+            ],
+            'EINGELANGTAM': datetime.date(2024, 5, 28)
+        },
+        {
+            'VNR': '023',
+            'VOLLZUGSDATUM': datetime.date(2024, 7, 11),
+            'HG': {
+                'CODE': '007',
+                'TEXT': 'Handelsgericht Wien'
+            },
+            'AZ': '007 073 Fr 24636/24 z',
+            'ANTRAGSTEXT': [
+                'Mitteilung des Insolvenzgerichtes eingelangt am 09.07.2024'
+            ],
+            'EINGELANGTAM': datetime.date(2024, 7, 9)
+        }
+    ],
+    'IDENT': [],
+    'KUR': None,
+    'EUID': [
+        {
+            'ZNR': '000',
+            'EUID': 'ATBRA.348406-000'
+        }
+    ],
+    'FNR': '348406 m',
+    'STICHTAG': datetime.date(2025, 9, 27),
+    'UMFANG': 'Kurzinformation',
+    'PRUEFSUMME': 'FC7D70B54733573BF24FF75D81532802',
+    'ABFRAGEZEITPUNKT': datetime.datetime(2025, 9, 27, 10, 52, 19, 860000, tzinfo=<FixedOffset '+02:00'>)
+}
