@@ -11,7 +11,7 @@ git clone <repository_url>
 cd <repository_directory_locally>
 ```
 
-### 2.Set up a virtual environment
+### 2. Set up a virtual environment
 #### Linux/Mac:
 ```bash
 py -m venv venv
@@ -28,7 +28,7 @@ py -m venv venv
 venv\Scripts\Activate.ps1
 ```
 
-#### !!!Important: If you get an error for unauthorized access while trying to activate the virtual environment, please run the following command to allow for script execution for the current session:
+#### !!! Important: If you get an error for unauthorized access while trying to activate the virtual environment, please run the following command to allow for script execution for the current session:
 ```bash
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 ```
