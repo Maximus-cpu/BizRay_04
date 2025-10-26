@@ -18,6 +18,7 @@ db.sqlite3
 staticfiles/
 
 .vscode/
+.vscode
 .idea/
 instance/
 
