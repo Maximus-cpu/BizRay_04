@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - BizRay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">BizRay</div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="search.html" class="nav-link active">Search</a>
+                <a href="login.html" class="nav-link">Log In</a>
+                <a href="signup.html" class="btn-primary">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="search-page">
+        <div class="search-header">
+            <div class="search-box">
+                <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="text" class="search-input" placeholder="Search for companies..." id="searchInput" value="Technology">
+                <button class="search-btn" onclick="performSearch()">Search</button>
+            </div>
+        </div>
+
+        <div class="search-content">
+            <div class="search-filters">
+                <h3 class="filter-title">Filters</h3>
+                
+                <div class="filter-group">
+                    <h4 class="filter-subtitle">Industry</h4>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox" checked>
+                        <span>Technology</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox">
+                        <span>Finance</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox">
+                        <span>Healthcare</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox">
+                        <span>Retail</span>
+                    </label>
+                </div>
+
+                <div class="filter-group">
+                    <h4 class="filter-subtitle">Company Size</h4>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox">
+                        <span>1-50 employees</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox">
+                        <span>51-200 employees</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox">
+                        <span>201-1000 employees</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox">
+                        <span>1000+ employees</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="search-results">
+                <div class="results-header">
+                    <h2 class="results-title">Search Results</h2>
+                    <p class="results-count">Showing 12 companies</p>
+                </div>
+
+                <div class="results-grid">
+                    <div class="company-card" onclick="goToCompany('techcorp')">
+                        <h3 class="company-name">TechCorp Solutions</h3>
+                        <p class="company-industry">Technology • Software</p>
+                        <p class="company-description">Leading provider of enterprise software solutions</p>
+                        <div class="company-meta">
+                            <span class="meta-item">500-1000 employees</span>
+                            <span class="meta-item">San Francisco, CA</span>
+                        </div>
+                    </div>
+
+                    <div class="company-card" onclick="goToCompany('innovate')">
+                        <h3 class="company-name">Innovate Systems</h3>
+                        <p class="company-industry">Technology • AI/ML</p>
+                        <p class="company-description">Artificial intelligence and machine learning solutions</p>
+                        <div class="company-meta">
+                            <span class="meta-item">200-500 employees</span>
+                            <span class="meta-item">Austin, TX</span>
+                        </div>
+                    </div>
+
+                    <div class="company-card" onclick="goToCompany('cloudify')">
+                        <h3 class="company-name">Cloudify Inc</h3>
+                        <p class="company-industry">Technology • Cloud Services</p>
+                        <p class="company-description">Cloud infrastructure and hosting services</p>
+                        <div class="company-meta">
+                            <span class="meta-item">1000+ employees</span>
+                            <span class="meta-item">Seattle, WA</span>
+                        </div>
+                    </div>
+
+                    <div class="company-card" onclick="goToCompany('datawise')">
+                        <h3 class="company-name">DataWise Analytics</h3>
+                        <p class="company-industry">Technology • Data Analytics</p>
+                        <p class="company-description">Business intelligence and analytics platform</p>
+                        <div class="company-meta">
+                            <span class="meta-item">100-200 employees</span>
+                            <span class="meta-item">New York, NY</span>
+                        </div>
+                    </div>
+
+                    <div class="company-card" onclick="goToCompany('securetech')">
+                        <h3 class="company-name">SecureTech Systems</h3>
+                        <p class="company-industry">Technology • Cybersecurity</p>
+                        <p class="company-description">Enterprise security and protection solutions</p>
+                        <div class="company-meta">
+                            <span class="meta-item">300-500 employees</span>
+                            <span class="meta-item">Boston, MA</span>
+                        </div>
+                    </div>
+
+                    <div class="company-card" onclick="goToCompany('mobilefirst')">
+                        <h3 class="company-name">MobileFirst Apps</h3>
+                        <p class="company-industry">Technology • Mobile Development</p>
+                        <p class="company-description">Mobile application development and consulting</p>
+                        <div class="company-meta">
+                            <span class="meta-item">50-100 employees</span>
+                            <span class="meta-item">Los Angeles, CA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
