@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - BizRay</title>
+    <link rel="stylesheet" href="search.css">
+</head>
+<body>
+    <nav>
+        <a href__="index.html" class="logo">
+            <div class="logo-icon">💼</div>
+            <span>BizRay</span>
+        </a>
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-box" placeholder="Search companies..." id="searchInput">
+        </div>
+        <div class="user-section">
+            <a href__="login.html" class="btn btn-primary">Account</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="filters">
+            <div class="filter-group">
+                <select>
+                    <option>All Countries</option>
+                    <option>Austria</option>
+                    <option>Germany</option>
+                    <option>Switzerland</option>
+                </select>
+                <select>
+                    <option>All Legal Forms</option>
+                    <option>GmbH</option>
+                    <option>AG</option>
+                    <option>KG</option>
+                </select>
+                <select>
+                    <option>All Risk Levels</option>
+                    <option>Low Risk</option>
+                    <option>Medium Risk</option>
+                    <option>High Risk</option>
+                </select>
+                <select>
+                    <option>Company Size</option>
+                    <option>Small (0-50)</option>
+                    <option>Medium (51-250)</option>
+                    <option>Large (251+)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="results-header">
+            <h2>Search Results</h2>
+            <p class="results-count">Found 127 companies</p>
+        </div>
+
+        <a href__="company.html" class="company-card">
+            <div class="company-header">
+                <div>
+                    <div class="company-name">Tech Solutions GmbH</div>
+                    <div class="company-id">FN 123456a • Austria</div>
+                </div>
+                <span class="risk-badge risk-low">Low Risk</span>
+            </div>
+            <div class="company-details">
+                <div class="detail-item"><span class="detail-icon">📍</span><span>Vienna, 1010</span></div>
+                <div class="detail-item"><span class="detail-icon">💼</span><span>GmbH</span></div>
+                <div class="detail-item"><span class="detail-icon">📅</span><span>Founded 2015</span></div>
+            </div>
+        </a>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get('q');
+        if (searchQuery) document.getElementById('searchInput').value = searchQuery;
+    </script>
+</body>
+</html>
