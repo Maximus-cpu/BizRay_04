@@ -8,6 +8,8 @@ load_dotenv()
 key_path = os.getenv("FTP_KEY_PATH")
 host = os.getenv("FTP_HOST")
 user = os.getenv("FTP_USER")
+remote_dir = "/uploads"
+local_dir = "./data"
 
 key = Ed25519Key.from_private_key_file(key_path)
 
@@ -18,14 +20,9 @@ sftp = paramiko.SFTPClient.from_transport(transport)
 sftp.chdir("/")
 print("Connected. Current dir:", sftp.getcwd())
 
-sftp.chdir("/uploads")
-print(sftp.listdir())
-
 sftp.chdir("/uploads/000")
-print(sftp.listdir())
 
-# for item in sftp.listdir_attr("."):
-#     print(f"{item.filename}\t{item.st_size} bytes")
+# sftp.get(remote_dir + "/000" + "/000002_6380471306070_000___000_30_7686006_XML.xml", local_dir + "/000002_6380471306070_000___000_30_7686006_XML.xml")
 
 sftp.close()
 transport.close()
