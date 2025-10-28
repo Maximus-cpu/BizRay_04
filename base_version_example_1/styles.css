@@ -757,3 +757,39 @@ body {
         font-size: 2rem;
     }
 }
+
+
+/*Style for the search suggestions*/
+.suggestions-box {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--cream-light);
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 8px 24px var(--shadow-md);
+    overflow: hidden;
+    z-index: 20;
+    max-height: 220px;
+    overflow-y: auto;
+    text-align: left;
+    padding-left: 35px;
+}
+.suggestion-item {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: var(--text);
+  background: white;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.suggestion-item:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.suggestion-item:hover {
+  background: linear-gradient(155deg, #7be4ac1a, #0B38660f);
+  color: var(--primary-dark);
+}
+/*not any more the style for the search suggestions*/
