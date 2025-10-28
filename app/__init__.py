@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 def create_app():
-    #Create instance folder for database and environment files
+    # Create instance folder for database and environment files
     instance_path = os.path.join(os.getcwd(), 'instance')
     os.makedirs(instance_path, exist_ok=True)
 
@@ -14,7 +14,10 @@ def create_app():
 
     db.init_app(app)
 
-    from app.controllers.company_controller import main_bp
-    app.register_blueprint(main_bp)
+    from app.controllers.company_controller import company_bp
+    from app.controllers.user_controller import user_bp
+
+    app.register_blueprint(company_bp)
+    app.register_blueprint(user_bp)
 
     return app
