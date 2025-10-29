@@ -14,13 +14,16 @@
         </svg>
         <form id="searchForm" class="search-form" action="{{ url_for('company.search') }}" method="get"
               onsubmit="handleSearch(event)">
-            <input type="text"
-                   name="company_name"
-                   class="search-input"
-                   placeholder="Search for companies..."
-                   id="searchInput"
-                   value="{{ company_name or '' }}"
-                   autocomplete="off">
+            <div class="input-stack">
+                <span class="ghost-text" aria-hidden="true"></span>
+                <input type="text"
+                       name="company_name"
+                       class="search-input"
+                       placeholder="Search for companies..."
+                       id="searchInput"
+                       value="{{ company_name or '' }}"
+                       autocomplete="off">
+            </div>
             <button type="submit" class="search-btn">Search</button>
         </form>
         <div id="suggestions" class="suggestions-box"></div>

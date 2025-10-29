@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, abort
+from flask import Blueprint, render_template, request, abort, jsonify
 
 from app.models.company import Company
 
@@ -90,3 +90,23 @@ def company_details(company_id):
                            title=f'{company.name} • Details',
                            company=company
                            )
+
+
+@company_bp.route('/search_suggest')
+def search_suggest():
+    from app.models.company import Company
+    prefix = request.args.get('prefix', '').strip()
+    if not prefix:
+        return jsonify({"suggestions": []})
+
+    suggestions = (
+        Company.query
+        .filter(Company.name.ilike(f"{prefix}%"))
+        .order_by(Company.name.asc())
+        .limit(5)
+        .with_entities(Company.name)
+        .all()
+    )
+
+    names = [name for (name,) in suggestions]
+    return jsonify({"suggestions": names})

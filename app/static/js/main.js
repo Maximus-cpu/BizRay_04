@@ -47,67 +47,100 @@ function attachSearchFilterHandler(formSelector, filtersContainerSelector) {
     });
 }
 
-//The following 60 lines are for the search suggestions
-
-// Mock company data    (for the search suggestions on the index.html
-const companies = [
-    "OpenAI",
-    "Google",
-    "Microsoft",
-    "Amazon",
-    "Apple",
-    "Nvidia",
-    "Meta",
-    "IBM",
-    "Intel",
-    "Tesla",
-    "Samsung",
-    "Oracle",
-    "Adobe"
-];
-
-//handling search input
-const searchInput = document.getElementById("searchInput");
-const suggestionsBox = document.getElementById("suggestions");
-
-// Listen for typing
-if (searchInput) {
-    searchInput.addEventListener("input", () => {
-        const query = searchInput.value.toLowerCase().trim();
-        suggestionsBox.innerHTML = "";
-
-        if (!query) {   // if there is no text, stop and do nothing
-            suggestionsBox.innerHTML = '';
-            suggestionsBox.style.display = 'none';
-            return; // Stop the function early
-        }
-
-        // filtering through the data, for things that match the input
-        const filtered = companies
-            .filter((company) => company.toLowerCase().includes(query))
-            .slice(0, 4);// max of 4 suggestions
-
-        filtered.forEach((name) => {
-            const div = document.createElement("div");
-            div.classList.add("suggestion-item");
-            div.textContent = name;
-            div.addEventListener("click", () => {
-                searchInput.value = name;
-                suggestionsBox.innerHTML = "";
-            });
-            suggestionsBox.appendChild(div);
-        });
-    });
-
-    // Hide suggestions when clicking outside of the box
-    document.addEventListener("click", (e) => {
-        if (!e.target.closest(".search-box")) {
-            suggestionsBox.innerHTML = "";
-        }
-    });
+// Inline autocomplete (ghost completion) using backend suggestions
+function debounce(fn, delay) {
+    let t;
+    return function (...args) {
+        clearTimeout(t);
+        t = setTimeout(() => fn.apply(this, args), delay);
+    }
 }
 
-// search suggestions end
+function initGhostAutocomplete() {
+    const searchBoxes = document.querySelectorAll('.search-box');
+    searchBoxes.forEach(box => {
+        const form = box.querySelector('form');
+        if (!form) return;
+        const input = form.querySelector('.search-input');
+        const ghost = form.querySelector('.ghost-text');
+        if (!input || !ghost) return;
+
+        // Create a hidden measurement span to calculate prefix width
+        const measure = document.createElement('span');
+        measure.className = 'measure-span';
+        form.appendChild(measure);
+
+        const syncMeasureStyles = () => {
+            const cs = window.getComputedStyle(input);
+            measure.style.fontFamily = cs.fontFamily;
+            measure.style.fontSize = cs.fontSize;
+            measure.style.fontWeight = cs.fontWeight;
+            measure.style.letterSpacing = cs.letterSpacing;
+            measure.style.padding = cs.padding;
+            // Keep ghost visually identical in typography
+            ghost.style.fontFamily = cs.fontFamily;
+            ghost.style.fontSize = cs.fontSize;
+            ghost.style.lineHeight = cs.lineHeight;
+            ghost.style.fontWeight = cs.fontWeight;
+        };
+        syncMeasureStyles();
+
+        const updateGhost = debounce(async () => {
+            const prefix = input.value.trim();
+            if (!prefix) {
+                ghost.textContent = '';
+                ghost.style.paddingLeft = '0px';
+                return;
+            }
+            try {
+                const res = await fetch(`${window.location.origin}/search_suggest?prefix=${encodeURIComponent(prefix)}`);
+                if (!res.ok) return;
+                const data = await res.json();
+                const first = (data && data.suggestions && data.suggestions[0]) || '';
+                if (!first) {
+                    ghost.textContent = '';
+                    ghost.style.paddingLeft = '0px';
+                    return;
+                }
+                // Only show if suggestion starts with current input (case-insensitive)
+                const starts = first.toLowerCase().startsWith(prefix.toLowerCase());
+                if (!starts) {
+                    ghost.textContent = '';
+                    ghost.style.paddingLeft = '0px';
+                    return;
+                }
+
+                // Compute width of current typed prefix and position remainder after it
+                syncMeasureStyles();
+                measure.textContent = prefix;
+                const prefixWidth = measure.getBoundingClientRect().width;
+                const remainder = first.slice(prefix.length);
+                ghost.textContent = remainder;
+                ghost.style.paddingLeft = `${prefixWidth}px`;
+            } catch (_) {
+                ghost.textContent = '';
+                ghost.style.paddingLeft = '0px';
+            }
+        }, 150);
+
+        input.addEventListener('input', updateGhost);
+
+        // Accept ghost with Enter and submit immediately
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const suggestionRemainder = ghost.textContent || '';
+                if (suggestionRemainder) {
+                    e.preventDefault();
+                    input.value = input.value.trim() + suggestionRemainder;
+                    ghost.textContent = '';
+                    ghost.style.paddingLeft = '0px';
+                    // Submit the form after accepting completion
+                    form.submit();
+                }
+            }
+        });
+    });
+}
 
 function performSearch() {
     console.log('Search performed for:', searchInput.value);
@@ -148,17 +181,6 @@ function goToCompany(companyId) {
 
 // Enter key support for search
 document.addEventListener('DOMContentLoaded', () => {
-    const searchInputs = document.querySelectorAll('.search-input');
     attachSearchFilterHandler('#searchForm', '.search-filters');
-    searchInputs.forEach(input => {
-        input.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                if (input.id === 'homeSearch') {
-                    handleSearch();
-                } else {
-                    performSearch();
-                }
-            }
-        });
-    });
+    initGhostAutocomplete();
 });
