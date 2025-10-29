@@ -178,6 +178,7 @@ body {
     border: none;
     outline: none;
     font-size: 1.125rem;
+    line-height: 1.5rem;
     color: var(--text);
     background: transparent;
     min-width: 0;
@@ -809,6 +810,44 @@ body {
 }
 /*not any more the style for the search suggestions*/
 
+/* Inline ghost autocomplete */
+.input-stack {
+    position: relative;
+    display: grid;   /* stack input and ghost in same cell */
+    flex: 1;
+}
+
+.input-stack .ghost-text {
+    grid-area: 1 / 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: var(--text-light);
+    opacity: 0.6;
+    pointer-events: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    width: 100%;
+}
+
+.input-stack .search-input {
+    grid-area: 1 / 1;
+    position: relative;
+    z-index: 1;
+    background: transparent;
+}
+
+.measure-span {
+    position: absolute;
+    visibility: hidden;
+    white-space: pre;
+    pointer-events: none;
+}
+
 /* No Results Card (aligned with results column next to filters) */
 .no-results-container {
     display: block;
@@ -847,6 +886,8 @@ body {
     align-items: center;
     gap: 0.75rem;
     margin-top: 0.5rem;
+    justify-content: flex-end; /* align pagination to the right */
+    width: 100%;
 }
 
 .page-info {
