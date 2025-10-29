@@ -1,11 +1,8 @@
-// Mock functionality for navigation and interactions
-// TODO: Fix duplicated IDs in the index and search! #searchInput and #suggestions
-// TODO: Clean up the code and unnecessary functionality
-function handleSearch() {
-    const searchInput = document.getElementById('searchInput');
-    const searchValue = searchInput.value.trim();
+function handleSearch(event, form) {
+    const currentInputField = form.querySelector(".search-input");
+    const currentInputValue = currentInputField.value.trim();
 
-    if (!searchValue) {
+    if (!currentInputValue) {
         // Prevent form submission
         event.preventDefault();
         alert('Please enter a company name to search');
@@ -142,22 +139,12 @@ function initGhostAutocomplete() {
     });
 }
 
-function performSearch() {
-    console.log('Search performed for:', searchInput.value);
-    // In a real app, this would trigger API calls
-}   //suggestions-block was modified so it also works for this page
-
 function handleLogin(event) {
-    event.preventDefault();
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    console.log('Login attempt:', {email, password});
-    alert('Login successful! (This is a mock-up)');
-    window.location.href = 'index.html';
+    // TODO: Handle client-side validation for login here
 }
 
 function handleSignup(event) {
+    // TODO: Handle client-side validation for signup here
     //const fullname = document.getElementById('fullname').value;
     //const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -168,18 +155,8 @@ function handleSignup(event) {
         alert('Passwords do not match!');
         return;
     }
-
-    //console.log('Signup attempt:', {fullname, email, password});
-    //alert('Account created successfully! (This is a mock-up)');
-    //window.location.href = 'login.html';
 }
 
-function goToCompany(companyId) {
-    console.log('Navigating to company:', companyId);
-    window.location.href = 'company.html';
-}
-
-// Enter key support for search
 document.addEventListener('DOMContentLoaded', () => {
     attachSearchFilterHandler('#searchForm', '.search-filters');
     initGhostAutocomplete();
