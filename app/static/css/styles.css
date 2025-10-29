@@ -441,8 +441,8 @@ body {
 
 .results-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: 1fr; /* one card per row */
+    gap: 1.25rem;
 }
 
 /* Company Cards */
@@ -495,6 +495,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    justify-content: space-between;
     font-size: 0.875rem;
 }
 
@@ -760,9 +761,7 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .results-grid {
-        grid-template-columns: 1fr;
-    }
+    .results-grid { grid-template-columns: 1fr; }
 
     .company-header-content {
         flex-direction: column;
@@ -840,4 +839,29 @@ body {
 .no-results-query {
     color: var(--primary-dark);
     font-weight: 600;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.page-info {
+    color: var(--text-light);
+}
+
+.page-link {
+    background: var(--primary);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.page-link:hover {
+    background-color: var(--primary-dark);
 }
