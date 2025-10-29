@@ -1,7 +1,86 @@
 {% extends 'base.html' %}
 
-{% block title %}Search page{% endblock %}
+{% block title %}Search a company{% endblock %}
+
+{% block main_class %}search-page{% endblock %}
 
 {% block body %}
-<h1>Hello from search!</h1>
+<div class="search-header">
+    <div class="search-box">
+        <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <form id="searchForm" class="search-form" action="{{ url_for('company.search') }}" method="get"
+              onsubmit="handleSearch(event)">
+            <input type="text"
+                   name="company_name"
+                   class="search-input"
+                   placeholder="Search for companies..."
+                   id="searchInput"
+                   value="{{ company_name or '' }}"
+                   autocomplete="off">
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+        <div id="suggestions" class="suggestions-box"></div>
+    </div>
+</div>
+
+<div class="search-content">
+    <div class="search-filters">
+        <h3 class="filter-title">Filters</h3>
+
+        <div class="filter-group">
+            <h4 class="filter-subtitle">Industry</h4>
+            {% for option in ['Technology', 'Finance', 'Healthcare', 'Retail'] %}
+            <label class="checkbox-label">
+                <input type="checkbox" name="industry" value="{{ option }}"
+                       {% if option in selected_industries %}checked{% endif %}>
+                <span>{{ option }}</span>
+            </label>
+            {% endfor %}
+        </div>
+
+        <div class="filter-group">
+            <h4 class="filter-subtitle">Company Size</h4>
+            {% set sizes = {
+            '1-50': '1-50 employees',
+            '51-200': '51-200 employees',
+            '201-1000': '201-1000 employees',
+            '1000+': '1000+ employees'
+            } %}
+            {% for key, label in sizes.items() %}
+            <label class="checkbox-label">
+                <input type="checkbox" name="company_size" value="{{ key }}"
+                       {% if key in selected_sizes %}checked{% endif %}>
+                <span>{{ label }}</span>
+            </label>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="search-results">
+        <div class="results-grid">
+            {% if not search_performed %}
+            <p class="search-message">Search results will be shown here.</p>
+            {% elif results %}
+            {% for company in results %}
+            <a href="{{ url_for('company.company_details', company_id=company.id) }}" class="company-card">
+                <h3 class="company-name">{{ company.name }}</h3>
+                <p class="company-industry">{{ company.industry }} • {{ company.branch }}</p>
+                <p class="company-description">Revenue: €{{ "%.2f"|format(company.revenue) }} • Risk: {{
+                    "%.2f"|format(company.risk_score) }}%</p>
+                <div class="company-meta">
+                    <span class="meta-item">{{ company.employees_count }} employees</span>
+                    <span class="meta-item">{{ company.region }}</span>
+                </div>
+            </a>
+            {% endfor %}
+            {% else %}
+            <p class="search-message">No companies found matching your criteria.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}
