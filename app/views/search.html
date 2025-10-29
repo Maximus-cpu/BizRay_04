@@ -77,6 +77,18 @@
                 </div>
             </a>
             {% endfor %}
+
+            {% if pagination and pagination.pages > 1 %}
+            <div class="pagination">
+                {% if pagination.has_prev %}
+                <a class="page-link" href="{{ url_for('company.search', company_name=company_name, industry=selected_industries, company_size=selected_sizes, page=pagination.prev_num) }}">Previous</a>
+                {% endif %}
+                <span class="page-info">Page {{ pagination.page }} of {{ pagination.pages }}</span>
+                {% if pagination.has_next %}
+                <a class="page-link" href="{{ url_for('company.search', company_name=company_name, industry=selected_industries, company_size=selected_sizes, page=pagination.next_num) }}">Next</a>
+                {% endif %}
+            </div>
+            {% endif %}
             {% else %}
             <div class="no-results-container">
                 <div class="no-results-card">

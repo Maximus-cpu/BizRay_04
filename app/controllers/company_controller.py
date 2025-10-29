@@ -21,7 +21,8 @@ def search():
     from sqlalchemy import and_
 
     # Allowed query params
-    allowed_params = {'company_name', 'fnr', 'industry', 'company_size'}
+    allowed_params = {'company_name', 'fnr', 'industry', 'company_size', 'page'}
+    filter_params = {'company_name', 'fnr', 'industry', 'company_size'}
     provided_params = set(request.args.keys())
 
     # Validate query params
@@ -29,8 +30,8 @@ def search():
     if invalid_params:
         abort(400, description=f"Invalid query parameter(s): {', '.join(invalid_params)}")
 
-    # Determine if any search parameters were provided
-    search_performed = any(request.args.get(param) for param in allowed_params)
+    # Determine if any search parameters were provided (exclude pagination)
+    search_performed = any(request.args.get(param) for param in filter_params)
 
     # Unpack parameters
     company_name = request.args.get('company_name', '').strip()
@@ -39,6 +40,7 @@ def search():
     company_size = request.args.getlist('company_size')
 
     results = []
+    pagination = None
     filters = []
 
     # Apply filters based on provided parameters
@@ -55,7 +57,12 @@ def search():
 
     # Apply combined filters if they exist
     if filters:
-        results = Company.query.filter(and_(*filters)).limit(20).all() # TODO: Add pagination for displaying a lot of companies
+        # Pagination
+        page = request.args.get('page', 1, type=int)
+        per_page = 10
+        query = Company.query.filter(and_(*filters))
+        pagination = query.paginate(page=page, per_page=per_page, error_out=False)
+        results = pagination.items
 
     return render_template(
         'search.html',
@@ -64,7 +71,8 @@ def search():
         company_name=company_name,
         selected_industries=industry,
         selected_sizes=company_size,
-        search_performed=search_performed
+        search_performed=search_performed,
+        pagination=pagination
     )
 
 @company_bp.route('/company/<company_id>')
