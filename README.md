@@ -38,6 +38,16 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 pip install -r requirements.txt
 ```
 
+#### !!! Important: If you are using Pycharm, it is usually necessary to navigate to:
+- Settings → Project: your_project → Python Interpreter
+- Click the ⚙️ icon (top right of the interpreter list).
+- Select Add Interpreter → Add Local Interpreter.
+- Choose Existing environment.
+- Navigate to your virtual environment’s Python executable
+  - Windows: venv\Scripts\python.exe
+  - macOS/Linux: venv/bin/python
+- Click OK and apply the changes.
+
 ### 4. Run the Flask application
 ```bash
 py run.py
