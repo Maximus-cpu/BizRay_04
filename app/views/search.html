@@ -78,7 +78,12 @@
             </a>
             {% endfor %}
             {% else %}
-            <p class="search-message">No companies found matching your criteria.</p>
+            <div class="no-results-container">
+                <div class="no-results-card">
+                    <h2 class="no-results-title">Results not found</h2>
+                    <p class="no-results-text">The search: <span class="no-results-query">{{ company_name }}</span> was not found.</p>
+                </div>
+            </div>
             {% endif %}
         </div>
     </div>

@@ -809,3 +809,35 @@ body {
   color: var(--primary-dark);
 }
 /*not any more the style for the search suggestions*/
+
+/* No Results Card (aligned with results column next to filters) */
+.no-results-container {
+    display: block;
+}
+
+.no-results-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    border: 2px solid var(--border);
+    box-shadow: 0 2px 8px var(--shadow);
+    max-width: 520px;
+}
+
+.no-results-title {
+    background: var(--primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.no-results-text {
+    color: var(--text-light);
+}
+
+.no-results-query {
+    color: var(--primary-dark);
+    font-weight: 600;
+}
