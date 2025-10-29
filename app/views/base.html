@@ -11,7 +11,7 @@
 <body>
 <nav class="navbar">
     <div class="nav-container">
-        <div class="logo">BizRay</div>
+        <a href="{{ url_for('company.index') }}" class="logo">BizRay</a>
         <div class="nav-links">
             <a href="{{ url_for('company.index') }}"
                class="nav-link {% if request.endpoint == 'company.index' %}active{% endif %}">Home</a>
