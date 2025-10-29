@@ -9,7 +9,7 @@ class User(db.Model):
     password_hash = db.Column(db.String(255), nullable=False)
 
     @validates('username')
-    def validate_username(self, username):
+    def validate_username(self, key, username):
         """Validate that the username is not empty"""
         if not username or not username.strip():
             raise ValueError("Username cannot be empty")

@@ -1,7 +1,48 @@
 {% extends 'base.html' %}
 
-{% block title %}Signup page{% endblock %}
+{% block title %}BizRay - Sign up{% endblock %}
+
+{% block main_class %}auth-container{% endblock %}
 
 {% block body %}
-<h1>Hello from signup!</h1>
+<div class="auth-card">
+    <h1 class="auth-title">Create an account</h1>
+    <p class="auth-subtitle">Start exploring business intelligence today</p>
+
+    <form class="auth-form" action="{{ url_for('user.signup') }}" method="post">
+        <!-- onsubmit="handleSignup(event)" -->
+        <div class="form-group">
+            <label for="fullname" class="form-label">Full name</label>
+            <input type="text" name="fullname" id="fullname" class="form-input" placeholder="John Doe" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" name="email" id="email" class="form-input" placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" id="password" class="form-input" placeholder="Create a password" required>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword" class="form-label">Confirm password</label>
+            <input type="password" name="confirmPassword" id="confirmPassword" class="form-input" placeholder="Confirm your password" required>
+        </div>
+
+        <div class="form-options">
+            <label class="checkbox-label">
+                <input type="checkbox" class="checkbox" required>
+                <span>I agree to the Terms of Service and Privacy Policy</span>
+            </label>
+        </div>
+
+        <button type="submit" class="btn-submit">Create account</button>
+    </form>
+
+    <div class="auth-footer">
+        <p>Already have an account? <a href="{{ url_for('user.login') }}" class="link-primary">Log in</a></p>
+    </div>
+</div>
 {% endblock %}

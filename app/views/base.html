@@ -4,10 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <title>{% block title %}Default title{% endblock %}</title>
     {% block head %}{% endblock %}
 </head>
 <body>
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">BizRay</div>
+        <div class="nav-links">
+            <a href="{{ url_for('company.index') }}"
+               class="nav-link {% if request.endpoint == 'company.index' %}active{% endif %}">Home</a>
+            <a href="{{ url_for('company.search') }}"
+               class="nav-link {% if request.endpoint == 'company.search' %}active{% endif %}">Search</a>
+            <a href="{{ url_for('user.login') }}"
+               class="nav-link {% if request.endpoint == 'user.login' %}active{% endif %}">Log in</a>
+            <a href="{{ url_for('user.signup') }}" class="btn-primary">Sign up</a>
+        </div>
+    </div>
+</nav>
+<main class="{% block main_class %}{% endblock %}">
     {% block body %}{% endblock %}
+</main>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

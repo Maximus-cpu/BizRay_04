@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 def create_app():
-    # Create instance folder for database and environment files
+    # Create an instance folder for the database
     instance_path = os.path.join(os.getcwd(), 'instance')
     os.makedirs(instance_path, exist_ok=True)
 

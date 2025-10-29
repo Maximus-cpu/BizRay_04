@@ -5,6 +5,14 @@ import re
 class Company(db.Model):
     id = db.Column(db.String(7), primary_key=True)
     name = db.Column(db.String(100), nullable=False)
+    region = db.Column(db.String(100), nullable=False)
+    address = db.Column(db.String(255), nullable=False)
+    legal_form = db.Column(db.String(20), nullable=False)
+    revenue = db.Column(db.Float, nullable=False)
+    risk_score = db.Column(db.Float, nullable=False)
+    industry = db.Column(db.String(50), nullable=False)
+    branch = db.Column(db.String(100), nullable=False)
+    employees_count = db.Column(db.Integer, nullable=False)
 
     @validates('id')
     def validate_id(self, key, company_id):
