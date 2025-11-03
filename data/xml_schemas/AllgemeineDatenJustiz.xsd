@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:include schemaLocation="eBilanzPostenAllgemein.xsd"/>
+	<!-- Beginn Globale Elemente -->
+	<xs:element name="IBAN">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="[0-9A-Z]{5,34}"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="BIC">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="[0-9A-Z]{8,11}"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="KUNDEN">
+		<xs:simpleType>
+			<xs:restriction base="xs:positiveInteger">
+				<xs:pattern value="[0-9]{12}"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CODE">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="[WNT]{1}[0-9]{1,6}|[A-Z]{3}[0-9]{3}|[0-9]{6}[a-zA-Z]|JB[0-9]{5}"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="BESTAETIGUNG">
+		<xs:simpleType>
+			<xs:restriction base="xs:positiveInteger">
+				<xs:pattern value="[1-3]{1}"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="EINREICHUNG">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="E"/>
+				<xs:enumeration value="B"/>
+				<xs:enumeration value="L"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="REG_BEZ">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="E"/>
+				<xs:enumeration value="F"/>
+				<xs:enumeration value="K"/>
+				<xs:enumeration value="S"/>
+				<xs:enumeration value="V"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<!-- Ende Globale Elemente -->
+	<!-- Beginn der Struktur -->
+	<xs:element name="ALLG_JUSTIZ">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="VERS"/>
+				<xs:element name="PRUEF" type="xs:string"/>
+				<xs:element ref="SOFTWARE"/>
+				<xs:element ref="EB"/>
+				<xs:element ref="JABFORM"/>
+				<xs:element ref="EINREICHUNG"/>
+				<xs:element name="ABSCHLUSSART" type="JK"/>
+				<xs:element name="GUV_AUSWEIS" type="GA" minOccurs="0"/>
+				<xs:element ref="FIRMA"/>
+				<xs:element ref="GJ"/>
+				<xs:element ref="VOR_GJ" minOccurs="0"/>
+				<xs:element name="WAEHRUNG" type="waehrung"/>
+				<xs:element ref="UNTER" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="EINSTUFUNG" type="einord" use="optional"/> <!-- Tatsaechliche Selbsteinstufung im Geschaeftsjahr, zu dem berichtet wird -->
+			<xs:attribute name="EINORDNUNG" type="einord" use="required"/> <!-- Einstufung unter Bedachtnahme der beiden vorangegangenen Geschäftsjahre gem. Par.277 Abs.4 UGB -->
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SOFTWARE">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="SOFT" type="soft"/>
+				<xs:element name="SOFT_VERS" type="soft"/>				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="EB">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CODE"/>
+				<xs:element name="NAME" type="xs:string" minOccurs="0"/>
+				<xs:element name="BEZUG" type="zsBezug"/>
+				<xs:element ref="IBAN"/>
+				<xs:element ref="BIC" minOccurs="0"/>
+				<xs:element ref="KUNDEN" minOccurs="0"/>
+				<xs:element name="ZUSTELL" type="JN"/>
+				<xs:element ref="BESTAETIGUNG" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="JABFORM">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="HGBFORM" type="hgbform"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FIRMA">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="FNR" type="FNRTYPE"/>
+				<xs:element name="F_NAME" type="NAMETYPE" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="VOR_GJ">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="BEGINN"/>
+				<xs:element ref="ENDE"/>
+				<xs:element ref="FORM"/>
+				<xs:element name="WERT_TSD" type="JN"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UNTER">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice>
+					<xs:element name="PERS_KENN" type="alpha3"/>
+					<xs:element name="GEB_DAT" type="xs:date"/>
+				</xs:choice>
+				<xs:element name="TITEL" type="zsName20" minOccurs="0"/>
+				<xs:element name="V_NAME" type="zsName38"/>
+				<xs:element name="Z_NAME" type="zsName38"/>
+				<xs:element name="DAT_UNT" type="xs:date"/>
+				<xs:element ref="REG_BEZ" minOccurs="0"/>
+				<xs:element name="KOMP_NUM" type="zsAllgemein20" minOccurs="0"/>
+				<xs:element name="KOMP_NAME" type="NAMETYPE" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- Ende der Struktur -->
+</xs:schema>
