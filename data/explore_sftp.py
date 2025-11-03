@@ -62,10 +62,12 @@ for dir in directories:
     print(f"directory [{dir}] has {num_xml_files} xml files") 
     print(f"directory [{dir}] has {num_pdf_files} pdf files")
     
-
 print(f"The total number of files is {total_files}")
 print(f"The total number of XML files is {total_xml_files}")
 print(f"The total number of PDF files is {total_pdf_files}")
+
+sftp.close()
+transport.close()
 
 end = time.time()
 print(f"Total Execution time: {end - start:.2f} seconds")
