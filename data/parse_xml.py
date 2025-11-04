@@ -8,11 +8,17 @@ xsd_doc = etree.parse(root_schema)
 schema = etree.XMLSchema(xsd_doc)
 
 dec_xml_dir = "./data/decoded_xml_files"
-# os.makedirs(out_dir, exist_ok=True)
+
+# * When you try to only parse the first file you get an output of invalid due to the xml schema being from 2017 and the actual data being from 2023.
 for file in os.listdir(dec_xml_dir)[0:1]:
     xml_path = os.path.join(dec_xml_dir, file)
-    parsed_xml = etree.parse(xml_path)
-    if schema.validate(parsed_xml):
-        print(f"{file} is valid")
-    else:
-        print(f"{file} is invalid")
+    tree = etree.parse(xml_path)
+    root = tree.getroot()
+
+    # * This schema validation is not necessary for now.
+    # if schema.validate(tree):
+    #     print(f"{file} is valid")
+    # else:
+    #     print(f"{file} is invalid")
+    #     for error in schema.error_log:
+    #         print(f"Line {error.line}, column {error.column}: {error.message}")

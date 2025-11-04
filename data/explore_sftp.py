@@ -38,7 +38,7 @@ total_pdf_files = 0
 files_list = []
 
 for dir in directories:
-    print(f"\nExploring directory [{dir}] now:")
+    print(f"\nExploring [{dir}] directory now:")
 
     dir_path = f"{root_dir}/{dir}"
     files_list = sftp.listdir(dir_path)
@@ -62,7 +62,7 @@ for dir in directories:
     print(f"directory [{dir}] has {num_xml_files} xml files") 
     print(f"directory [{dir}] has {num_pdf_files} pdf files")
     
-print(f"The total number of files is {total_files}")
+print(f"\nThe total number of files is {total_files}")
 print(f"The total number of XML files is {total_xml_files}")
 print(f"The total number of PDF files is {total_pdf_files}")
 
