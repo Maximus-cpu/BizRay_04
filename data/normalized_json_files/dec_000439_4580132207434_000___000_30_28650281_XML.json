@@ -1,0 +1,289 @@
+[
+  {
+    "@xmlns": "https://finanzonline.bmf.gv.at/bilanz",
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "BILANZ_GLIEDERUNG": [
+      {
+        "@ART": "HGB",
+        "ALLG_JUSTIZ": {
+          "@EINORDNUNG": "K",
+          "@EINSTUFUNG": "K",
+          "VERS": "3.32",
+          "PRUEF": "914bd4cbb298abbaf80330fe6a9608c5",
+          "SOFTWARE": {
+            "SOFT": "RZL",
+            "SOFT_VERS": "2.22.11.0"
+          },
+          "EB": {
+            "CODE": "W805335",
+            "BEZUG": "JAB2091522",
+            "IBAN": "AT403411081002310373",
+            "BIC": "RZOOAT2L110",
+            "KUNDEN": 20915,
+            "ZUSTELL": "n"
+          },
+          "JABFORM": {
+            "HGBFORM": "UGB23"
+          },
+          "EINREICHUNG": "E",
+          "ABSCHLUSSART": "J",
+          "FIRMA": {
+            "FNR": "000439x",
+            "F_NAME": {
+              "Z": [
+                "Jäger Hotels GmbH & Co KG"
+              ]
+            }
+          },
+          "GJ": {
+            "BEGINN": "2021-03-01",
+            "ENDE": "2022-02-28",
+            "FORM": "KG"
+          },
+          "VOR_GJ": {
+            "BEGINN": "2020-03-01",
+            "ENDE": "2021-02-28",
+            "FORM": "KG",
+            "WERT_TSD": "n"
+          },
+          "WAEHRUNG": "EUR",
+          "UNTER": [
+            {
+              "PERS_KENN": "C",
+              "V_NAME": "Christiane ",
+              "Z_NAME": "Jäger",
+              "DAT_UNT": "2022-12-05",
+              "REG_BEZ": "F",
+              "KOMP_NUM": "090179t",
+              "KOMP_NAME": {
+                "Z": [
+                  "Jäger Hotels GmbH"
+                ]
+              }
+            }
+          ]
+        },
+        "HGB_Form_2": {
+          "HGB_224_2": {
+            "POSTENZEILE": {
+              "BETRAG": "454265.25",
+              "BETRAG_VJ": "536713.47"
+            },
+            "HGB_224_2_A": {
+              "POSTENZEILE": {
+                "BETRAG": "429571.72",
+                "BETRAG_VJ": "472644.52",
+                "SPIEGELWERTE": {
+                  "SPALTE_1": "1422685.00",
+                  "SPALTE_2": "10576.72",
+                  "SPALTE_3": "0.00",
+                  "SPALTE_4": "0.00",
+                  "SPALTE_5": "10830.27",
+                  "SPALTE_6": "1422431.45",
+                  "SPALTE_7": "950040.48",
+                  "SPALTE_8": "53649.48",
+                  "SPALTE_9": "0.00",
+                  "SPALTE_10": "0.00",
+                  "SPALTE_11": "0.00",
+                  "SPALTE_12": "10830.23",
+                  "SPALTE_13": "992859.73",
+                  "SPALTE_14": "472644.52",
+                  "SPALTE_15": "429571.72"
+                }
+              },
+              "HGB_224_2_A_I": {
+                "POSTENZEILE": {
+                  "BETRAG": "2333.44",
+                  "BETRAG_VJ": "0.11",
+                  "SPIEGELWERTE": {
+                    "SPALTE_1": "24412.59",
+                    "SPALTE_2": "3500.00",
+                    "SPALTE_3": "0.00",
+                    "SPALTE_4": "0.00",
+                    "SPALTE_5": "0.00",
+                    "SPALTE_6": "27912.59",
+                    "SPALTE_7": "24412.48",
+                    "SPALTE_8": "1166.67",
+                    "SPALTE_9": "0.00",
+                    "SPALTE_10": "0.00",
+                    "SPALTE_11": "0.00",
+                    "SPALTE_12": "0.00",
+                    "SPALTE_13": "25579.15",
+                    "SPALTE_14": "0.11",
+                    "SPALTE_15": "2333.44"
+                  }
+                }
+              },
+              "HGB_224_2_A_II": {
+                "POSTENZEILE": {
+                  "BETRAG": "424637.26",
+                  "BETRAG_VJ": "470043.39",
+                  "SPIEGELWERTE": {
+                    "SPALTE_1": "1395671.39",
+                    "SPALTE_2": "7076.72",
+                    "SPALTE_3": "0.00",
+                    "SPALTE_4": "0.00",
+                    "SPALTE_5": "10830.27",
+                    "SPALTE_6": "1391917.84",
+                    "SPALTE_7": "925628.00",
+                    "SPALTE_8": "52482.81",
+                    "SPALTE_9": "0.00",
+                    "SPALTE_10": "0.00",
+                    "SPALTE_11": "0.00",
+                    "SPALTE_12": "10830.23",
+                    "SPALTE_13": "967280.58",
+                    "SPALTE_14": "470043.39",
+                    "SPALTE_15": "424637.26"
+                  }
+                }
+              },
+              "HGB_224_2_A_III": {
+                "POSTENZEILE": {
+                  "BETRAG": "2601.02",
+                  "BETRAG_VJ": "2601.02",
+                  "SPIEGELWERTE": {
+                    "SPALTE_1": "2601.02",
+                    "SPALTE_2": "0.00",
+                    "SPALTE_3": "0.00",
+                    "SPALTE_4": "0.00",
+                    "SPALTE_5": "0.00",
+                    "SPALTE_6": "2601.02",
+                    "SPALTE_7": "0.00",
+                    "SPALTE_8": "0.00",
+                    "SPALTE_9": "0.00",
+                    "SPALTE_10": "0.00",
+                    "SPALTE_11": "0.00",
+                    "SPALTE_12": "0.00",
+                    "SPALTE_13": "0.00",
+                    "SPALTE_14": "2601.02",
+                    "SPALTE_15": "2601.02"
+                  }
+                }
+              }
+            },
+            "HGB_224_2_B": {
+              "POSTENZEILE": {
+                "BETRAG": "21565.29",
+                "BETRAG_VJ": "62042.55"
+              },
+              "HGB_224_2_B_I": {
+                "POSTENZEILE": {
+                  "BETRAG": "7361.24",
+                  "BETRAG_VJ": "8666.82"
+                }
+              },
+              "HGB_224_2_B_II": {
+                "POSTENZEILE": {
+                  "BETRAG": "9602.28",
+                  "BETRAG_VJ": "51323.42"
+                }
+              },
+              "HGB_224_2_B_III": {
+                "POSTENZEILE": {
+                  "BETRAG": "0.00",
+                  "BETRAG_VJ": "0.00"
+                }
+              },
+              "HGB_224_2_B_IV": {
+                "POSTENZEILE": {
+                  "BETRAG": "4601.77",
+                  "BETRAG_VJ": "2052.31"
+                }
+              }
+            },
+            "HGB_224_2_C": {
+              "POSTENZEILE": {
+                "BETRAG": "3128.24",
+                "BETRAG_VJ": "2026.40"
+              }
+            }
+          },
+          "HGB_224_3": {
+            "POSTENZEILE": {
+              "BETRAG": "454265.25",
+              "BETRAG_VJ": "536713.47"
+            },
+            "HGB_224_3_A": {
+              "POSTENZEILE": {
+                "BETRAG": "228142.54",
+                "BETRAG_VJ": "87264.57"
+              },
+              "XXX_224_3_A_I_X": {
+                "POSTENZEILE": {
+                  "BETRAG": "0.00",
+                  "BETRAG_VJ": "0.00"
+                }
+              },
+              "XXX_224_3_A_I_Y": {
+                "POSTENZEILE": {
+                  "BETRAG": "-971766.84",
+                  "BETRAG_VJ": "-1146179.81"
+                }
+              },
+              "HGB_224_3_A_II": {
+                "POSTENZEILE": {
+                  "BETRAG": "1026250.93",
+                  "BETRAG_VJ": "1056968.79"
+                }
+              },
+              "HGB_224_3_A_III": {
+                "POSTENZEILE": {
+                  "BETRAG": "151.33",
+                  "BETRAG_VJ": "609.16"
+                }
+              },
+              "HGB_224_3_A_IV": {
+                "POSTENZEILE": {
+                  "BETRAG": "173507.12",
+                  "BETRAG_VJ": "175866.43"
+                },
+                "HGB_224_3_A_IV_x": {
+                  "POSTENZEILE": {
+                    "BETRAG": "0.00",
+                    "BETRAG_VJ": "0.00"
+                  }
+                }
+              }
+            },
+            "XXX_224_3_B_X": {
+              "POSTENZEILE": {
+                "BETRAG": "53318.49",
+                "BETRAG_VJ": "57053.34"
+              }
+            },
+            "HGB_224_3_C": {
+              "POSTENZEILE": {
+                "BETRAG": "13811.31",
+                "BETRAG_VJ": "12333.38"
+              }
+            },
+            "HGB_224_3_D": {
+              "POSTENZEILE": {
+                "BETRAG": "158992.91",
+                "BETRAG_VJ": "380062.18"
+              },
+              "HGB_224_3_D_HGB_225b": {
+                "POSTENZEILE": {
+                  "BETRAG": "0.00",
+                  "BETRAG_VJ": "200000.01"
+                }
+              }
+            },
+            "HGB_224_3_E": {
+              "POSTENZEILE": {
+                "BETRAG": "0.00",
+                "BETRAG_VJ": "0.00"
+              }
+            }
+          }
+        },
+        "HGB_Form_3": {
+          "HGB_Form_3_16": {
+            "ANZAHL": 9
+          }
+        }
+      }
+    ]
+  },
+  []
+]

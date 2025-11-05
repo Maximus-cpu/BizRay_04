@@ -1,0 +1,318 @@
+[
+  {
+    "@xmlns": "https://finanzonline.bmf.gv.at/bilanz",
+    "INFO_DATEN": {
+      "ART_IDENTIFIKATIONSBEGRIFF": "FASTNR",
+      "IDENTIFIKATIONSBEGRIFF": "900985706",
+      "PAKET_NR": 54864,
+      "DATUM_ERSTELLUNG": {
+        "@type": "datum",
+        "$": "2022-10-18"
+      },
+      "UHRZEIT_ERSTELLUNG": {
+        "@type": "uhrzeit",
+        "$": "12:44:42"
+      },
+      "VERS": "3.32",
+      "ANZAHL": 1
+    },
+    "BILANZ_GLIEDERUNG": [
+      {
+        "@ART": "HGB",
+        "ALLG_JUSTIZ": {
+          "@EINORDNUNG": "K",
+          "@EINSTUFUNG": "K",
+          "VERS": "3.32",
+          "PRUEF": "5023531788f9c09af9a88c9b60452e24",
+          "SOFTWARE": {
+            "SOFT": "BMD",
+            "SOFT_VERS": "2022.25.01.108"
+          },
+          "EB": {
+            "CODE": "W803594",
+            "NAME": null,
+            "BEZUG": "ETK ELEKTROTECHNIK KAPPAC",
+            "IBAN": "AT203506900018020073",
+            "KUNDEN": 20048,
+            "ZUSTELL": "j"
+          },
+          "JABFORM": {
+            "HGBFORM": "UGB23"
+          },
+          "EINREICHUNG": "E",
+          "ABSCHLUSSART": "J",
+          "GUV_AUSWEIS": "G",
+          "FIRMA": {
+            "FNR": "000122f",
+            "F_NAME": {
+              "Z": [
+                "Elektrotechnik Kappacher",
+                "GmbH & Co KG"
+              ]
+            }
+          },
+          "GJ": {
+            "BEGINN": "2021-03-01",
+            "ENDE": "2022-02-28",
+            "FORM": "KG"
+          },
+          "VOR_GJ": {
+            "BEGINN": "2020-03-01",
+            "ENDE": "2021-02-28",
+            "FORM": "KG",
+            "WERT_TSD": "j"
+          },
+          "WAEHRUNG": "EUR",
+          "UNTER": [
+            {
+              "GEB_DAT": "1962-02-05",
+              "V_NAME": "Manfred",
+              "Z_NAME": "Kappacher",
+              "DAT_UNT": "2022-10-18",
+              "REG_BEZ": "F",
+              "KOMP_NUM": "040198s",
+              "KOMP_NAME": {
+                "Z": [
+                  "Elektrotechnik Kappacher GmbH"
+                ]
+              }
+            },
+            {
+              "GEB_DAT": "1998-05-07",
+              "V_NAME": "Julia",
+              "Z_NAME": "Kappacher",
+              "DAT_UNT": "2022-10-18",
+              "REG_BEZ": "F",
+              "KOMP_NUM": "040198s",
+              "KOMP_NAME": {
+                "Z": [
+                  "Elektrotechnik Kappacher GmbH"
+                ]
+              }
+            }
+          ]
+        },
+        "HGB_Form_2": {
+          "HGB_224_2": {
+            "POSTENZEILE": {
+              "BETRAG": "2385952.42",
+              "BETRAG_VJ": "2532"
+            },
+            "HGB_224_2_A": {
+              "POSTENZEILE": {
+                "BETRAG": "1189720.17",
+                "BETRAG_VJ": "1200",
+                "SPIEGELWERTE": {
+                  "SPALTE_1": "2096770.99",
+                  "SPALTE_2": "111239.34",
+                  "SPALTE_3": "0.00",
+                  "SPALTE_4": "0.00",
+                  "SPALTE_5": "20363.45",
+                  "SPALTE_6": "2187646.88",
+                  "SPALTE_7": "896315.17",
+                  "SPALTE_8": "121574.20",
+                  "SPALTE_9": "0.00",
+                  "SPALTE_10": "0.00",
+                  "SPALTE_11": "0.00",
+                  "SPALTE_12": "19962.66",
+                  "SPALTE_13": "997926.71",
+                  "SPALTE_14": "1200455.82",
+                  "SPALTE_15": "1189720.17"
+                }
+              },
+              "HGB_224_2_A_I": {
+                "POSTENZEILE": {
+                  "BETRAG": "0.63",
+                  "BETRAG_VJ": "0",
+                  "SPIEGELWERTE": {
+                    "SPALTE_1": "37693.34",
+                    "SPALTE_2": "0.00",
+                    "SPALTE_3": "0.00",
+                    "SPALTE_4": "0.00",
+                    "SPALTE_5": "0.00",
+                    "SPALTE_6": "37693.34",
+                    "SPALTE_7": "37692.71",
+                    "SPALTE_8": "0.00",
+                    "SPALTE_9": "0.00",
+                    "SPALTE_10": "0.00",
+                    "SPALTE_11": "0.00",
+                    "SPALTE_12": "0.00",
+                    "SPALTE_13": "37692.71",
+                    "SPALTE_14": "0.63",
+                    "SPALTE_15": "0.63"
+                  }
+                }
+              },
+              "HGB_224_2_A_II": {
+                "POSTENZEILE": {
+                  "BETRAG": "1189683.20",
+                  "BETRAG_VJ": "1200",
+                  "SPIEGELWERTE": {
+                    "SPALTE_1": "2051774.03",
+                    "SPALTE_2": "111239.34",
+                    "SPALTE_3": "0.00",
+                    "SPALTE_4": "0.00",
+                    "SPALTE_5": "20363.45",
+                    "SPALTE_6": "2142649.92",
+                    "SPALTE_7": "851355.18",
+                    "SPALTE_8": "121574.20",
+                    "SPALTE_9": "0.00",
+                    "SPALTE_10": "0.00",
+                    "SPALTE_11": "0.00",
+                    "SPALTE_12": "19962.66",
+                    "SPALTE_13": "952966.72",
+                    "SPALTE_14": "1200418.85",
+                    "SPALTE_15": "1189683.20"
+                  }
+                }
+              },
+              "HGB_224_2_A_III": {
+                "POSTENZEILE": {
+                  "BETRAG": "36.34",
+                  "BETRAG_VJ": "0",
+                  "SPIEGELWERTE": {
+                    "SPALTE_1": "7303.62",
+                    "SPALTE_2": "0.00",
+                    "SPALTE_3": "0.00",
+                    "SPALTE_4": "0.00",
+                    "SPALTE_5": "0.00",
+                    "SPALTE_6": "7303.62",
+                    "SPALTE_7": "7267.28",
+                    "SPALTE_8": "0.00",
+                    "SPALTE_9": "0.00",
+                    "SPALTE_10": "0.00",
+                    "SPALTE_11": "0.00",
+                    "SPALTE_12": "0.00",
+                    "SPALTE_13": "7267.28",
+                    "SPALTE_14": "36.34",
+                    "SPALTE_15": "36.34"
+                  }
+                }
+              }
+            },
+            "HGB_224_2_B": {
+              "POSTENZEILE": {
+                "BETRAG": "1196232.25",
+                "BETRAG_VJ": "1332"
+              },
+              "HGB_224_2_B_I": {
+                "POSTENZEILE": {
+                  "BETRAG": "504422.23",
+                  "BETRAG_VJ": "552"
+                }
+              },
+              "HGB_224_2_B_II": {
+                "POSTENZEILE": {
+                  "BETRAG": "689466.49",
+                  "BETRAG_VJ": "765"
+                }
+              },
+              "HGB_224_2_B_III": {
+                "POSTENZEILE": {
+                  "BETRAG": "0.00",
+                  "BETRAG_VJ": "0"
+                }
+              },
+              "HGB_224_2_B_IV": {
+                "POSTENZEILE": {
+                  "BETRAG": "2343.53",
+                  "BETRAG_VJ": "15"
+                }
+              }
+            },
+            "HGB_224_2_C": {
+              "POSTENZEILE": {
+                "BETRAG": "0.00",
+                "BETRAG_VJ": "0"
+              }
+            },
+            "HGB_224_2_D": {
+              "POSTENZEILE": {
+                "BETRAG": "0.00",
+                "BETRAG_VJ": "0"
+              }
+            }
+          },
+          "HGB_224_3": {
+            "POSTENZEILE": {
+              "BETRAG": "2385952.42",
+              "BETRAG_VJ": "2532"
+            },
+            "HGB_224_3_A": {
+              "POSTENZEILE": {
+                "BETRAG": "748855.71",
+                "BETRAG_VJ": "667"
+              },
+              "XXX_224_3_A_I_X": {
+                "POSTENZEILE": {
+                  "BETRAG": "0.00",
+                  "BETRAG_VJ": "0"
+                }
+              },
+              "XXX_224_3_A_I_Y": {
+                "POSTENZEILE": {
+                  "BETRAG": "89178.65",
+                  "BETRAG_VJ": "173"
+                }
+              },
+              "HGB_224_3_A_II": {
+                "POSTENZEILE": {
+                  "BETRAG": "0.00",
+                  "BETRAG_VJ": "0"
+                }
+              },
+              "HGB_224_3_A_III": {
+                "POSTENZEILE": {
+                  "BETRAG": "659677.06",
+                  "BETRAG_VJ": "494"
+                }
+              },
+              "HGB_224_3_A_IV": {
+                "POSTENZEILE": {
+                  "BETRAG": "0.00",
+                  "BETRAG_VJ": "0"
+                },
+                "HGB_224_3_A_IV_x": {
+                  "POSTENZEILE": {
+                    "BETRAG": "0.00",
+                    "BETRAG_VJ": "0"
+                  }
+                }
+              }
+            },
+            "XXX_224_3_B_X": {
+              "POSTENZEILE": {
+                "BETRAG": "136359.11",
+                "BETRAG_VJ": "125"
+              }
+            },
+            "HGB_224_3_C": {
+              "POSTENZEILE": {
+                "BETRAG": "166996.93",
+                "BETRAG_VJ": "164"
+              }
+            },
+            "HGB_224_3_D": {
+              "POSTENZEILE": {
+                "BETRAG": "1333740.67",
+                "BETRAG_VJ": "1576"
+              }
+            },
+            "HGB_224_3_E": {
+              "POSTENZEILE": {
+                "BETRAG": "0.00",
+                "BETRAG_VJ": "0"
+              }
+            }
+          }
+        },
+        "HGB_Form_3": {
+          "HGB_Form_3_16": {
+            "ANZAHL": 37
+          }
+        }
+      }
+    ]
+  },
+  []
+]

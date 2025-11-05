@@ -1,0 +1,274 @@
+[
+  {
+    "@xmlns": "https://finanzonline.bmf.gv.at/bilanz",
+    "INFO_DATEN": {
+      "ART_IDENTIFIKATIONSBEGRIFF": "FASTNR",
+      "IDENTIFIKATIONSBEGRIFF": "900985706",
+      "PAKET_NR": 1477,
+      "DATUM_ERSTELLUNG": {
+        "@type": "datum",
+        "$": "2011-08-25"
+      },
+      "UHRZEIT_ERSTELLUNG": {
+        "@type": "uhrzeit",
+        "$": "14:56:17"
+      },
+      "ANZAHL": 1
+    },
+    "BILANZ_GLIEDERUNG": [
+      {
+        "@ART": "HGB",
+        "ALLG_JUSTIZ": {
+          "@EINORDNUNG": "K",
+          "VERS": "3.23",
+          "PRUEF": "230d28d94926d0e66cb1fc16293192fa",
+          "SOFTWARE": {
+            "SOFT": "BMD",
+            "SOFT_VERS": "2011.14.22.15"
+          },
+          "EB": {
+            "CODE": "W803594",
+            "NAME": null,
+            "BEZUG": "ELEKTROTECHNIK KAPPACHER",
+            "KUNDEN": 20048,
+            "ZUSTELL": "j"
+          },
+          "JABFORM": {
+            "HGBFORM": "UGB23"
+          },
+          "ABSCHLUSSART": "J",
+          "FIRMA": {
+            "FNR": "000122f",
+            "F_NAME": {
+              "Z": [
+                "Elektrotechnik Kappacher",
+                "GmbH & Co KG"
+              ]
+            }
+          },
+          "GJ": {
+            "BEGINN": "2010-03-01",
+            "ENDE": "2011-02-28",
+            "FORM": "KG"
+          },
+          "VOR_GJ": {
+            "BEGINN": "2009-03-01",
+            "ENDE": "2010-02-28",
+            "FORM": "KG",
+            "WERT_TSD": "j"
+          },
+          "WAEHRUNG": "EUR",
+          "UNTER": [
+            {
+              "GEB_DAT": "1962-02-05",
+              "V_NAME": "Manfred",
+              "Z_NAME": "Kappacher",
+              "DAT_UNT": "2011-08-26"
+            }
+          ]
+        },
+        "HGB_Form_2": {
+          "HGB_224_2": {
+            "POSTENZEILE": {
+              "BETRAG": "2643200.45",
+              "BETRAG_VJ": "2563"
+            },
+            "HGB_224_2_A": {
+              "POSTENZEILE": {
+                "BETRAG": "1471189.76",
+                "BETRAG_VJ": "1500",
+                "SPIEGELWERTE": {
+                  "SPALTE_1": "1382195.89",
+                  "SPALTE_2": "45995.17",
+                  "SPALTE_3": "16382.13",
+                  "SPALTE_4": "0.00",
+                  "SPALTE_5": "1411808.93",
+                  "SPALTE_6": "-59380.83",
+                  "SPALTE_7": "1471189.76",
+                  "SPALTE_8": "1499648.85",
+                  "SPALTE_9": "68829.01",
+                  "SPALTE_10": "0.00",
+                  "SPALTE_11": "0.00",
+                  "SPALTE_12": "0.00",
+                  "SPALTE_13": "0.00",
+                  "SPALTE_14": "0.00",
+                  "SPALTE_15": "0.00"
+                }
+              },
+              "HGB_224_2_A_I": {
+                "POSTENZEILE": {
+                  "BETRAG": "6886.86",
+                  "BETRAG_VJ": "9",
+                  "SPIEGELWERTE": {
+                    "SPALTE_1": "11736.72",
+                    "SPALTE_2": "1358.00",
+                    "SPALTE_3": "0.00",
+                    "SPALTE_4": "0.00",
+                    "SPALTE_5": "13094.72",
+                    "SPALTE_6": "6207.86",
+                    "SPALTE_7": "6886.86",
+                    "SPALTE_8": "8802.54",
+                    "SPALTE_9": "3273.68",
+                    "SPALTE_10": "0.00",
+                    "SPALTE_11": "0.00",
+                    "SPALTE_12": "0.00",
+                    "SPALTE_13": "0.00",
+                    "SPALTE_14": "0.00",
+                    "SPALTE_15": "0.00"
+                  }
+                }
+              },
+              "HGB_224_2_A_II": {
+                "POSTENZEILE": {
+                  "BETRAG": "1226685.31",
+                  "BETRAG_VJ": "1292",
+                  "SPIEGELWERTE": {
+                    "SPALTE_1": "1171968.47",
+                    "SPALTE_2": "5510.28",
+                    "SPALTE_3": "16382.13",
+                    "SPALTE_4": "0.00",
+                    "SPALTE_5": "1161096.62",
+                    "SPALTE_6": "-65588.69",
+                    "SPALTE_7": "1226685.31",
+                    "SPALTE_8": "1292355.61",
+                    "SPALTE_9": "65555.33",
+                    "SPALTE_10": "0.00",
+                    "SPALTE_11": "0.00",
+                    "SPALTE_12": "0.00",
+                    "SPALTE_13": "0.00",
+                    "SPALTE_14": "0.00",
+                    "SPALTE_15": "0.00"
+                  }
+                }
+              },
+              "HGB_224_2_A_III": {
+                "POSTENZEILE": {
+                  "BETRAG": "237617.59",
+                  "BETRAG_VJ": "198",
+                  "SPIEGELWERTE": {
+                    "SPALTE_1": "198490.70",
+                    "SPALTE_2": "39126.89",
+                    "SPALTE_3": "0.00",
+                    "SPALTE_4": "0.00",
+                    "SPALTE_5": "237617.59",
+                    "SPALTE_6": "0.00",
+                    "SPALTE_7": "237617.59",
+                    "SPALTE_8": "198490.70",
+                    "SPALTE_9": "0.00",
+                    "SPALTE_10": "0.00",
+                    "SPALTE_11": "0.00",
+                    "SPALTE_12": "0.00",
+                    "SPALTE_13": "0.00",
+                    "SPALTE_14": "0.00",
+                    "SPALTE_15": "0.00"
+                  }
+                }
+              }
+            },
+            "HGB_224_2_B": {
+              "POSTENZEILE": {
+                "BETRAG": "1166695.69",
+                "BETRAG_VJ": "1055"
+              },
+              "HGB_224_2_B_I": {
+                "POSTENZEILE": {
+                  "BETRAG": "804078.00",
+                  "BETRAG_VJ": "869"
+                }
+              },
+              "HGB_224_2_B_II": {
+                "POSTENZEILE": {
+                  "BETRAG": "361342.16",
+                  "BETRAG_VJ": "184"
+                }
+              },
+              "HGB_224_2_B_IV": {
+                "POSTENZEILE": {
+                  "BETRAG": "1275.53",
+                  "BETRAG_VJ": "2"
+                }
+              }
+            },
+            "HGB_224_2_C": {
+              "POSTENZEILE": {
+                "BETRAG": "5315.00",
+                "BETRAG_VJ": "7"
+              }
+            }
+          },
+          "HGB_224_3": {
+            "POSTENZEILE": {
+              "BETRAG": "2643200.45",
+              "BETRAG_VJ": "2563"
+            },
+            "HGB_224_3_A": {
+              "POSTENZEILE": {
+                "BETRAG": "195184.79",
+                "BETRAG_VJ": "237"
+              },
+              "XXX_224_3_A_I_X": {
+                "POSTENZEILE": {
+                  "BETRAG": "79350.97",
+                  "BETRAG_VJ": "75"
+                }
+              },
+              "XXX_224_3_A_I_Y": {
+                "POSTENZEILE": {
+                  "BETRAG": "115833.82",
+                  "BETRAG_VJ": "161"
+                }
+              }
+            },
+            "HGB_224_3_C": {
+              "POSTENZEILE": {
+                "BETRAG": "67723.28",
+                "BETRAG_VJ": "77"
+              }
+            },
+            "HGB_224_3_D": {
+              "POSTENZEILE": {
+                "BETRAG": "2380292.38",
+                "BETRAG_VJ": "2249"
+              }
+            }
+          }
+        },
+        "HGB_Form_3": {
+          "HGB_Form_3_9": {
+            "HGB_Form_3_9_1": {
+              "BETRAG": "0.00"
+            },
+            "HGB_Form_3_9_3": {
+              "BETRAG": "0.00"
+            },
+            "HGB_Form_3_9_4": {
+              "TEXT": null
+            }
+          },
+          "HGB_Form_3_16": null
+        }
+      }
+    ]
+  },
+  [
+    "failed validating <Element '{https://finanzonline.bmf.gv.at/bilanz}INFO_DATEN' at 0x7efc44cc89f0> with XsdGroup(model='sequence', occurs=[1, 1]):\n\nReason: Unexpected child with tag '{https://finanzonline.bmf.gv.at/bilanz}ANZAHL' at position 6. Tag '{https://finanzonline.bmf.gv.at/bilanz}VERS' expected.\n\nSchema component:\n\n  <xs:complexType xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">\n      <xs:sequence>\n          <xs:element ref=\"ART_IDENTIFIKATIONSBEGRIFF\" />\n          <xs:element ref=\"IDENTIFIKATIONSBEGRIFF\" />\n          <xs:element ref=\"PAKET_NR\" />\n          <xs:element ref=\"DATUM_ERSTELLUNG\" />\n          <xs:element ref=\"UHRZEIT_ERSTELLUNG\" />\n          <xs:element ref=\"VERS\" />\n          <xs:element ref=\"ANZAHL\" />\n      </xs:sequence>\n  </xs:complexType>\n\nInstance type: <class 'xml.etree.ElementTree.Element'>\n\nInstance:\n\n  <INFO_DATEN xmlns=\"https://finanzonline.bmf.gv.at/bilanz\">\n    <ART_IDENTIFIKATIONSBEGRIFF>FASTNR</ART_IDENTIFIKATIONSBEGRIFF>\n    <IDENTIFIKATIONSBEGRIFF>900985706</IDENTIFIKATIONSBEGRIFF>\n    <PAKET_NR>1477</PAKET_NR>\n    <DATUM_ERSTELLUNG type=\"datum\">2011-08-25</DATUM_ERSTELLUNG>\n    <UHRZEIT_ERSTELLUNG type=\"uhrzeit\">14:56:17</UHRZEIT_ERSTELLUNG>\n    <ANZAHL>1</ANZAHL>\n  </INFO_DATEN>\n\nPath: /UEBERMITTLUNG/INFO_DATEN\n",
+    "failed validating <Element '{https://finanzonline.bmf.gv.at/bilanz}EB' at 0x7efc44cc8e50> with XsdGroup(model='sequence', occurs=[1, 1]):\n\nReason: Unexpected child with tag '{https://finanzonline.bmf.gv.at/bilanz}BLZ' at position 4. Tag '{https://finanzonline.bmf.gv.at/bilanz}IBAN' expected.\n\nSchema component:\n\n  <xs:complexType xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">\n      <xs:sequence>\n          <xs:element ref=\"CODE\" />\n          <xs:element name=\"NAME\" type=\"xs:string\" minOccurs=\"0\" />\n          <xs:element name=\"BEZUG\" type=\"zsBezug\" />\n          <xs:element ref=\"IBAN\" />\n          <xs:element ref=\"BIC\" minOccurs=\"0\" />\n          <xs:element ref=\"KUNDEN\" minOccurs=\"0\" />\n          <xs:element name=\"ZUSTELL\" type=\"JN\" />\n          <xs:element ref=\"BESTAETIGUNG\" minOccurs=\"0\" />\n      </xs:sequence>\n  </xs:complexType>\n\nInstance type: <class 'xml.etree.ElementTree.Element'>\n\nInstance:\n\n  <EB xmlns=\"https://finanzonline.bmf.gv.at/bilanz\">\n    <CODE>W803594</CODE>\n    <NAME />\n    <BEZUG>ELEKTROTECHNIK KAPPACHER</BEZUG>\n    <BLZ>35057</BLZ>\n    <GIRO>00000020073</GIRO>\n    <KUNDEN>000000020048</KUNDEN>\n    <ZUSTELL>j</ZUSTELL>\n  </EB>\n\nPath: /UEBERMITTLUNG/BILANZ_GLIEDERUNG/ALLG_JUSTIZ/EB\n",
+    "failed validating <Element '{https://finanzonline.bmf.gv.at/bilanz}EB' at 0x7efc44cc8e50> with XsdGroup(model='sequence', occurs=[1, 1]):\n\nReason: Unexpected child with tag '{https://finanzonline.bmf.gv.at/bilanz}GIRO' at position 5.\n\nSchema component:\n\n  <xs:complexType xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">\n      <xs:sequence>\n          <xs:element ref=\"CODE\" />\n          <xs:element name=\"NAME\" type=\"xs:string\" minOccurs=\"0\" />\n          <xs:element name=\"BEZUG\" type=\"zsBezug\" />\n          <xs:element ref=\"IBAN\" />\n          <xs:element ref=\"BIC\" minOccurs=\"0\" />\n          <xs:element ref=\"KUNDEN\" minOccurs=\"0\" />\n          <xs:element name=\"ZUSTELL\" type=\"JN\" />\n          <xs:element ref=\"BESTAETIGUNG\" minOccurs=\"0\" />\n      </xs:sequence>\n  </xs:complexType>\n\nInstance type: <class 'xml.etree.ElementTree.Element'>\n\nInstance:\n\n  <EB xmlns=\"https://finanzonline.bmf.gv.at/bilanz\">\n    <CODE>W803594</CODE>\n    <NAME />\n    <BEZUG>ELEKTROTECHNIK KAPPACHER</BEZUG>\n    <BLZ>35057</BLZ>\n    <GIRO>00000020073</GIRO>\n    <KUNDEN>000000020048</KUNDEN>\n    <ZUSTELL>j</ZUSTELL>\n  </EB>\n\nPath: /UEBERMITTLUNG/BILANZ_GLIEDERUNG/ALLG_JUSTIZ/EB\n",
+    "failed validating <Element '{https://finanzonline.bmf.gv.at/bilanz}UNTER' at 0x7efc44ca7a10> with XsdGroup(model='sequence', occurs=[1, 1]):\n\nReason: Unexpected child with tag '{https://finanzonline.bmf.gv.at/bilanz}FNR_KOMP' at position 5.\n\nSchema component:\n\n  <xs:complexType xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">\n      <xs:sequence>\n          <xs:choice>\n              <xs:element name=\"PERS_KENN\" type=\"alpha3\" />\n              <xs:element name=\"GEB_DAT\" type=\"xs:date\" />\n          </xs:choice>\n          <xs:element name=\"TITEL\" type=\"zsName20\" minOccurs=\"0\" />\n          <xs:element name=\"V_NAME\" type=\"zsName38\" />\n          <xs:element name=\"Z_NAME\" type=\"zsName38\" />\n          <xs:element name=\"DAT_UNT\" type=\"xs:date\" />\n          <xs:element ref=\"REG_BEZ\" minOccurs=\"0\" />\n          <xs:element name=\"KOMP_NUM\" type=\"zsAllgemein20\" minOccurs=\"0\" />\n          <xs:element name=\"KOMP_NAME\" type=\"NAMETYPE\" minOccurs=\"0\" />\n      </xs:sequence>\n  </xs:complexType>\n\nInstance type: <class 'xml.etree.ElementTree.Element'>\n\nInstance:\n\n  <UNTER xmlns=\"https://finanzonline.bmf.gv.at/bilanz\">\n    <GEB_DAT>1962-02-05</GEB_DAT>\n    <V_NAME>Manfred</V_NAME>\n    <Z_NAME>Kappacher</Z_NAME>\n    <DAT_UNT>2011-08-26</DAT_UNT>\n    <FNR_KOMP>040198s</FNR_KOMP>\n    <F_NAME_KOMP>\n      <Z>Elektrotechnik Kappacher GmbH</Z>\n    </F_NAME_KOMP>\n  </UNTER>\n\nPath: /UEBERMITTLUNG/BILANZ_GLIEDERUNG/ALLG_JUSTIZ/UNTER\n",
+    "failed validating <Element '{https://finanzonline.bmf.gv.at/bilanz}UNTER' at 0x7efc44ca7a10> with XsdGroup(model='sequence', occurs=[1, 1]):\n\nReason: Unexpected child with tag '{https://finanzonline.bmf.gv.at/bilanz}F_NAME_KOMP' at position 6.\n\nSchema component:\n\n  <xs:complexType xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">\n      <xs:sequence>\n          <xs:choice>\n              <xs:element name=\"PERS_KENN\" type=\"alpha3\" />\n              <xs:element name=\"GEB_DAT\" type=\"xs:date\" />\n          </xs:choice>\n          <xs:element name=\"TITEL\" type=\"zsName20\" minOccurs=\"0\" />\n          <xs:element name=\"V_NAME\" type=\"zsName38\" />\n          <xs:element name=\"Z_NAME\" type=\"zsName38\" />\n          <xs:element name=\"DAT_UNT\" type=\"xs:date\" />\n          <xs:element ref=\"REG_BEZ\" minOccurs=\"0\" />\n          <xs:element name=\"KOMP_NUM\" type=\"zsAllgemein20\" minOccurs=\"0\" />\n          <xs:element name=\"KOMP_NAME\" type=\"NAMETYPE\" minOccurs=\"0\" />\n      </xs:sequence>\n  </xs:complexType>\n\nInstance type: <class 'xml.etree.ElementTree.Element'>\n\nInstance:\n\n  <UNTER xmlns=\"https://finanzonline.bmf.gv.at/bilanz\">\n    <GEB_DAT>1962-02-05</GEB_DAT>\n    <V_NAME>Manfred</V_NAME>\n    <Z_NAME>Kappacher</Z_NAME>\n    <DAT_UNT>2011-08-26</DAT_UNT>\n    <FNR_KOMP>040198s</FNR_KOMP>\n    <F_NAME_KOMP>\n      <Z>Elektrotechnik Kappacher GmbH</Z>\n    </F_NAME_KOMP>\n  </UNTER>\n\nPath: /UEBERMITTLUNG/BILANZ_GLIEDERUNG/ALLG_JUSTIZ/UNTER\n",
+    "failed validating <Element '{https://finanzonline.bmf.gv.at/bilanz}ALLG_JUSTIZ' at 0x7efc44cc8c20> with XsdGroup(model='sequence', occurs=[1, 1]):\n\nReason: Unexpected child with tag '{https://finanzonline.bmf.gv.at/bilanz}JABUEBER' at position 6. Tag '{https://finanzonline.bmf.gv.at/bilanz}EINREICHUNG' expected.\n\nSchema component:\n\n  <xs:complexType xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">\n      <xs:sequence>\n          <xs:element ref=\"VERS\" />\n          <xs:element name=\"PRUEF\" type=\"xs:string\" />\n          <xs:element ref=\"SOFTWARE\" />\n          <xs:element ref=\"EB\" />\n          <xs:element ref=\"JABFORM\" />\n          <xs:element ref=\"EINREICHUNG\" />\n          <xs:element name=\"ABSCHLUSSART\" type=\"JK\" />\n          <xs:element name=\"GUV_AUSWEIS\" type=\"GA\" minOccurs=\"0\" />\n          <xs:element ref=\"FIRMA\" />\n          <xs:element ref=\"GJ\" />\n          <xs:element ref=\"VOR_GJ\" minOccurs=\"0\" />\n          <xs:element name=\"WAEHRUNG\" type=\"waehrung\" />\n          <xs:element ref=\"UNTER\" maxOccurs=\"unbounded\" />\n      </xs:sequence>\n      <xs:attribute name=\"EINSTUFUNG\" type=\"einord\" use=\"optional\" /> \n      <xs:attribute name=\"EINORDNUNG\" type=\"einord\" use=\"required\" /> \n  </xs:complexType>\n\nInstance type: <class 'xml.etree.ElementTree.Element'>\n\nInstance:\n\n  <ALLG_JUSTIZ xmlns=\"https://finanzonline.bmf.gv.at/bilanz\" EINORDNUNG=\"K\">\n    <VERS>03.23</VERS>\n    <PRUEF>230d28d94926d0e66cb1fc16293192fa</PRUEF>\n    <SOFTWARE>\n      <SOFT>BMD</SOFT>\n      <SOFT_VERS>2011.14.22.15</SOFT_VERS>\n    </SOFTWARE>\n    <EB>\n      <CODE>W803594</CODE>\n      <NAME />\n      <BEZUG>ELEKTROTECHNIK KAPPACHER</BEZUG>\n      <BLZ>35057</BLZ>\n      <GIRO>00000020073</GIRO>\n      <KUNDEN>000000020048</KUNDEN>\n      <ZUSTELL>j</ZUSTELL>\n    </EB>\n    <JABFORM>\n      <HGBFORM>UGB23</HGBFORM>\n    </JABFORM>\n    <JABUEBER>j</JABUEBER>\n    ...\n    ...\n  </ALLG_JUSTIZ>\n\nPath: /UEBERMITTLUNG/BILANZ_GLIEDERUNG/ALLG_JUSTIZ\n",
+    "failed validating <Element '{https://finanzonline.bmf.gv.at/bilanz}SPIEGELWERTE' at 0x7efc44cc1ad0> with XsdGroup(model='sequence', occurs=[1, 1]):\n\nReason: Unexpected child with tag '{https://finanzonline.bmf.gv.at/bilanz}SPALTE_16' at position 16.\n\nSchema component:\n\n  <xs:complexType xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" name=\"SPIEGEL\">\n      <xs:sequence>\n          <xs:element name=\"SPALTE_1\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_2\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_3\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_4\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_5\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          \n          <xs:element name=\"SPALTE_6\" minOccurs=\"0\">\n              <xs:simpleType>\n                  <xs:restriction base=\"xs:string\">\n                      <xs:maxLength value=\"255\" />\n                  </xs:restriction>\n              </xs:simpleType>\n          </xs:element>\n          <xs:element name=\"SPALTE_7\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_8\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_9\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_10\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_11\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n      ...\n      ...\n  </xs:complexType>\n\nInstance type: <class 'xml.etree.ElementTree.Element'>\n\nInstance:\n\n  <SPIEGELWERTE xmlns=\"https://finanzonline.bmf.gv.at/bilanz\">\n    <SPALTE_1>1382195.89</SPALTE_1>\n    <SPALTE_2>45995.17</SPALTE_2>\n    <SPALTE_3>16382.13</SPALTE_3>\n    <SPALTE_4>0.00</SPALTE_4>\n    <SPALTE_5>1411808.93</SPALTE_5>\n    <SPALTE_6>-59380.83</SPALTE_6>\n    <SPALTE_7>1471189.76</SPALTE_7>\n    <SPALTE_8>1499648.85</SPALTE_8>\n    <SPALTE_9>68829.01</SPALTE_9>\n    <SPALTE_10>0.00</SPALTE_10>\n    <SPALTE_11>0.00</SPALTE_11>\n    <SPALTE_12>0.00</SPALTE_12>\n    <SPALTE_13>0.00</SPALTE_13>\n    <SPALTE_14>0.00</SPALTE_14>\n    <SPALTE_15>0.00</SPALTE_15>\n    <SPALTE_16>0.00</SPALTE_16>\n  </SPIEGELWERTE>\n\nPath: /UEBERMITTLUNG/BILANZ_GLIEDERUNG/HGB_Form_2/HGB_224_2/HGB_224_2_A/POSTENZEILE/SPIEGELWERTE\n",
+    "failed validating <Element '{https://finanzonline.bmf.gv.at/bilanz}SPIEGELWERTE' at 0x7efc44cc0220> with XsdGroup(model='sequence', occurs=[1, 1]):\n\nReason: Unexpected child with tag '{https://finanzonline.bmf.gv.at/bilanz}SPALTE_16' at position 16.\n\nSchema component:\n\n  <xs:complexType xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" name=\"SPIEGEL\">\n      <xs:sequence>\n          <xs:element name=\"SPALTE_1\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_2\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_3\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_4\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_5\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          \n          <xs:element name=\"SPALTE_6\" minOccurs=\"0\">\n              <xs:simpleType>\n                  <xs:restriction base=\"xs:string\">\n                      <xs:maxLength value=\"255\" />\n                  </xs:restriction>\n              </xs:simpleType>\n          </xs:element>\n          <xs:element name=\"SPALTE_7\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_8\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_9\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_10\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_11\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n      ...\n      ...\n  </xs:complexType>\n\nInstance type: <class 'xml.etree.ElementTree.Element'>\n\nInstance:\n\n  <SPIEGELWERTE xmlns=\"https://finanzonline.bmf.gv.at/bilanz\">\n    <SPALTE_1>11736.72</SPALTE_1>\n    <SPALTE_2>1358.00</SPALTE_2>\n    <SPALTE_3>0.00</SPALTE_3>\n    <SPALTE_4>0.00</SPALTE_4>\n    <SPALTE_5>13094.72</SPALTE_5>\n    <SPALTE_6>6207.86</SPALTE_6>\n    <SPALTE_7>6886.86</SPALTE_7>\n    <SPALTE_8>8802.54</SPALTE_8>\n    <SPALTE_9>3273.68</SPALTE_9>\n    <SPALTE_10>0.00</SPALTE_10>\n    <SPALTE_11>0.00</SPALTE_11>\n    <SPALTE_12>0.00</SPALTE_12>\n    <SPALTE_13>0.00</SPALTE_13>\n    <SPALTE_14>0.00</SPALTE_14>\n    <SPALTE_15>0.00</SPALTE_15>\n    <SPALTE_16>0.00</SPALTE_16>\n  </SPIEGELWERTE>\n\nPath: /UEBERMITTLUNG/BILANZ_GLIEDERUNG/HGB_Form_2/HGB_224_2/HGB_224_2_A/HGB_224_2_A_I/POSTENZEILE/SPIEGELWERTE\n",
+    "failed validating <Element '{https://finanzonline.bmf.gv.at/bilanz}SPIEGELWERTE' at 0x7efc44cc19e0> with XsdGroup(model='sequence', occurs=[1, 1]):\n\nReason: Unexpected child with tag '{https://finanzonline.bmf.gv.at/bilanz}SPALTE_16' at position 16.\n\nSchema component:\n\n  <xs:complexType xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" name=\"SPIEGEL\">\n      <xs:sequence>\n          <xs:element name=\"SPALTE_1\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_2\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_3\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_4\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_5\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          \n          <xs:element name=\"SPALTE_6\" minOccurs=\"0\">\n              <xs:simpleType>\n                  <xs:restriction base=\"xs:string\">\n                      <xs:maxLength value=\"255\" />\n                  </xs:restriction>\n              </xs:simpleType>\n          </xs:element>\n          <xs:element name=\"SPALTE_7\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_8\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_9\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_10\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_11\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n      ...\n      ...\n  </xs:complexType>\n\nInstance type: <class 'xml.etree.ElementTree.Element'>\n\nInstance:\n\n  <SPIEGELWERTE xmlns=\"https://finanzonline.bmf.gv.at/bilanz\">\n    <SPALTE_1>1171968.47</SPALTE_1>\n    <SPALTE_2>5510.28</SPALTE_2>\n    <SPALTE_3>16382.13</SPALTE_3>\n    <SPALTE_4>0.00</SPALTE_4>\n    <SPALTE_5>1161096.62</SPALTE_5>\n    <SPALTE_6>-65588.69</SPALTE_6>\n    <SPALTE_7>1226685.31</SPALTE_7>\n    <SPALTE_8>1292355.61</SPALTE_8>\n    <SPALTE_9>65555.33</SPALTE_9>\n    <SPALTE_10>0.00</SPALTE_10>\n    <SPALTE_11>0.00</SPALTE_11>\n    <SPALTE_12>0.00</SPALTE_12>\n    <SPALTE_13>0.00</SPALTE_13>\n    <SPALTE_14>0.00</SPALTE_14>\n    <SPALTE_15>0.00</SPALTE_15>\n    <SPALTE_16>0.00</SPALTE_16>\n  </SPIEGELWERTE>\n\nPath: /UEBERMITTLUNG/BILANZ_GLIEDERUNG/HGB_Form_2/HGB_224_2/HGB_224_2_A/HGB_224_2_A_II/POSTENZEILE/SPIEGELWERTE\n",
+    "failed validating <Element '{https://finanzonline.bmf.gv.at/bilanz}SPIEGELWERTE' at 0x7efc44cc2980> with XsdGroup(model='sequence', occurs=[1, 1]):\n\nReason: Unexpected child with tag '{https://finanzonline.bmf.gv.at/bilanz}SPALTE_16' at position 16.\n\nSchema component:\n\n  <xs:complexType xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" name=\"SPIEGEL\">\n      <xs:sequence>\n          <xs:element name=\"SPALTE_1\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_2\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_3\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_4\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_5\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          \n          <xs:element name=\"SPALTE_6\" minOccurs=\"0\">\n              <xs:simpleType>\n                  <xs:restriction base=\"xs:string\">\n                      <xs:maxLength value=\"255\" />\n                  </xs:restriction>\n              </xs:simpleType>\n          </xs:element>\n          <xs:element name=\"SPALTE_7\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_8\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_9\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_10\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n          <xs:element name=\"SPALTE_11\" type=\"negativepositiveBetrag\" minOccurs=\"0\" />\n      ...\n      ...\n  </xs:complexType>\n\nInstance type: <class 'xml.etree.ElementTree.Element'>\n\nInstance:\n\n  <SPIEGELWERTE xmlns=\"https://finanzonline.bmf.gv.at/bilanz\">\n    <SPALTE_1>198490.70</SPALTE_1>\n    <SPALTE_2>39126.89</SPALTE_2>\n    <SPALTE_3>0.00</SPALTE_3>\n    <SPALTE_4>0.00</SPALTE_4>\n    <SPALTE_5>237617.59</SPALTE_5>\n    <SPALTE_6>0.00</SPALTE_6>\n    <SPALTE_7>237617.59</SPALTE_7>\n    <SPALTE_8>198490.70</SPALTE_8>\n    <SPALTE_9>0.00</SPALTE_9>\n    <SPALTE_10>0.00</SPALTE_10>\n    <SPALTE_11>0.00</SPALTE_11>\n    <SPALTE_12>0.00</SPALTE_12>\n    <SPALTE_13>0.00</SPALTE_13>\n    <SPALTE_14>0.00</SPALTE_14>\n    <SPALTE_15>0.00</SPALTE_15>\n    <SPALTE_16>0.00</SPALTE_16>\n  </SPIEGELWERTE>\n\nPath: /UEBERMITTLUNG/BILANZ_GLIEDERUNG/HGB_Form_2/HGB_224_2/HGB_224_2_A/HGB_224_2_A_III/POSTENZEILE/SPIEGELWERTE\n",
+    "failed validating <Element '{https://finanzonline.bmf.gv.at/bilanz}HGB_224_2_B' at 0x7efc44cc3380> with XsdGroup(model='sequence', occurs=[1, 1]):\n\nReason: Unexpected child with tag '{https://finanzonline.bmf.gv.at/bilanz}HGB_224_2_B_IV' at position 4. Tag '{https://finanzonline.bmf.gv.at/bilanz}HGB_224_2_B_III' expected.\n\nSchema component:\n\n  <xs:complexType xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">\n      <xs:sequence>\n          <xs:element name=\"POSTENZEILE\" type=\"POSTEN\" />\n          <xs:element name=\"HGB_224_2_B_I\" type=\"POSTENZEILE_SIMPLE\" />\n          <xs:element name=\"HGB_224_2_B_II\">\n              <xs:complexType>\n                  <xs:sequence>\n                      <xs:element name=\"POSTENZEILE\" type=\"POSTEN_SPIEGEL\" />\n                      <xs:element name=\"HGB_224_2_B_II_4_HGB_229\" type=\"POSTENZEILE_SPIEGEL\" minOccurs=\"0\" />\n                      <xs:element name=\"HGB_224_2_B_II_x_HGB_225b\" type=\"POSTENZEILE_SIMPLE\" minOccurs=\"0\" />\n                  </xs:sequence>\n              </xs:complexType>\n          </xs:element>\n          <xs:element name=\"HGB_224_2_B_III\" type=\"POSTENZEILE_SIMPLE\" />\n          <xs:element name=\"HGB_224_2_B_IV\" type=\"POSTENZEILE_SIMPLE\" />\n          <xs:element name=\"FREI\" type=\"POSTENZEILE_SIMPLE_FREI\" minOccurs=\"0\" />\n      </xs:sequence>\n  </xs:complexType>\n\nInstance type: <class 'xml.etree.ElementTree.Element'>\n\nInstance:\n\n  <HGB_224_2_B xmlns=\"https://finanzonline.bmf.gv.at/bilanz\">\n    <POSTENZEILE>\n      <BETRAG>1166695.69</BETRAG>\n      <BETRAG_VJ>1055</BETRAG_VJ>\n    </POSTENZEILE>\n    <HGB_224_2_B_I>\n      <POSTENZEILE>\n        <BETRAG>804078.00</BETRAG>\n        <BETRAG_VJ>869</BETRAG_VJ>\n      </POSTENZEILE>\n    </HGB_224_2_B_I>\n    <HGB_224_2_B_II>\n      <POSTENZEILE>\n        <BETRAG>361342.16</BETRAG>\n        <BETRAG_VJ>184</BETRAG_VJ>\n      </POSTENZEILE>\n    </HGB_224_2_B_II>\n    <HGB_224_2_B_IV>\n      <POSTENZEILE>\n        <BETRAG>1275.53</BETRAG>\n    ...\n    ...\n  </HGB_224_2_B>\n\nPath: /UEBERMITTLUNG/BILANZ_GLIEDERUNG/HGB_Form_2/HGB_224_2/HGB_224_2_B\n",
+    "failed validating <Element '{https://finanzonline.bmf.gv.at/bilanz}HGB_224_3_A' at 0x7efc44ce3790> with XsdGroup(model='sequence', occurs=[1, 1]):\n\nReason: The content of element '{https://finanzonline.bmf.gv.at/bilanz}HGB_224_3_A' is not complete. Tag '{https://finanzonline.bmf.gv.at/bilanz}HGB_224_3_A_II' expected.\n\nSchema component:\n\n  <xs:complexType xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">\n      <xs:sequence>\n          <xs:element name=\"POSTENZEILE\" type=\"POSTEN\" />\n          <xs:choice>\n              <xs:sequence> \n                  <xs:element name=\"HGB_229_1_A_I\">\n                      <xs:complexType>\n                          <xs:sequence>\n                              <xs:element name=\"POSTENZEILE\" type=\"POSTEN\" />\n                              <xs:element name=\"HGB_224_3_A_I_a\" type=\"POSTENZEILE_SIMPLE\" />\n                              <xs:element name=\"HGB_229_1_A_I_b\" type=\"POSTENZEILE_NEGATIVE_SIMPLE\" minOccurs=\"0\" />\n                              <xs:element name=\"HGB_229_1_A_I_c\" type=\"POSTENZEILE_NEGATIVE_SIMPLE\" minOccurs=\"0\" />\n                              <xs:element name=\"HGB_229_1_A_I_a\" type=\"POSTENZEILE_SIMPLE\" />\n                          </xs:sequence>\n                      </xs:complexType>\n                  </xs:element>\n              </xs:sequence>\n              <xs:sequence>    \n                  <xs:element name=\"XXX_224_3_A_I_X\" type=\"POSTENZEILE_SIMPLE\" />\n                  <xs:element name=\"XXX_224_3_A_I_Y\" type=\"POSTENZEILE_SIMPLE\" />\n      ...\n      ...\n  </xs:complexType>\n\nInstance type: <class 'xml.etree.ElementTree.Element'>\n\nInstance:\n\n  <HGB_224_3_A xmlns=\"https://finanzonline.bmf.gv.at/bilanz\">\n    <POSTENZEILE>\n      <BETRAG>195184.79</BETRAG>\n      <BETRAG_VJ>237</BETRAG_VJ>\n    </POSTENZEILE>\n    <XXX_224_3_A_I_X>\n      <POSTENZEILE>\n        <BETRAG>79350.97</BETRAG>\n        <BETRAG_VJ>75</BETRAG_VJ>\n      </POSTENZEILE>\n    </XXX_224_3_A_I_X>\n    <XXX_224_3_A_I_Y>\n      <POSTENZEILE>\n        <BETRAG>115833.82</BETRAG>\n        <BETRAG_VJ>161</BETRAG_VJ>\n      </POSTENZEILE>\n    </XXX_224_3_A_I_Y>\n  </HGB_224_3_A>\n\nPath: /UEBERMITTLUNG/BILANZ_GLIEDERUNG/HGB_Form_2/HGB_224_3/HGB_224_3_A\n",
+    "failed validating <Element '{https://finanzonline.bmf.gv.at/bilanz}HGB_224_3' at 0x7efc44ce3650> with XsdGroup(model='sequence', occurs=[1, 1]):\n\nReason: The content of element '{https://finanzonline.bmf.gv.at/bilanz}HGB_224_3' is not complete. Tag '{https://finanzonline.bmf.gv.at/bilanz}HGB_224_3_E' expected.\n\nSchema component:\n\n  <xs:complexType xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">\n      <xs:sequence>\n          <xs:element name=\"POSTENZEILE\" type=\"POSTEN\" />\n          <xs:element name=\"HGB_224_3_A\">\n              <xs:complexType>\n                  <xs:sequence>\n                      <xs:element name=\"POSTENZEILE\" type=\"POSTEN\" />\n                      <xs:choice>\n                          <xs:sequence> \n                              <xs:element name=\"HGB_229_1_A_I\">\n                                  <xs:complexType>\n                                      <xs:sequence>\n                                          <xs:element name=\"POSTENZEILE\" type=\"POSTEN\" />\n                                          <xs:element name=\"HGB_224_3_A_I_a\" type=\"POSTENZEILE_SIMPLE\" />\n                                          <xs:element name=\"HGB_229_1_A_I_b\" type=\"POSTENZEILE_NEGATIVE_SIMPLE\" minOccurs=\"0\" />\n                                          <xs:element name=\"HGB_229_1_A_I_c\" type=\"POSTENZEILE_NEGATIVE_SIMPLE\" minOccurs=\"0\" />\n                                          <xs:element name=\"HGB_229_1_A_I_a\" type=\"POSTENZEILE_SIMPLE\" />\n                                      </xs:sequence>\n                                  </xs:complexType>\n                              </xs:element>\n      ...\n      ...\n  </xs:complexType>\n\nInstance type: <class 'xml.etree.ElementTree.Element'>\n\nInstance:\n\n  <HGB_224_3 xmlns=\"https://finanzonline.bmf.gv.at/bilanz\">\n    <POSTENZEILE>\n      <BETRAG>2643200.45</BETRAG>\n      <BETRAG_VJ>2563</BETRAG_VJ>\n    </POSTENZEILE>\n    <HGB_224_3_A>\n      <POSTENZEILE>\n        <BETRAG>195184.79</BETRAG>\n        <BETRAG_VJ>237</BETRAG_VJ>\n      </POSTENZEILE>\n      <XXX_224_3_A_I_X>\n        <POSTENZEILE>\n          <BETRAG>79350.97</BETRAG>\n          <BETRAG_VJ>75</BETRAG_VJ>\n        </POSTENZEILE>\n      </XXX_224_3_A_I_X>\n      <XXX_224_3_A_I_Y>\n        <POSTENZEILE>\n          <BETRAG>115833.82</BETRAG>\n          <BETRAG_VJ>161</BETRAG_VJ>\n    ...\n    ...\n  </HGB_224_3>\n\nPath: /UEBERMITTLUNG/BILANZ_GLIEDERUNG/HGB_Form_2/HGB_224_3\n",
+    "failed validating '' with XsdMinLengthFacet(value=3, fixed=False):\n\nReason: value length cannot be lesser than 3\n\nSchema component:\n\n  <xs:minLength xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" value=\"3\" />\n\nInstance type: <class 'xml.etree.ElementTree.Element'>\n\nInstance:\n\n  <TEXT xmlns=\"https://finanzonline.bmf.gv.at/bilanz\" />\n\nPath: /UEBERMITTLUNG/BILANZ_GLIEDERUNG/HGB_Form_3/HGB_Form_3_9/HGB_Form_3_9_4/TEXT\n",
+    "failed validating <Element '{https://finanzonline.bmf.gv.at/bilanz}HGB_Form_3_9' at 0x7efc44ce3e20> with XsdGroup(model='sequence', occurs=[1, 1]):\n\nReason: Unexpected child with tag '{https://finanzonline.bmf.gv.at/bilanz}HGB_Form_3_9_2' at position 2. Tag '{https://finanzonline.bmf.gv.at/bilanz}HGB_Form_3_9_3' expected.\n\nSchema component:\n\n  <xs:complexType xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">\n      <xs:sequence>\n          <xs:element ref=\"HGB_Form_3_9_1\" />\n          <xs:element ref=\"HGB_Form_3_9_3\" />\n          <xs:element ref=\"HGB_Form_3_9_4\" />\n      </xs:sequence>\n  </xs:complexType>\n\nInstance type: <class 'xml.etree.ElementTree.Element'>\n\nInstance:\n\n  <HGB_Form_3_9 xmlns=\"https://finanzonline.bmf.gv.at/bilanz\">\n    <HGB_Form_3_9_1>\n      <BETRAG>0.00</BETRAG>\n    </HGB_Form_3_9_1>\n    <HGB_Form_3_9_2>\n      <BETRAG>1218816.36</BETRAG>\n    </HGB_Form_3_9_2>\n    <HGB_Form_3_9_3>\n      <BETRAG>0.00</BETRAG>\n    </HGB_Form_3_9_3>\n    <HGB_Form_3_9_4>\n      <TEXT />\n    </HGB_Form_3_9_4>\n  </HGB_Form_3_9>\n\nPath: /UEBERMITTLUNG/BILANZ_GLIEDERUNG/HGB_Form_3/HGB_Form_3_9\n",
+    "failed validating <Element '{https://finanzonline.bmf.gv.at/bilanz}HGB_Form_3_16' at 0x7efc44cf4180> with XsdGroup(model='sequence', occurs=[1, 1]):\n\nReason: Unexpected child with tag '{https://finanzonline.bmf.gv.at/bilanz}HGB_Form_3_16_1' at position 1. Tag '{https://finanzonline.bmf.gv.at/bilanz}ANZAHL' expected.\n\nSchema component:\n\n  <xs:complexType xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" name=\"ANZAHLTYP\">\n      <xs:sequence>\n          <xs:element name=\"ANZAHL\" type=\"xs:nonNegativeInteger\" />\n      </xs:sequence>\n  </xs:complexType>\n\nInstance type: <class 'xml.etree.ElementTree.Element'>\n\nInstance:\n\n  <HGB_Form_3_16 xmlns=\"https://finanzonline.bmf.gv.at/bilanz\">\n    <HGB_Form_3_16_1>\n      <ANZAHL>33</ANZAHL>\n    </HGB_Form_3_16_1>\n    <HGB_Form_3_16_2>\n      <ANZAHL>28</ANZAHL>\n    </HGB_Form_3_16_2>\n    <HGB_Form_3_16_3>\n      <ANZAHL>5</ANZAHL>\n    </HGB_Form_3_16_3>\n  </HGB_Form_3_16>\n\nPath: /UEBERMITTLUNG/BILANZ_GLIEDERUNG/HGB_Form_3/HGB_Form_3_16\n",
+    "failed validating <Element '{https://finanzonline.bmf.gv.at/bilanz}HGB_Form_3_16' at 0x7efc44cf4180> with XsdGroup(model='sequence', occurs=[1, 1]):\n\nReason: Unexpected child with tag '{https://finanzonline.bmf.gv.at/bilanz}HGB_Form_3_16_2' at position 2.\n\nSchema component:\n\n  <xs:complexType xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" name=\"ANZAHLTYP\">\n      <xs:sequence>\n          <xs:element name=\"ANZAHL\" type=\"xs:nonNegativeInteger\" />\n      </xs:sequence>\n  </xs:complexType>\n\nInstance type: <class 'xml.etree.ElementTree.Element'>\n\nInstance:\n\n  <HGB_Form_3_16 xmlns=\"https://finanzonline.bmf.gv.at/bilanz\">\n    <HGB_Form_3_16_1>\n      <ANZAHL>33</ANZAHL>\n    </HGB_Form_3_16_1>\n    <HGB_Form_3_16_2>\n      <ANZAHL>28</ANZAHL>\n    </HGB_Form_3_16_2>\n    <HGB_Form_3_16_3>\n      <ANZAHL>5</ANZAHL>\n    </HGB_Form_3_16_3>\n  </HGB_Form_3_16>\n\nPath: /UEBERMITTLUNG/BILANZ_GLIEDERUNG/HGB_Form_3/HGB_Form_3_16\n",
+    "failed validating <Element '{https://finanzonline.bmf.gv.at/bilanz}HGB_Form_3_16' at 0x7efc44cf4180> with XsdGroup(model='sequence', occurs=[1, 1]):\n\nReason: Unexpected child with tag '{https://finanzonline.bmf.gv.at/bilanz}HGB_Form_3_16_3' at position 3.\n\nSchema component:\n\n  <xs:complexType xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" name=\"ANZAHLTYP\">\n      <xs:sequence>\n          <xs:element name=\"ANZAHL\" type=\"xs:nonNegativeInteger\" />\n      </xs:sequence>\n  </xs:complexType>\n\nInstance type: <class 'xml.etree.ElementTree.Element'>\n\nInstance:\n\n  <HGB_Form_3_16 xmlns=\"https://finanzonline.bmf.gv.at/bilanz\">\n    <HGB_Form_3_16_1>\n      <ANZAHL>33</ANZAHL>\n    </HGB_Form_3_16_1>\n    <HGB_Form_3_16_2>\n      <ANZAHL>28</ANZAHL>\n    </HGB_Form_3_16_2>\n    <HGB_Form_3_16_3>\n      <ANZAHL>5</ANZAHL>\n    </HGB_Form_3_16_3>\n  </HGB_Form_3_16>\n\nPath: /UEBERMITTLUNG/BILANZ_GLIEDERUNG/HGB_Form_3/HGB_Form_3_16\n",
+    "failed validating <Element '{https://finanzonline.bmf.gv.at/bilanz}HGB_Form_3' at 0x7efc44ce3dd0> with XsdGroup(model='sequence', occurs=[1, 1]):\n\nReason: Unexpected child with tag '{https://finanzonline.bmf.gv.at/bilanz}HGB_Form_3_18' at position 3.\n\nSchema component:\n\n  <xs:complexType xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">\n      <xs:sequence>\n          <xs:element ref=\"HGB_Form_3_1\" minOccurs=\"0\" />\n          <xs:element ref=\"HGB_Form_3_2\" minOccurs=\"0\" />\n          <xs:element ref=\"HGB_Form_3_4\" minOccurs=\"0\" />\n          <xs:element ref=\"HGB_Form_3_5\" minOccurs=\"0\" />\n          <xs:element ref=\"HGB_Form_3_6\" minOccurs=\"0\" />\n          <xs:element ref=\"HGB_Form_3_10\" minOccurs=\"0\" />\n          <xs:element ref=\"HGB_Form_3_28\" minOccurs=\"0\" />\n          <xs:element ref=\"HGB_Form_3_7\" minOccurs=\"0\" />\n          <xs:element ref=\"HGB_Form_3_8\" minOccurs=\"0\" />\n          <xs:element ref=\"HGB_Form_3_11\" minOccurs=\"0\" />\n          <xs:element ref=\"HGB_Form_3_17\" minOccurs=\"0\" />\n          <xs:element ref=\"HGB_Form_3_27\" minOccurs=\"0\" />\n          <xs:element ref=\"HGB_Form_3_9\" minOccurs=\"0\" />\n          <xs:element ref=\"HGB_Form_3_16\" minOccurs=\"0\" />\n          <xs:element ref=\"HGB_Form_3_13\" minOccurs=\"0\" />\n          <xs:element ref=\"HGB_Form_3_26\" minOccurs=\"0\" />\n          <xs:element ref=\"HGB_Form_3_21\" minOccurs=\"0\" />\n          <xs:element ref=\"HGB_Form_3_25\" minOccurs=\"0\" />\n      </xs:sequence>\n  </xs:complexType>\n\nInstance type: <class 'xml.etree.ElementTree.Element'>\n\nInstance:\n\n  <HGB_Form_3 xmlns=\"https://finanzonline.bmf.gv.at/bilanz\">\n    <HGB_Form_3_9>\n      <HGB_Form_3_9_1>\n        <BETRAG>0.00</BETRAG>\n      </HGB_Form_3_9_1>\n      <HGB_Form_3_9_2>\n        <BETRAG>1218816.36</BETRAG>\n      </HGB_Form_3_9_2>\n      <HGB_Form_3_9_3>\n        <BETRAG>0.00</BETRAG>\n      </HGB_Form_3_9_3>\n      <HGB_Form_3_9_4>\n        <TEXT />\n      </HGB_Form_3_9_4>\n    </HGB_Form_3_9>\n    <HGB_Form_3_16>\n      <HGB_Form_3_16_1>\n        <ANZAHL>33</ANZAHL>\n      </HGB_Form_3_16_1>\n      <HGB_Form_3_16_2>\n    ...\n    ...\n  </HGB_Form_3>\n\nPath: /UEBERMITTLUNG/BILANZ_GLIEDERUNG/HGB_Form_3\n"
+  ]
+]

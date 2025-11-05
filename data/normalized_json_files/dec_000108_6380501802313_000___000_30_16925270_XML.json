@@ -1,0 +1,313 @@
+[
+  {
+    "@xmlns": "https://finanzonline.bmf.gv.at/bilanz",
+    "INFO_DATEN": {
+      "ART_IDENTIFIKATIONSBEGRIFF": "FASTNR",
+      "IDENTIFIKATIONSBEGRIFF": "683087548",
+      "PAKET_NR": 20673,
+      "DATUM_ERSTELLUNG": {
+        "@type": "datum",
+        "$": "2018-06-18"
+      },
+      "UHRZEIT_ERSTELLUNG": {
+        "@type": "uhrzeit",
+        "$": "12:04:32"
+      },
+      "VERS": "3.32",
+      "ANZAHL": 1
+    },
+    "BILANZ_GLIEDERUNG": [
+      {
+        "@ART": "HGB",
+        "ALLG_JUSTIZ": {
+          "@EINORDNUNG": "K",
+          "VERS": "3.32",
+          "PRUEF": "1da3f83695f16ffa4e3b2b711efb5b98",
+          "SOFTWARE": {
+            "SOFT": "BMD",
+            "SOFT_VERS": "2018.21.01.39"
+          },
+          "EB": {
+            "CODE": "W804611",
+            "NAME": null,
+            "BEZUG": "STERNAD GESELLSCHAFT M.B.",
+            "IBAN": "AT304477032340020000",
+            "BIC": "VBOEATWWGRA",
+            "KUNDEN": 81206742,
+            "ZUSTELL": "j"
+          },
+          "JABFORM": {
+            "HGBFORM": "UGB23"
+          },
+          "EINREICHUNG": "E",
+          "ABSCHLUSSART": "J",
+          "GUV_AUSWEIS": "G",
+          "FIRMA": {
+            "FNR": "000108i",
+            "F_NAME": {
+              "Z": [
+                "Sternad Gesellschaft m.b.H. Co KG"
+              ]
+            }
+          },
+          "GJ": {
+            "BEGINN": "2017-01-01",
+            "ENDE": "2017-12-31",
+            "FORM": "KG"
+          },
+          "VOR_GJ": {
+            "BEGINN": "2016-01-01",
+            "ENDE": "2016-12-31",
+            "FORM": "KG",
+            "WERT_TSD": "j"
+          },
+          "WAEHRUNG": "EUR",
+          "UNTER": [
+            {
+              "GEB_DAT": "1982-07-31",
+              "V_NAME": "Peter",
+              "Z_NAME": "Sternad",
+              "DAT_UNT": "2018-06-18",
+              "REG_BEZ": "F",
+              "KOMP_NUM": "070030k",
+              "KOMP_NAME": {
+                "Z": [
+                  "Sternad Gesellschaft m.b.H"
+                ]
+              }
+            }
+          ]
+        },
+        "HGB_Form_2": {
+          "HGB_224_2": {
+            "POSTENZEILE": {
+              "BETRAG": "691046.08",
+              "BETRAG_VJ": "841"
+            },
+            "HGB_224_2_A": {
+              "POSTENZEILE": {
+                "BETRAG": "197394.58",
+                "BETRAG_VJ": "205",
+                "SPIEGELWERTE": {
+                  "SPALTE_1": "916462.04",
+                  "SPALTE_2": "35250.29",
+                  "SPALTE_3": "0.00",
+                  "SPALTE_4": "0.00",
+                  "SPALTE_5": "2388.00",
+                  "SPALTE_6": "949324.33",
+                  "SPALTE_7": "711854.94",
+                  "SPALTE_8": "41268.81",
+                  "SPALTE_9": "0.00",
+                  "SPALTE_10": "0.00",
+                  "SPALTE_11": "0.00",
+                  "SPALTE_12": "1194.00",
+                  "SPALTE_13": "751929.75",
+                  "SPALTE_14": "204607.10",
+                  "SPALTE_15": "197394.58"
+                }
+              },
+              "HGB_224_2_A_I": {
+                "POSTENZEILE": {
+                  "BETRAG": "0.00",
+                  "BETRAG_VJ": "0",
+                  "SPIEGELWERTE": {
+                    "SPALTE_1": "1520.90",
+                    "SPALTE_2": "0.00",
+                    "SPALTE_3": "0.00",
+                    "SPALTE_4": "0.00",
+                    "SPALTE_5": "0.00",
+                    "SPALTE_6": "1520.90",
+                    "SPALTE_7": "1520.90",
+                    "SPALTE_8": "0.00",
+                    "SPALTE_9": "0.00",
+                    "SPALTE_10": "0.00",
+                    "SPALTE_11": "0.00",
+                    "SPALTE_12": "0.00",
+                    "SPALTE_13": "1520.90",
+                    "SPALTE_14": "0.00",
+                    "SPALTE_15": "0.00"
+                  }
+                }
+              },
+              "HGB_224_2_A_II": {
+                "POSTENZEILE": {
+                  "BETRAG": "197394.58",
+                  "BETRAG_VJ": "205",
+                  "SPIEGELWERTE": {
+                    "SPALTE_1": "914941.14",
+                    "SPALTE_2": "35250.29",
+                    "SPALTE_3": "0.00",
+                    "SPALTE_4": "0.00",
+                    "SPALTE_5": "2388.00",
+                    "SPALTE_6": "947803.43",
+                    "SPALTE_7": "710334.04",
+                    "SPALTE_8": "41268.81",
+                    "SPALTE_9": "0.00",
+                    "SPALTE_10": "0.00",
+                    "SPALTE_11": "0.00",
+                    "SPALTE_12": "1194.00",
+                    "SPALTE_13": "750408.85",
+                    "SPALTE_14": "204607.10",
+                    "SPALTE_15": "197394.58"
+                  }
+                }
+              },
+              "HGB_224_2_A_III": {
+                "POSTENZEILE": {
+                  "BETRAG": "0.00",
+                  "BETRAG_VJ": "0",
+                  "SPIEGELWERTE": {
+                    "SPALTE_1": "0.00",
+                    "SPALTE_2": "0.00",
+                    "SPALTE_3": "0.00",
+                    "SPALTE_4": "0.00",
+                    "SPALTE_5": "0.00",
+                    "SPALTE_6": "0.00",
+                    "SPALTE_7": "0.00",
+                    "SPALTE_8": "0.00",
+                    "SPALTE_9": "0.00",
+                    "SPALTE_10": "0.00",
+                    "SPALTE_11": "0.00",
+                    "SPALTE_12": "0.00",
+                    "SPALTE_13": "0.00",
+                    "SPALTE_14": "0.00",
+                    "SPALTE_15": "0.00"
+                  }
+                }
+              }
+            },
+            "HGB_224_2_B": {
+              "POSTENZEILE": {
+                "BETRAG": "493651.50",
+                "BETRAG_VJ": "636"
+              },
+              "HGB_224_2_B_I": {
+                "POSTENZEILE": {
+                  "BETRAG": "469142.30",
+                  "BETRAG_VJ": "611"
+                }
+              },
+              "HGB_224_2_B_II": {
+                "POSTENZEILE": {
+                  "BETRAG": "20418.95",
+                  "BETRAG_VJ": "20"
+                }
+              },
+              "HGB_224_2_B_III": {
+                "POSTENZEILE": {
+                  "BETRAG": "0.00",
+                  "BETRAG_VJ": "0"
+                }
+              },
+              "HGB_224_2_B_IV": {
+                "POSTENZEILE": {
+                  "BETRAG": "4090.25",
+                  "BETRAG_VJ": "5"
+                }
+              }
+            },
+            "HGB_224_2_C": {
+              "POSTENZEILE": {
+                "BETRAG": "0.00",
+                "BETRAG_VJ": "0"
+              }
+            },
+            "HGB_224_2_D": {
+              "POSTENZEILE": {
+                "BETRAG": "0.00",
+                "BETRAG_VJ": "0"
+              }
+            }
+          },
+          "HGB_224_3": {
+            "POSTENZEILE": {
+              "BETRAG": "691046.08",
+              "BETRAG_VJ": "841"
+            },
+            "HGB_224_3_A": {
+              "POSTENZEILE": {
+                "BETRAG": "-599495.70",
+                "BETRAG_VJ": "-623",
+                "ANHANG": "Die Liegenschaft befindet sich im Eigentum der Gesellschafter Peter und Peter jun. Sternad und ist in der Bilanz der Sternad Gesellschaft m.b.H & Co KG nicht enthalten. Da der Wert der Liegenschaft bzw. die stillen Reserven im Anlagevermögen das negative Eigenkapital übersteigen, ist eine Überschuldung im Sinne des Insolvenzrechtes nicht gegeben."
+              },
+              "XXX_224_3_A_I_X": {
+                "POSTENZEILE": {
+                  "BETRAG": "118409.71",
+                  "BETRAG_VJ": "111"
+                }
+              },
+              "XXX_224_3_A_I_Y": {
+                "POSTENZEILE": {
+                  "BETRAG": "-733432.57",
+                  "BETRAG_VJ": "-705"
+                }
+              },
+              "HGB_224_3_A_II": {
+                "POSTENZEILE": {
+                  "BETRAG": "0.00",
+                  "BETRAG_VJ": "0"
+                }
+              },
+              "HGB_224_3_A_III": {
+                "POSTENZEILE": {
+                  "BETRAG": "0.00",
+                  "BETRAG_VJ": "0"
+                }
+              },
+              "HGB_224_3_A_IV": {
+                "POSTENZEILE": {
+                  "BETRAG": "15527.16",
+                  "BETRAG_VJ": "-29"
+                },
+                "HGB_224_3_A_IV_x": {
+                  "POSTENZEILE": {
+                    "BETRAG": "0.00",
+                    "BETRAG_VJ": "0"
+                  }
+                }
+              }
+            },
+            "HGB_224_3_C": {
+              "POSTENZEILE": {
+                "BETRAG": "56499.45",
+                "BETRAG_VJ": "49"
+              }
+            },
+            "HGB_224_3_D": {
+              "POSTENZEILE": {
+                "BETRAG": "1219993.53",
+                "BETRAG_VJ": "1415"
+              }
+            },
+            "HGB_224_3_E": {
+              "POSTENZEILE": {
+                "BETRAG": "14048.80",
+                "BETRAG_VJ": "0"
+              }
+            }
+          }
+        },
+        "HGB_Form_3": {
+          "HGB_Form_3_5": {
+            "TEXT": "Die Liegenschaft befindet sich im Eigentum der Gesellschafter Peter und Peter jun. Sternad und ist in der Bilanz der Sternad Gesellschaft m.b.H & Co KG nicht enthalten. Da der Wert der Liegenschaft bzw. die stillen Reserven im Anlagevermögen das negative Eigenkapital übersteigen, ist eine Überschuldung im Sinne des Insolvenzrechtes nicht gegeben."
+          },
+          "HGB_Form_3_16": {
+            "ANZAHL": 10
+          },
+          "HGB_Form_3_25": {
+            "HGB_Form_3_25_1": {
+              "TEXT": "Die Sternad Gesellschaft m.b.H. (FN 70030k)  ist ein Arbeitsgesellschafter und am Ergebnis nicht beteiligt. Sie bekommt lediglich eine Haftungsprovision."
+            },
+            "HGB_Form_3_25_2": {
+              "BETRAG": "0.00"
+            },
+            "HGB_Form_3_25_3": {
+              "TEXT": "Der Bilanzverlust wird im Verhältnis 50 : 50 den beiden Kommanditisten zugewiesen:\nSternad Peter, geb. 16.09.1956\nSternad Peter, geb. 31.07.1982"
+            }
+          }
+        }
+      }
+    ]
+  },
+  []
+]

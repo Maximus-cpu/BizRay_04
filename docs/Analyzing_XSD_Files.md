@@ -1,13 +1,12 @@
-### Are blueprints or database schema's for XML files
-
+- **Are blueprints or database schema's for XML files**
+# Analyzing AllgemeineStruktur.xsd
+- **The root of the whole schema with it "importing" 8 other xsd files with source**
 #### Root => xs:schema
 - targetNamesspace: all elements defined in the schema belong to this namespace
-
-XML files to be parse with this schema are expected to declare the following so that the elements match.
+- XML files to be parse with this schema are expected to **declare the following** so that the elements match.
 ```xml
 xmlns="https://finanzonline.bmf.gv.at/bilanz"
 ```
-
 ##### Includes => xs:includes
 - This is the root schema, and in our case is pulled from 8 other .xsd files
 - It is like using `import` in python
@@ -69,29 +68,119 @@ One of several possible elements can appear in that position. Like using OR
 ##### Attributes => xs:attribute
 Defined inside of complex types
 ### XML Schema Reference Table
-|Concept|Meaning / Description|Example|
-|---|---|---|
-|**Namespace**|Unique identifier grouping XML elements; prevents name conflicts|`xmlns="https://finanzonline.bmf.gv.at/bilanz"`|
-|**Prefix**|Local alias for a namespace, used for readability|`<xs:element>` where `xs` = schema namespace|
-|`<xs:element>`|Defines one XML tag (element)|`<xs:element name="ANZAHL" type="xs:int"/>`|
-|`<xs:complexType>`|Element containing sub-elements and/or attributes|`<Parent><Child/></Parent>`|
-|`<xs:simpleType>`|Element containing only text (no sub-elements)|Numbers, strings, dates|
-|**simpleContent**|Text content with optional attributes|`<Date type="x">2025-11-04</Date>`|
-|**complexType**|Nested structure combining sub-elements or attributes|`<Parent><Child/></Parent>`|
-|`ref=`|References another element definition elsewhere in the schema|`<xs:element ref="INFO_DATEN"/>`|
-|**Schema attribute (e.g., ref, type)**|Instruction to the schema processor (not part of XML data)|`<xs:element ref="INFO_DATEN"/>`|
-|**Attribute (in XML instance)**|Key=value metadata inside an XML tag|`<BILANZ_GLIEDERUNG ART="HGB">...</BILANZ_GLIEDERUNG>`|
-|**Attribute (in XSD)**|Defines XML attributes inside element definitions|`<xs:attribute name="ART" use="required"/>`|
-|**use="required"**|Makes an attribute mandatory in the XML instance|Must appear in XML|
-|**include**|Imports definitions from another XSD file|`<xs:include schemaLocation="..."/>`|
-|**sequence**|Ordered sub-elements — must appear in this order|`<xs:sequence> <A/> <B/> </xs:sequence>`|
-|**choice**|One-of options — only one element may appear|`<xs:choice> <A/> <B/> </xs:choice>`|
-|**minOccurs / maxOccurs**|Cardinality — defines how many times an element can appear|`minOccurs="0"` (optional), `maxOccurs="300"` (repeatable)|
-|**Built-in base type**|Primitive data type predefined by XML Schema|`xs:string`, `xs:integer`, `xs:date`|
-|**Restriction**|Narrows allowed values for a base type|Enumeration, numeric range, pattern, etc.|
-|**Enumeration**|Restriction listing all allowed literal values|`<xs:enumeration value="FASTNR"/>`|
-|**enumeration (in XML)**|Fixes element or attribute value to a specific literal|e.g. only `"HGB"` allowed|
-|**Element content**|What’s between `<Tag>` and `</Tag>` — text or nested XML|Can be simple text or complex nested structure|
-### Next Prompts:
+| Concept                                | Meaning / Description                                            | Example                                                    |
+| -------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------- |
+| **Namespace**                          | Unique identifier grouping XML elements; prevents name conflicts | `xmlns="https://finanzonline.bmf.gv.at/bilanz"`            |
+| **Prefix**                             | Local alias for a namespace, used for readability                | `<xs:element>` where `xs` = schema namespace               |
+| `<xs:element>`                         | Defines one XML tag (element)                                    | `<xs:element name="ANZAHL" type="xs:int"/>`                |
+| `<xs:complexType>`                     | Element containing sub-elements and/or attributes                | `<Parent><Child/></Parent>`                                |
+| `<xs:simpleType>`                      | Element containing only text (no sub-elements)                   | Numbers, strings, dates                                    |
+| **simpleContent**                      | Text content with optional attributes                            | `<Date type="x">2025-11-04</Date>`                         |
+| **complexType**                        | Nested structure combining sub-elements or attributes            | `<Parent><Child/></Parent>`                                |
+| `ref=`                                 | References another element definition elsewhere in the schema    | `<xs:element ref="INFO_DATEN"/>`                           |
+| **Schema attribute (e.g., ref, type)** | Instruction to the schema processor (not part of XML data)       | `<xs:element ref="INFO_DATEN"/>`                           |
+| **Attribute (in XML instance)**        | Key=value metadata inside an XML tag                             | `<BILANZ_GLIEDERUNG ART="HGB">...</BILANZ_GLIEDERUNG>`     |
+| **Attribute (in XSD)**                 | Defines XML attributes inside element definitions                | `<xs:attribute name="ART" use="required"/>`                |
+| **use="required"**                     | Makes an attribute mandatory in the XML instance                 | Must appear in XML                                         |
+| **include**                            | Imports definitions from another XSD file                        | `<xs:include schemaLocation="..."/>`                       |
+| **sequence**                           | Ordered sub-elements — must appear in this order                 | `<xs:sequence> <A/> <B/> </xs:sequence>`                   |
+| **choice**                             | One-of options — only one element may appear                     | `<xs:choice> <A/> <B/> </xs:choice>`                       |
+| **minOccurs / maxOccurs**              | Cardinality — defines how many times an element can appear       | `minOccurs="0"` (optional), `maxOccurs="300"` (repeatable) |
+| **Built-in base type**                 | Primitive data type predefined by XML Schema                     | `xs:string`, `xs:integer`, `xs:date`                       |
+| **Restriction**                        | Narrows allowed values for a base type                           | Enumeration, numeric range, pattern, etc.                  |
+| **Enumeration**                        | Restriction listing all allowed literal values                   | `<xs:enumeration value="FASTNR"/>`                         |
+| **enumeration (in XML)**               | Fixes element or attribute value to a specific literal           | e.g. only `"HGB"` allowed                                  |
+| **Element content**                    | What’s between `<Tag>` and `</Tag>` — text or nested XML         | Can be simple text or complex nested structure             |
+# Analyzing HGBForm2XSD.xsd
+- **Represents the balance sheet (Bilanz) / financial statements**
 
-- Lets take this xml file and analyze how it matches the schema step by step
+##### TLDR
+| Code               | Legal section | Meaning                               | Data type                   |
+| ------------------ | ------------- | ------------------------------------- | --------------------------- |
+| **POSTEN**         | Generic type  | Simple numeric posting (amounts only) | decimal                     |
+| **POSTEN_SPIEGEL** | Generic type  | Posting with mirror columns           | decimal + nested decimals   |
+| **HGB_224_2_A**    | §224(2)A      | Assets                                | sequence of POSTEN_SPIEGEL  |
+| **HGB_224_2_B**    | §224(2)B      | Liabilities & Equity                  | sequence of POSTEN_SPIEGEL  |
+| **HGB_224_3**      | §224(3)       | Income-statement bridge               | sequence of POSTEN          |
+| **FREI**           | optional      | Free / custom entries                 | same as POSTEN but optional |
+##### HGB_Form_2
+- **Top level (assets & liabilities)**
+
+##### HGB_224_2
+- **complex type** declaring the sequence of sub sections
+
+| Element                                                  | Meaning (semantic)                                   | Likely Data Type                                 | Notes                                                   |
+| -------------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------ | ------------------------------------------------------- |
+| **`HGB_Form_2`**                                         | Root of the balance sheet form                       | complexType (sequence of HGB_224_2 and children) | Contains the actual assets/liabilities hierarchy        |
+| **`HGB_224_2`**                                          | Top-level for §224(2) – “Bilanzgliederung”           | complexType                                      | Parent node grouping all sub-sections                   |
+| **`HGB_224_2_A`**                                        | “Aktiva” (Assets)                                    | complexType                                      | Split into A.I, A.II, A.III, etc.                       |
+| **`HGB_224_2_B`**                                        | “Passiva” (Liabilities and Equity)                   | complexType                                      | Split into B.I, B.II, etc.                              |
+| **`POSTENZEILE`**                                        | Numeric row entry                                    | complexType (decimal values)                     | Holds `BETRAG` and optional `BETRAG_VJ` (previous year) |
+| **`BETRAG`**                                             | Value for the current year                           | xs:decimal                                       | May include fraction digits, typically 2                |
+| **`BETRAG_VJ`**                                          | Value for the prior year                             | xs:decimal                                       | Optional, for comparison                                |
+| **`SPIEGELWERTE`**                                       | Optional sub-columns (15 fields)                     | complexType                                      | Each `SPALTE_1`–`SPALTE_15` is xs:decimal               |
+| **`SPALTE_1`–`SPALTE_15`**                               | Column data for sub-items or cross totals            | xs:decimal                                       | Represent detailed “mirror” breakdowns                  |
+| **`HGB_224_2_A_I`, `HGB_224_2_A_II`, `HGB_224_2_A_III`** | Subsections of “Anlagevermögen” (A.I, A.II, etc.)    | complexType                                      | Contain their own POSTENZEILE + SPIEGELWERTE            |
+| **`HGB_224_2_B_I`, `HGB_224_2_B_II`, etc.**              | Subsections under liabilities                        | complexType                                      | Similar structure to A.*                                |
+| **`HGB_224_3`**                                          | Continuation for income-statement linkage (optional) | complexType                                      | May include additional POSTENZEILE                      |
+| **`TEXT`** (in some variants)                            | Optional free text annotation                        | xs:string                                        | Rarely used in numeric forms                            |
+##### HGB_224_2_A – _Aktiva (Assets)_
+- **Represents the assets side of the balance sheet.**
+
+**Contains:**
+- **A.I Anlagevermögen (Fixed assets)**
+    - intangible assets
+    - tangible assets
+    - financial assets
+- **A.II Umlaufvermögen (Current assets)**
+    - inventories
+    - receivables
+    - securities
+    - cash
+- **A.III Rechnungsabgrenzung (Prepaid expenses)**
+
+Each of these sections has `<POSTENZEILE>` entries (POSTEN_SPIEGEL) with amounts for each line item.  
+So you can think of this as the **left side of the balance sheet**.
+
+##### HGB_224_2_B – _Passiva (Liabilities & Equity)_
+- **Represents the liabilities and equity side of the balance sheet.**
+
+**Includes**:
+- **B.I Eigenkapital (Equity)**
+    - capital, reserves, retained earnings
+- **B.II Rückstellungen (Provisions)**
+- **B.III Verbindlichkeiten (Liabilities)**
+- **B.IV Rechnungsabgrenzung (Deferred income)**
+
+Structured as nested posting lines (`POSTENZEILE`) using `POSTEN_SPIEGEL`.
+
+> **A** = assets you own  
+> **B** = where that money came from (equity or debt)
+
+##### HGB_224_3 – _GuV (Profit and Loss linkage)_
+- **This section transitions toward the income statement structure (GuV) in §224(3).**
+
+**Includes:**
+- **C. GuV Positionen** (e.g. revenues, expenses, net income) 
+- The POSTENZEILEs here often mirror totals or aggregates that connect balance-sheet items to the profit and loss statement.
+
+So `HGB_224_3` is essentially the **next layer** that continues the structure —  
+while `HGB_Form_3` holds the full GuV form separately, `HGB_224_3` sometimes acts as the “bridge”.
+
+##### Hierarchy
+```scss
+HGB_Form_2
+ └── HGB_224_2  (Balance Sheet root)
+      ├── HGB_224_2_A  (Assets)
+      │    ├── HGB_224_2_A_I   (Fixed assets)
+      │    ├── HGB_224_2_A_II  (Current assets)
+      │    ├── HGB_224_2_A_III (Prepaid expenses)
+      │    └── FREI (optional)
+      ├── HGB_224_2_B  (Liabilities + Equity)
+      │    ├── HGB_224_2_B_I   (Equity)
+      │    ├── HGB_224_2_B_II  (Provisions)
+      │    ├── HGB_224_2_B_III (Liabilities)
+      │    └── HGB_224_2_B_IV  (Deferred income)
+      └── HGB_224_3 (Transition toward income statement)
+
+```
