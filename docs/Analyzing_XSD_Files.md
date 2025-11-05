@@ -168,19 +168,83 @@ So `HGB_224_3` is essentially the **next layer** that continues the structure �
 while `HGB_Form_3` holds the full GuV form separately, `HGB_224_3` sometimes acts as the “bridge”.
 
 ##### Hierarchy
-```scss
-HGB_Form_2
- └── HGB_224_2  (Balance Sheet root)
-      ├── HGB_224_2_A  (Assets)
-      │    ├── HGB_224_2_A_I   (Fixed assets)
-      │    ├── HGB_224_2_A_II  (Current assets)
-      │    ├── HGB_224_2_A_III (Prepaid expenses)
-      │    └── FREI (optional)
-      ├── HGB_224_2_B  (Liabilities + Equity)
-      │    ├── HGB_224_2_B_I   (Equity)
-      │    ├── HGB_224_2_B_II  (Provisions)
-      │    ├── HGB_224_2_B_III (Liabilities)
-      │    └── HGB_224_2_B_IV  (Deferred income)
-      └── HGB_224_3 (Transition toward income statement)
 
+```less
+BILANZ_GLIEDERUNG (ART="HGB")
+│
+├── ALLG_JUSTIZ
+│   └── General info: FNR, company name, legal form, representatives
+│
+├── HGB_Form_2  (Balance Sheet)
+│   ├── HGB_224_2  (Assets)
+│   └── HGB_224_3  (Equity & Liabilities)
+│
+└── HGB_Form_3  (Notes / Anhang)
+    ├── HGB_Form_3_5   → Explanations of special items (e.g. negative equity)
+    ├── HGB_Form_3_16  → Average number of employees
+    ├── HGB_Form_3_25  → Partner and profit allocation info
+    └── ... other optional disclosures
+```
+
+**HGB_Form_2: Balance Sheet**
+```less
+HGB_Form_2  (Balance Sheet Form)
+│
+├── HGB_224_2  (Assets / Aktiva)
+│   │
+│   ├── POSTENZEILE              → Total Assets (Bilanzsumme)
+│   ├── HGB_224_2_A              → Fixed Assets (Anlagevermögen)
+│   │    ├── A.I  → Intangible assets
+│   │    ├── A.II → Tangible assets
+│   │    └── A.III → Financial assets
+│   │
+│   ├── HGB_224_2_B              → Current Assets (Umlaufvermögen)
+│   │    ├── B.I  → Inventories
+│   │    ├── B.II → Receivables and other assets
+│   │    ├── B.III → Securities
+│   │    └── B.IV → Cash and cash equivalents
+│   │
+│   ├── HGB_224_2_C              → Prepaid Expenses (Rechnungsabgrenzungsposten)
+│   └── HGB_224_2_D              → Deferred Tax Assets (aktive latente Steuern)
+│
+└── HGB_224_3  (Equity & Liabilities / Passiva)
+    │
+    ├── POSTENZEILE              → Total Liabilities + Equity (must = Assets total)
+    ├── HGB_224_3_A              → Equity (Eigenkapital)
+    │    ├── A.I  → Subscribed capital
+    │    ├── A.II → Capital reserves
+    │    ├── A.III → Retained earnings
+    │    ├── A.IV → Net income/loss for the year (Jahresüberschuss/-fehlbetrag)
+    │
+    ├── HGB_224_3_B              → Provisions (Rückstellungen)
+    ├── HGB_224_3_C              → Liabilities (Verbindlichkeiten)
+    ├── HGB_224_3_D              → Accruals / Deferred income (Rechnungsabgrenzungsposten)
+    └── HGB_224_3_E              → Deferred tax liabilities (Passive latente Steuern)
+
+```
+
+**HGB_Form_3: General Notes**
+```less
+HGB_Form_3  (Notes / Anhang)
+│
+├── General information
+│   ├── HGB_Form_3_1     → Accounting principles
+│   ├── HGB_Form_3_2     → Changes in valuation methods
+│   └── HGB_Form_3_3     → Depreciation, amortization
+│
+├── Explanations of balance sheet items
+│   ├── HGB_Form_3_5     → Explanation of asset/liability structure
+│   ├── HGB_Form_3_8     → Collateral, off-balance-sheet items
+│   └── HGB_Form_3_9     → Events after reporting date
+│
+├── Disclosures on employees and management
+│   ├── HGB_Form_3_16    → Average employees
+│   ├── HGB_Form_3_19    → Management / supervisory board
+│   ├── HGB_Form_3_20    → Branches
+│   └── HGB_Form_3_22    → Dividend proposals
+│
+└── Partner and ownership structure
+    ├── HGB_Form_3_25_1  → Partner identification
+    ├── HGB_Form_3_25_2  → Amounts due to partners
+    └── HGB_Form_3_25_3  → Profit/loss allocation
 ```
