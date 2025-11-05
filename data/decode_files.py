@@ -17,7 +17,7 @@ def decode_xml_file(xml_file: str, enc_xml_dir: str) -> None:
             out_dir = "./data/decoded_xml_files"
             os.makedirs(out_dir, exist_ok=True)
 
-            out_path = os.path.join(out_dir, f"dec_{xml_file}")
+            out_path = os.path.join(out_dir,f"{os.path.splitext(xml_file)}_dec.xml")
             with open(out_path, "wb") as f:
                 f.write(data)
 
