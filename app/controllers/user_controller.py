@@ -72,3 +72,8 @@ def logout():
     session.clear()
     flash('Logged out successfully!', 'success')
     return redirect(url_for('company.index'))
+
+@user_bp.route('/account')
+def account():
+    # Render the account page
+    return render_template('account.html', title='Account Settings')
