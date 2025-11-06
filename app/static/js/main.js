@@ -53,14 +53,18 @@ function debounce(fn, delay) {
     }
 }
 
-function initGhostAutocomplete() {
+function initSearchAutocomplete() {
     const searchBoxes = document.querySelectorAll('.search-box');
+
     searchBoxes.forEach(box => {
         const form = box.querySelector('form');
-        if (!form) return;
+        //if (!form) return;
         const input = form.querySelector('.search-input');
         const ghost = form.querySelector('.ghost-text');
-        if (!input || !ghost) return;
+        //if (!input || !ghost) return;
+        const suggestionsBox = form.querySelector(".suggestions-box");
+
+        if (!form || !input || !ghost || !suggestionsBox) return;
 
         // Create a hidden measurement span to calculate prefix width
         const measure = document.createElement('span');
@@ -69,7 +73,11 @@ function initGhostAutocomplete() {
 
         const syncMeasureStyles = () => {
             const cs = window.getComputedStyle(input);
-            measure.style.fontFamily = cs.fontFamily;
+            ["fontFamily","fontSize","fontWeight","letterSpacing","padding"]
+                .forEach(prop => measure.style[prop] = cs[prop]);
+            ["fontFamily","fontSize","fontWeight","lineHeight"]
+                .forEach(prop => ghost.style[prop] = cs[prop]);
+            /*measure.style.fontFamily = cs.fontFamily;
             measure.style.fontSize = cs.fontSize;
             measure.style.fontWeight = cs.fontWeight;
             measure.style.letterSpacing = cs.letterSpacing;
@@ -78,12 +86,14 @@ function initGhostAutocomplete() {
             ghost.style.fontFamily = cs.fontFamily;
             ghost.style.fontSize = cs.fontSize;
             ghost.style.lineHeight = cs.lineHeight;
-            ghost.style.fontWeight = cs.fontWeight;
+            ghost.style.fontWeight = cs.fontWeight;*/
         };
         syncMeasureStyles();
 
-        const updateGhost = debounce(async () => {
+        const updateSuggestions = debounce(async () => {
             const prefix = input.value.trim();
+            suggestionsBox.innerHTML = ""; //clear the dropdown
+
             if (!prefix) {
                 ghost.textContent = '';
                 ghost.style.paddingLeft = '0px';
@@ -94,12 +104,15 @@ function initGhostAutocomplete() {
                 if (!res.ok) return;
                 const data = await res.json();
                 const first = (data && data.suggestions && data.suggestions[0]) || '';
-                if (!first) {
-                    ghost.textContent = '';
-                    ghost.style.paddingLeft = '0px';
-                    return;
+                if (first.toLowerCase().startsWith(prefix.toLowerCase())){
+                    measure.textContent = prefix;
+                    const width = measure.getBoundingClientRect().width;
+                    ghost.style.paddingleft = `${width}px`;
+                    ghost.textContent = first.slice(prefix.length);
+                } else {
+                    ghost.textContent = "";
                 }
-                // Only show if suggestion starts with current input (case-insensitive)
+                /*// Only show if suggestion starts with current input (case-insensitive)
                 const starts = first.toLowerCase().startsWith(prefix.toLowerCase());
                 if (!starts) {
                     ghost.textContent = '';
@@ -113,28 +126,50 @@ function initGhostAutocomplete() {
                 const prefixWidth = measure.getBoundingClientRect().width;
                 const remainder = first.slice(prefix.length);
                 ghost.textContent = remainder;
-                ghost.style.paddingLeft = `${prefixWidth}px`;
+                ghost.style.paddingLeft = `${prefixWidth}px`;*/
             } catch (_) {
                 ghost.textContent = '';
-                ghost.style.paddingLeft = '0px';
+            }
+            // ✅ Local dropdown suggestions (if companies exists)
+            if (window.companies && Array.isArray(window.companies)) {
+                const matches = companies
+                    .filter(c => c.toLowerCase().includes(prefix.toLowerCase()))
+                    .slice(0, 5);
+
+                matches.forEach(match => {
+                    const div = document.createElement("div");
+                    div.classList.add("suggestion");
+                    div.textContent = match;
+                    div.onclick = () => {
+                        input.value = match;
+                        ghost.textContent = "";
+                        suggestionsBox.innerHTML = "";
+                        form.submit();
+                    };
+                    suggestionsBox.appendChild(div);
+                });
             }
         }, 150);
 
-        input.addEventListener('input', updateGhost);
+        input.addEventListener('input', updateSuggestions);
 
         // Accept ghost with Enter and submit immediately
         input.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
-                const suggestionRemainder = ghost.textContent || '';
-                if (suggestionRemainder) {
+                const remainder = ghost.textContent;
+                if (remainder) {
                     e.preventDefault();
-                    input.value = input.value.trim() + suggestionRemainder;
+                    input.value = input.value.trim() + remainder;
                     ghost.textContent = '';
-                    ghost.style.paddingLeft = '0px';
+                    suggestionBox.innerHTML = "";
                     // Submit the form after accepting completion
                     form.submit();
                 }
             }
+        });
+         // Close dropdown on blur
+        input.addEventListener("blur", () => {
+            setTimeout(() => suggestionsBox.innerHTML = "", 150);
         });
     });
 }
@@ -159,5 +194,5 @@ function handleSignup(event) {
 
 document.addEventListener('DOMContentLoaded', () => {
     attachSearchFilterHandler('#searchForm', '.search-filters');
-    initGhostAutocomplete();
+    initSearchAutocomplete();
 });
