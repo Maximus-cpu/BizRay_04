@@ -132,19 +132,29 @@ function initSearchAutocomplete() {
                 });
             }
             
-            // Add all unique suggestions to dropdown (limit to 5)
-            Array.from(allSuggestions).slice(0, 5).forEach(suggestion => {
+            // Add all unique suggestions to dropdown (limit to 4) or show "No suggestions available"
+            if (allSuggestions.size === 0) {
                 const div = document.createElement("div");
                 div.classList.add("suggestion-item");
-                div.textContent = suggestion;
-                div.onclick = () => {
-                    input.value = suggestion;
-                    ghost.textContent = "";
-                    suggestionsBox.innerHTML = "";
-                    form.submit();
-                };
+                div.textContent = "No suggestions available";
+                div.style.cursor = "default";
+                div.style.opacity = "0.6";
+                div.onclick = null; // Make it non-clickable
                 suggestionsBox.appendChild(div);
-            });
+            } else {
+                Array.from(allSuggestions).slice(0, 4).forEach(suggestion => {
+                    const div = document.createElement("div");
+                    div.classList.add("suggestion-item");
+                    div.textContent = suggestion;
+                    div.onclick = () => {
+                        input.value = suggestion;
+                        ghost.textContent = "";
+                        suggestionsBox.innerHTML = "";
+                        form.submit();
+                    };
+                    suggestionsBox.appendChild(div);
+                });
+            }
         }, 150);
 
         input.addEventListener('input', updateSuggestions);
