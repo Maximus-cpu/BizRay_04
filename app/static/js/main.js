@@ -58,11 +58,9 @@ function initSearchAutocomplete() {
 
     searchBoxes.forEach(box => {
         const form = box.querySelector('form');
-        //if (!form) return;
-        const input = form.querySelector('.search-input');
-        const ghost = form.querySelector('.ghost-text');
-        //if (!input || !ghost) return;
-        const suggestionsBox = form.querySelector(".suggestions-box");
+        const input = form ? form.querySelector('.search-input') : null;
+        const ghost = form ? form.querySelector('.ghost-text') : null;
+        const suggestionsBox = box.querySelector(".suggestions-box");
 
         if (!form || !input || !ghost || !suggestionsBox) return;
 
@@ -99,6 +97,8 @@ function initSearchAutocomplete() {
                 ghost.style.paddingLeft = '0px';
                 return;
             }
+            const allSuggestions = new Set(); // Track suggestions to avoid duplicates
+            
             try {
                 const res = await fetch(`${window.location.origin}/search_suggest?prefix=${encodeURIComponent(prefix)}`);
                 if (!res.ok) return;
@@ -107,48 +107,44 @@ function initSearchAutocomplete() {
                 if (first.toLowerCase().startsWith(prefix.toLowerCase())){
                     measure.textContent = prefix;
                     const width = measure.getBoundingClientRect().width;
-                    ghost.style.paddingleft = `${width}px`;
+                    ghost.style.paddingLeft = `${width}px`;
                     ghost.textContent = first.slice(prefix.length);
                 } else {
                     ghost.textContent = "";
                 }
-                /*// Only show if suggestion starts with current input (case-insensitive)
-                const starts = first.toLowerCase().startsWith(prefix.toLowerCase());
-                if (!starts) {
-                    ghost.textContent = '';
-                    ghost.style.paddingLeft = '0px';
-                    return;
+                
+                // Collect backend suggestions
+                if (data && data.suggestions && Array.isArray(data.suggestions)) {
+                    data.suggestions.forEach(suggestion => {
+                        allSuggestions.add(suggestion);
+                    });
                 }
-
-                // Compute width of current typed prefix and position remainder after it
-                syncMeasureStyles();
-                measure.textContent = prefix;
-                const prefixWidth = measure.getBoundingClientRect().width;
-                const remainder = first.slice(prefix.length);
-                ghost.textContent = remainder;
-                ghost.style.paddingLeft = `${prefixWidth}px`;*/
             } catch (_) {
                 ghost.textContent = '';
             }
-            // ✅ Local dropdown suggestions (if companies exists)
+            
+            // ✅ Add local dropdown suggestions (if companies exists)
             if (window.companies && Array.isArray(window.companies)) {
-                const matches = companies
-                    .filter(c => c.toLowerCase().includes(prefix.toLowerCase()))
-                    .slice(0, 5);
-
+                const matches = window.companies
+                    .filter(c => c.toLowerCase().includes(prefix.toLowerCase()));
                 matches.forEach(match => {
-                    const div = document.createElement("div");
-                    div.classList.add("suggestion");
-                    div.textContent = match;
-                    div.onclick = () => {
-                        input.value = match;
-                        ghost.textContent = "";
-                        suggestionsBox.innerHTML = "";
-                        form.submit();
-                    };
-                    suggestionsBox.appendChild(div);
+                    allSuggestions.add(match);
                 });
             }
+            
+            // Add all unique suggestions to dropdown (limit to 5)
+            Array.from(allSuggestions).slice(0, 5).forEach(suggestion => {
+                const div = document.createElement("div");
+                div.classList.add("suggestion-item");
+                div.textContent = suggestion;
+                div.onclick = () => {
+                    input.value = suggestion;
+                    ghost.textContent = "";
+                    suggestionsBox.innerHTML = "";
+                    form.submit();
+                };
+                suggestionsBox.appendChild(div);
+            });
         }, 150);
 
         input.addEventListener('input', updateSuggestions);
@@ -161,7 +157,7 @@ function initSearchAutocomplete() {
                     e.preventDefault();
                     input.value = input.value.trim() + remainder;
                     ghost.textContent = '';
-                    suggestionBox.innerHTML = "";
+                    suggestionsBox.innerHTML = "";
                     // Submit the form after accepting completion
                     form.submit();
                 }
