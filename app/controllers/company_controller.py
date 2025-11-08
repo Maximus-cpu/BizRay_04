@@ -110,3 +110,138 @@ def search_suggest():
 
     names = [name for (name,) in suggestions]
     return jsonify({"suggestions": names})
+
+
+@company_bp.route('/api/calculate_financial_risk', methods=['POST'])
+def calculate_financial_risk():
+    """
+    API endpoint to calculate financial risk indicators.
+    
+    Expects JSON body with financial data:
+    {
+        "balance_sheet_total": float,
+        "fixed_assets": float,
+        "current_assets": float,
+        "prepaid_expenses": float,
+        "equity": float,
+        "provisions": float,
+        "liabilities": float,
+        "balance_sheet_profit": float,
+        "retained_earnings": float,
+        "current_year_result": float,
+        "cash_equivalents": float (optional),
+        "current_liabilities": float (optional)
+    }
+    
+    Returns JSON with risk scores for each indicator (0-100).
+    """
+    from app.services.financial_risk_calculator import calculate_financial_risk_indicators
+    
+    try:
+        data = request.get_json()
+        
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+        
+        # Convert string values to float, handle "—" or empty values as None
+        def parse_value(value):
+            if value is None or value == "" or value == "—" or value == "-":
+                return None
+            try:
+                if isinstance(value, str):
+                    # Remove spaces first
+                    cleaned = value.replace(" ", "")
+                    
+                    # Count separators
+                    dot_count = cleaned.count(".")
+                    comma_count = cleaned.count(",")
+                    
+                    # Handle European format: dots as thousand separators (e.g., "10.000.000.000")
+                    if dot_count > 1:
+                        # Multiple dots = thousand separators, remove all
+                        cleaned = cleaned.replace(".", "")
+                    # Handle US format: commas as thousand separators (e.g., "10,000,000,000")
+                    elif comma_count > 1:
+                        # Multiple commas = thousand separators, remove all
+                        cleaned = cleaned.replace(",", "")
+                    # Handle single separator - could be decimal or thousand
+                    elif dot_count == 1:
+                        # Check position: if dot is in last 3 chars, likely decimal (e.g., "1.5", "10.50")
+                        last_dot_pos = cleaned.rfind(".")
+                        if last_dot_pos >= len(cleaned) - 3:
+                            # Keep as decimal separator
+                            pass
+                        else:
+                            # Likely thousand separator, remove it
+                            cleaned = cleaned.replace(".", "")
+                    elif comma_count == 1:
+                        # European decimal format (comma as decimal)
+                        last_comma_pos = cleaned.rfind(",")
+                        if last_comma_pos >= len(cleaned) - 3:
+                            # Convert comma to dot for decimal
+                            cleaned = cleaned.replace(",", ".")
+                        else:
+                            # Likely thousand separator, remove it
+                            cleaned = cleaned.replace(",", "")
+                    
+                    return float(cleaned)
+                return float(value)
+            except (ValueError, TypeError) as e:
+                # Log error for debugging
+                print(f"Error parsing value '{value}': {e}")
+                return None
+        
+        financial_data = {
+            "balance_sheet_total": parse_value(data.get("balance_sheet_total")),
+            "fixed_assets": parse_value(data.get("fixed_assets")),
+            "current_assets": parse_value(data.get("current_assets")),
+            "prepaid_expenses": parse_value(data.get("prepaid_expenses")),
+            "equity": parse_value(data.get("equity")),
+            "provisions": parse_value(data.get("provisions")),
+            "liabilities": parse_value(data.get("liabilities")),
+            "balance_sheet_profit": parse_value(data.get("balance_sheet_profit")),
+            "retained_earnings": parse_value(data.get("retained_earnings")),
+            "current_year_result": parse_value(data.get("current_year_result")),
+            "cash_equivalents": parse_value(data.get("cash_equivalents")),
+            "current_liabilities": parse_value(data.get("current_liabilities"))
+        }
+        
+        # Calculate all indicators
+        results = calculate_financial_risk_indicators(financial_data)
+        
+        # Format response with both scores and values
+        response = {
+            "working_capital": {
+                "score": results["working_capital"]["score"],
+                "value": results["working_capital"]["value"]
+            },
+            "liquidity_ratio": {
+                "score": results["liquidity_ratio"]["score"],
+                "value": results["liquidity_ratio"]["value"]
+            },
+            "equity_ratio": {
+                "score": results["equity_ratio"]["score"],
+                "value": results["equity_ratio"]["value"]
+            },
+            "debt_ratio": {
+                "score": results["debt_ratio"]["score"],
+                "value": results["debt_ratio"]["value"]
+            },
+            "coverage_fixed_assets": {
+                "score": results["coverage_fixed_assets"]["score"],
+                "value": results["coverage_fixed_assets"]["value"]
+            },
+            "liquidity_I": {
+                "score": results["liquidity_I"]["score"],
+                "value": results["liquidity_I"]["value"]
+            },
+            "profit_margin": {
+                "score": results["profit_margin"]["score"],
+                "value": results["profit_margin"]["value"]
+            }
+        }
+        
+        return jsonify(response)
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
