@@ -33,50 +33,50 @@
             <div class="stats-list">
                 <div class="stat-row">
                     <span class="stat-label">Balance Sheet Total</span>
-                    <span class="stat-value">—</span>
+                    <span class="stat-value">10.000.000.000</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Fixed Assets</span>
-                    <span class="stat-value">—</span>
+                    <span class="stat-value">5.000.000.000</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Current Assets</span>
-                    <span class="stat-value">—</span>
+                    <span class="stat-value">3.000.000.000</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Prepaid Expenses</span>
-                    <span class="stat-value">—</span>
+                    <span class="stat-value">1.000.000.000</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Equity</span>
-                    <span class="stat-value">—</span>
+                    <span class="stat-value">2.000.000.000</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Provisions</span>
-                    <span class="stat-value">—</span>
+                    <span class="stat-value">1.000.000.000</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Liabilities</span>
-                    <span class="stat-value">—</span>
+                    <span class="stat-value">1.000.000.000</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Balance Sheet Profit</span>
-                    <span class="stat-value">—</span>
+                    <span class="stat-value">1.000.000.000</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Retained Earnings</span>
-                    <span class="stat-value">—</span>
+                    <span class="stat-value">1.000.000.000</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Current Year Result</span>
-                    <span class="stat-value">—</span>
+                    <span class="stat-value">1.000.000.000</span>
                 </div>
             </div>
         </section>
 
 
         <!-- Map full width -->
-        <section class="info-section">
+        <section class="info-section" style="margin-bottom: 0;">
             <h2 class="section-title">Location Map</h2>
             <div class="info-grid">
                 <div class="info-item">
@@ -115,68 +115,200 @@
                 </div>
             </div>
         </div>
-        <div class="sidebar-card" style="height: 100%;">
+        <div class="sidebar-card" style="margin-bottom: 0; display: flex; flex-direction: column;">
             <h3 class="sidebar-title">Risk Indicators</h3>
             <div class="info-grid">
                 <div class="info-item">
                     <div class="info-label">Overall Risk</div>
-                    <div class="info-value">—</div>
+                    <div class="risk-slider" style="width: 220%">
+                        <div class="risk-slider-fill" style="width: 0%"></div>
+                    </div>
                 </div>
             </div>
 
-            <h3 class="sidebar-title">Financial Risk Indicators</h3>
+            <h3 class="sidebar-title" style="padding-top: 20px;">Financial Risk Indicators</h3>
             <div class="stats-list risk-list">
-                <div class="stat-row">
-                    <span class="stat-label">Working capital</span>
-                    <div class="risk-slider">
-                        <div class="risk-slider-fill" style="width: 0%"></div>
+
+                <!-- Working capital: number only -->
+                <div class="stat-row number-only" data-indicator="working_capital">
+                    <span class="stat-label">
+                        Working capital
+                        <span class="tooltip-icon"
+                              data-tooltip="Shows the liquidity buffer: positive means the company can cover short-term debts; negative signals cash-flow pressure.">?</span>
+                    </span>
+                    <div class="stat-value-number">—</div>
+                </div>
+
+                <!-- Slider indicators with numbers below -->
+                <div class="stat-row slider-indicator" data-indicator="liquidity_ratio">
+                    <span class="stat-label">
+                        Liquidity (current ratio)
+                        <span class="tooltip-icon"
+                              data-tooltip="Indicates short-term solvency: >1 means enough assets to pay short-term obligations.">?</span>
+                    </span>
+                    <div class="slider-container">
+                        <div class="risk-slider">
+                            <div class="risk-slider-fill" style="width: 0%"></div>
+                        </div>
+                        <div class="slider-value">—</div>
                     </div>
                 </div>
-                <div class="stat-row">
-                    <span class="stat-label">Liquidity (current ratio)</span>
-                    <div class="risk-slider">
-                        <div class="risk-slider-fill" style="width: 0%"></div>
+                <div class="stat-row slider-indicator" data-indicator="equity_ratio">
+                    <span class="stat-label">
+                        Equity ratio
+                        <span class="tooltip-icon"
+                              data-tooltip="Measures financial independence: higher ratio = less debt reliance.">?</span>
+                    </span>
+                    <div class="slider-container">
+                        <div class="risk-slider">
+                            <div class="risk-slider-fill" style="width: 0%"></div>
+                        </div>
+                        <div class="slider-value">—</div>
                     </div>
                 </div>
-                <div class="stat-row">
-                    <span class="stat-label">Equity ratio</span>
-                    <div class="risk-slider">
-                        <div class="risk-slider-fill" style="width: 0%"></div>
+                <div class="stat-row slider-indicator" data-indicator="liquidity_I">
+                    <span class="stat-label">
+                        Cash ratio
+                        <span class="tooltip-icon"
+                              data-tooltip="Assesses immediate payment ability using only cash and near-cash items.">?</span>
+                    </span>
+                    <div class="slider-container">
+                        <div class="risk-slider">
+                            <div class="risk-slider-fill" style="width: 0%"></div>
+                        </div>
+                        <div class="slider-value">—</div>
                     </div>
                 </div>
-                <div class="stat-row">
-                    <span class="stat-label">Debt ratio</span>
-                    <div class="risk-slider">
-                        <div class="risk-slider-fill" style="width: 0%"></div>
-                    </div>
+
+                <!-- Number-only indicators -->
+                <div class="stat-row number-only" data-indicator="debt_ratio">
+                    <span class="stat-label">
+                        Debt ratio
+                        <span class="tooltip-icon"
+                              data-tooltip="Portion of the company financed by debt; high ratio = greater financial leverage and risk.">?</span>
+                    </span>
+                    <div class="stat-value-number">—</div>
                 </div>
-                <div class="stat-row">
-                    <span class="stat-label">Coverage of fixed assets</span>
-                    <div class="risk-slider">
-                        <div class="risk-slider-fill" style="width: 0%"></div>
-                    </div>
+                <div class="stat-row number-only" data-indicator="coverage_fixed_assets">
+                    <span class="stat-label">
+                        Coverage of fixed assets
+                        <span class="tooltip-icon"
+                              data-tooltip="Tests whether long-term assets are financed by long-term capital; <100 % = structural imbalance.">?</span>
+                    </span>
+                    <div class="stat-value-number">—</div>
                 </div>
-                <div class="stat-row">
-                    <span class="stat-label">Liquidity ratio</span>
-                    <div class="risk-slider">
-                        <div class="risk-slider-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-                <div class="stat-row">
-                    <span class="stat-label">Profit margin</span>
-                    <div class="risk-slider">
-                        <div class="risk-slider-fill" style="width: 0%"></div>
-                    </div>
+                <div class="stat-row number-only" data-indicator="profit_margin">
+                    <span class="stat-label">
+                        Profit margin
+                        <span class="tooltip-icon"
+                              data-tooltip="Reflects operational efficiency: how much profit is earned per euro of assets.">?</span>
+                    </span>
+                    <div class="stat-value-number">—</div>
                 </div>
             </div>
 
             <style>
-                /* Scoped styles for financial risk sliders */
+                /* Scoped styles for financial risk indicators */
                 .risk-list .stat-row {
                     display: grid;
-                    grid-template-columns: 1fr 140px;
+                    grid-template-columns: 1fr 160px;
                     align-items: center;
                     gap: 12px;
+                    margin-bottom: 1rem;
+                }
+
+                .risk-list .stat-row:last-child {
+                    margin-bottom: 0;
+                }
+
+                /* Tooltip icon */
+                .stat-label {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 4px;
+                }
+
+                .tooltip-icon {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 50%;
+                    background-color: #e0e0e0;
+                    color: #666;
+                    font-size: 11px;
+                    font-weight: 700;
+                    cursor: help;
+                    position: relative;
+                    flex-shrink: 0;
+                    transition: background-color 0.2s ease, color 0.2s ease;
+                }
+
+                .tooltip-icon:hover {
+                    background-color: #2196f3;
+                    color: white;
+                }
+
+                /* Tooltip bubble */
+                .tooltip-icon::before {
+                    content: attr(data-tooltip);
+                    position: absolute;
+                    bottom: calc(100% + 8px);
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: white;
+                    color: #000;
+                    padding: 10px 14px;
+                    border-radius: 6px;
+                    font-size: 0.75rem;
+                    font-weight: 400;
+                    white-space: nowrap;
+                    opacity: 0;
+                    pointer-events: none;
+                    transition: opacity 0.2s ease, transform 0.2s ease;
+                    transform: translateX(-50%) translateY(-4px);
+                    z-index: 1000;
+                    max-width: 350px;
+                    min-width: 200px;
+                    white-space: normal;
+                    text-align: left;
+                    line-height: 1.5;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+                    border: 1px solid #000;
+                }
+
+                .tooltip-icon::after {
+                    content: '';
+                    position: absolute;
+                    bottom: calc(100% + 2px);
+                    left: 50%;
+                    transform: translateX(-50%);
+                    border: 5px solid transparent;
+                    border-top-color: white;
+                    opacity: 0;
+                    pointer-events: none;
+                    transition: opacity 0.2s ease;
+                    z-index: 1001;
+                    filter: drop-shadow(0 1px 0 #000);
+                }
+
+                .tooltip-icon:hover::before,
+                .tooltip-icon:hover::after {
+                    opacity: 1;
+                    transform: translateX(-50%) translateY(0);
+                }
+
+                .tooltip-icon:hover::after {
+                    transform: translateX(-50%);
+                }
+
+                /* Slider indicators */
+                .slider-indicator .slider-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+                    align-items: center;
                 }
 
                 .risk-slider {
@@ -192,8 +324,41 @@
                 .risk-slider-fill {
                     height: 100%;
                     border-radius: 999px;
-                    background: linear-gradient(90deg, #d32f2f 0%, #f57c00 50%, #43a047 100%);
                     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+                    transition: background-color 0.3s ease, width 0.3s ease;
+                }
+
+                .slider-value {
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    color: var(--text);
+                    text-align: center;
+                    min-height: 1.2em;
+                }
+
+                /* Number-only indicators */
+                .number-only .stat-value-number {
+                    font-size: 0.875rem;
+                    font-weight: 700;
+                    text-align: right;
+                    padding: 0.25rem 0.5rem;
+                    border-radius: 6px;
+                    transition: background-color 0.3s ease, color 0.3s ease;
+                }
+
+                .number-only .stat-value-number.value-good {
+                    background-color: #e8f5e9;
+                    color: #2e7d32;
+                }
+
+                .number-only .stat-value-number.value-warning {
+                    background-color: #fff3e0;
+                    color: #e65100;
+                }
+
+                .number-only .stat-value-number.value-bad {
+                    background-color: #ffebee;
+                    color: #c62828;
                 }
             </style>
         </div>

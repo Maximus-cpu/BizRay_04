@@ -556,6 +556,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 350px;
     gap: 3rem;
+    align-items: start;
 }
 
 /* Info Sections */
@@ -653,6 +654,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    height: 100%;
 }
 
 .sidebar-card {

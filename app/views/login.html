@@ -19,7 +19,7 @@
         {% endif %}
     {% endwith %}
 
-    <form class="auth-form" action="{{ url_for('user.login') }}" method="post" onsubmit="return handleLogin(event)">
+    <form id="loginForm" class="auth-form" action="{{ url_for('user.login') }}" method="post" novalidate>
         <div class="form-group">
             <label for="email" class="form-label">Email Address</label>
             <input type="email"
