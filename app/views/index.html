@@ -1,11 +1,22 @@
 {% extends 'base.html' %}
 
-{% block title %}BizRay - Find Business Information{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block main_class %}hero{% endblock %}
 
 {% block body %}
 <div class="hero-content">
+    <!-- Display flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-messages">
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
     <h1 class="hero-title">Discover Business Intelligence</h1>
     <p class="hero-subtitle">Search and explore comprehensive company information in one place</p>
 

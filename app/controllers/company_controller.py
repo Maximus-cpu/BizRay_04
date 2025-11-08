@@ -1,7 +1,5 @@
 from flask import Blueprint, render_template, request, abort, jsonify
 
-from app.models.company import Company
-
 company_bp = Blueprint("company", __name__, template_folder='../views')
 
 @company_bp.route('/')
@@ -11,7 +9,7 @@ def index():
     company_count = Company.query.count()
     user_count = User.query.count()
     return render_template('index.html',
-                           title='Home page',
+                           title='BizRay - Find Business Information',
                            company_count=company_count,
                            user_count=user_count)
 
@@ -90,7 +88,6 @@ def company_details(company_id):
                            title=f'{company.name} • Details',
                            company=company
                            )
-
 
 @company_bp.route('/search_suggest')
 def search_suggest():

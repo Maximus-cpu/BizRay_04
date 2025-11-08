@@ -139,25 +139,164 @@ function initGhostAutocomplete() {
     });
 }
 
+function validateEmail(email) {
+    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return re.test(email);
+}
+
+function validatePasswordStrength(password) {
+    const errors = [];
+
+    if (password.length < 8) {
+        errors.push("Password must be at least 8 characters long");
+    }
+
+    if (!/[A-Z]/.test(password)) {
+        errors.push("Password must contain at least one uppercase letter");
+    }
+
+    if (!/[0-9]/.test(password)) {
+        errors.push("Password must contain at least one number");
+    }
+
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+        errors.push("Password must contain at least one special character");
+    }
+
+    return errors;
+}
+
+// Real-time password strength indicator
+function initPasswordStrengthIndicator() {
+    const passwordInput = document.getElementById('password');
+    if (!passwordInput) return;
+
+    const requirements = {
+        length: document.getElementById('req-length'),
+        uppercase: document.getElementById('req-uppercase'),
+        number: document.getElementById('req-number'),
+        special: document.getElementById('req-special')
+    };
+
+    passwordInput.addEventListener('input', () => {
+        const password = passwordInput.value;
+
+        if (requirements.length) {
+            if (password.length >= 8) {
+                requirements.length.classList.add('met');
+            } else {
+                requirements.length.classList.remove('met');
+            }
+        }
+
+        if (requirements.uppercase) {
+            if (/[A-Z]/.test(password)) {
+                requirements.uppercase.classList.add('met');
+            } else {
+                requirements.uppercase.classList.remove('met');
+            }
+        }
+
+        if (requirements.number) {
+            if (/[0-9]/.test(password)) {
+                requirements.number.classList.add('met');
+            } else {
+                requirements.number.classList.remove('met');
+            }
+        }
+
+        if (requirements.special) {
+            if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+                requirements.special.classList.add('met');
+            } else {
+                requirements.special.classList.remove('met');
+            }
+        }
+    });
+}
+
 function handleLogin(event) {
-    // TODO: Handle client-side validation for login here
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const emailError = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
+
+    let isValid = true;
+
+    // Clear previous errors
+    if (emailError) emailError.textContent = '';
+    if (passwordError) passwordError.textContent = '';
+
+    // Validate email
+    if (!email) {
+        if (emailError) emailError.textContent = 'Email is required';
+        isValid = false;
+    } else if (!validateEmail(email)) {
+        if (emailError) emailError.textContent = 'Invalid email format';
+        isValid = false;
+    }
+
+    // Validate password
+    if (!password) {
+        if (passwordError) passwordError.textContent = 'Password is required';
+        isValid = false;
+    }
+
+    if (!isValid) {
+        event.preventDefault();
+        return false;
+    }
+
+    return true;
 }
 
 function handleSignup(event) {
-    // TODO: Handle client-side validation for signup here
-    //const fullname = document.getElementById('fullname').value;
-    //const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
+    const form = event.target;
+    const email = form.querySelector('#email').value.trim();
+    const password = form.querySelector('#password').value;
+    const confirmPassword = form.querySelector('#confirmPassword').value;
+
+    const emailError = form.querySelector('#emailError');
+    const passwordError = form.querySelector('#passwordError');
+    const confirmPasswordError = form.querySelector('#confirmPasswordError');
+
+    let isValid = true;
+
+    // clear errors
+    [emailError, passwordError, confirmPasswordError].forEach(el => el && (el.textContent = ''));
+
+    if (!email) {
+        emailError.textContent = 'Email is required';
+        isValid = false;
+    } else if (!validateEmail(email)) {
+        emailError.textContent = 'Invalid email format';
+        isValid = false;
+    }
+
+    const passwordErrors = validatePasswordStrength(password);
+    if (passwordErrors.length > 0) {
+        passwordError.textContent = passwordErrors[0];
+        isValid = false;
+    }
 
     if (password !== confirmPassword) {
+        confirmPasswordError.textContent = 'Passwords do not match';
+        isValid = false;
+    }
+
+    if (!isValid) {
         event.preventDefault();
-        alert('Passwords do not match!');
-        return;
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     attachSearchFilterHandler('#searchForm', '.search-filters');
     initGhostAutocomplete();
+    initPasswordStrengthIndicator();
+
+    // Attach event listener for client-side validation on signup
+    const signupForm = document.getElementById('signupForm');
+    if (signupForm) {
+        signupForm.addEventListener('submit', handleSignup);
+    }
 });

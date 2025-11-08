@@ -1,7 +1,61 @@
 {% extends 'base.html' %}
 
-{% block title %}BizRay - Login{% endblock %}
+{% block title %}BizRay - Log in{% endblock %}
+
+{% block main_class %}auth-container{% endblock %}
 
 {% block body %}
-<h1>Hello from login!</h1>
+<div class="auth-card">
+    <h1 class="auth-title">Welcome Back</h1>
+    <p class="auth-subtitle">Log in to access your BizRay account</p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <form class="auth-form" action="{{ url_for('user.login') }}" method="post" onsubmit="return handleLogin(event)">
+        <div class="form-group">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email"
+                   name="email"
+                   id="email"
+                   class="form-input"
+                   placeholder="you@example.com"
+                   value="{{ email or '' }}"
+                   required>
+            <span class="form-error" id="emailError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <input type="password"
+                   name="password"
+                   id="password"
+                   class="form-input"
+                   placeholder="Enter your password"
+                   required>
+            <span class="form-error" id="passwordError"></span>
+        </div>
+
+        <div class="form-options">
+            <label class="checkbox-label">
+                <input type="checkbox" name="remember_me" class="checkbox">
+                <span>Remember me</span>
+            </label>
+            <a href="{{ url_for('user.forgot_password') }}" class="link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-submit">Log In</button>
+    </form>
+
+    <div class="auth-footer">
+        <p>Don't have an account? <a href="{{ url_for('user.signup') }}" class="link-primary">Sign up</a></p>
+    </div>
+</div>
 {% endblock %}

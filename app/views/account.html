@@ -2,9 +2,6 @@
 
 {% block title %}BizRay - Account{% endblock %}
 
-{% block head %}
-{% endblock %}
-
 {% block main_class %}auth-container{% endblock %}
 
 {% block body %}
@@ -12,69 +9,80 @@
     <h1 class="auth-title">Account Settings</h1>
     <p class="auth-subtitle">Manage your account information</p>
 
+    <!-- Display flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-messages">
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
     <div class="auth-form">
         <div class="form-group">
             <label for="firstName" class="form-label">First Name</label>
-            <input type="text" name="firstName" id="firstName" class="form-input" value="John" readonly>
+            <input type="text" name="firstName" id="firstName" class="form-input"
+                   value="{{ user.first_name or user.username }}" readonly>
         </div>
 
         <div class="form-group">
             <label for="lastName" class="form-label">Last Name</label>
-            <input type="text" name="lastName" id="lastName" class="form-input" value="Doe" readonly>
+            <input type="text" name="lastName" id="lastName" class="form-input"
+                   value="{{ user.last_name or '' }}" readonly>
         </div>
 
         <div class="form-group">
             <label for="email" class="form-label">Email Address</label>
-            <input type="email" name="email" id="email" class="form-input" value="you@example.com" readonly>
+            <input type="email" name="email" id="email" class="form-input"
+                   value="{{ user.email }}" readonly>
         </div>
     </div>
 
     <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
-        <button type="button" class="btn-primary" onclick="handleLogout()">Log out</button>
-        <button type="button" class="btn-primary" onclick="handleDeleteAccount()" style="background: #dc3545;">Delete Account</button>
+        <!-- Logout button -->
+        <a href="{{ url_for('user.logout') }}" class="btn-primary">Log out</a>
+
+        <!-- Delete Account button triggers modal -->
+        <button type="button" class="btn-primary" style="background: #dc3545;" onclick="showDeleteModal()">Delete Account</button>
     </div>
 </div>
 
-<!-- Delete Account Confirmation Modal -->
-<div id="deleteModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: none; justify-content: center; align-items: center; z-index: 1000;">
-    <div class="auth-card" style="max-width: 400px; width: 90%;">
-        <h2 class="auth-title" style="margin-bottom: 1rem; text-align: center;">Confirm Account Deletion</h2>
-        <p class="auth-subtitle" style="margin-bottom: 1.5rem;">Are you sure you want to delete your account?</p>
-        <div style="display: flex; gap: 1rem; justify-content: center;">
-            <button type="button" class="btn-primary" onclick="confirmDelete()" style="background: #dc3545;">Yes, I am sure</button>
-            <button type="button" class="btn-primary" onclick="cancelDelete()">Cancel</button>
+<!-- Delete Account Modal -->
+<div id="deleteModal" style="position: fixed; top:0; left:0; width:100%; height:100%;
+    background-color: rgba(0,0,0,0.5); display:none; justify-content:center; align-items:center; z-index:1000;">
+
+    <div class="auth-card" style="max-width:400px; width:90%;">
+        <h2 class="auth-title" style="margin-bottom:1rem; text-align:center;">Confirm Account Deletion</h2>
+        <p class="auth-subtitle" style="margin-bottom:1.5rem;">Are you sure you want to delete your account?</p>
+        <div style="display:flex; gap:1rem; justify-content:center;">
+            <!-- Hidden form to submit deletion -->
+            <form id="deleteForm" action="{{ url_for('user.delete_account') }}" method="POST" style="display: none;"></form>
+
+            <button type="button" class="btn-primary" style="background:#dc3545;" onclick="confirmDelete()">Yes, I am sure</button>
+            <button type="button" class="btn-primary" onclick="hideDeleteModal()">Cancel</button>
         </div>
     </div>
 </div>
 
 <script>
-    function handleLogout() {
-        // Mock logout functionality - user will implement this
-        console.log('Logout clicked');
-    }
-
-    function handleDeleteAccount() {
-        // Show the delete confirmation modal
+    function showDeleteModal() {
         document.getElementById('deleteModal').style.display = 'flex';
     }
-
+    function hideDeleteModal() {
+        document.getElementById('deleteModal').style.display = 'none';
+    }
     function confirmDelete() {
-        // Mock delete account functionality - user will implement this
-        console.log('Delete account confirmed');
-        document.getElementById('deleteModal').style.display = 'none';
+        // Submit the hidden form
+        document.getElementById('deleteForm').submit();
     }
-
-    function cancelDelete() {
-        // Hide the delete confirmation modal
-        document.getElementById('deleteModal').style.display = 'none';
-    }
-
-    // Close modal when clicking outside of it
-    window.onclick = function(event) {
+    // Close modal when clicking outside
+    window.addEventListener('click', function (event) {
         const modal = document.getElementById('deleteModal');
-        if (event.target == modal) {
-            modal.style.display = 'none';
+        if (event.target === modal) {
+            hideDeleteModal();
         }
-    }
+    });
 </script>
 {% endblock %}
