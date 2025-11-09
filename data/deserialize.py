@@ -6,19 +6,21 @@ from pprint import pprint
 dec_xml_dir = "./data/decoded_xml_files"
 testing_dec_xml = os.path.join(dec_xml_dir, os.listdir(dec_xml_dir)[0])
 
-# def print_statement(
-#     company_name, FNR, legal_structure, total_balance_sheet, fixed_assets, current_assets,
-#     prepaid_expenses, equity_capital, provisions, liabilities) -> None:
+def print_statement(
+    company_name, FNR, legal_structure, total_balance_sheet, fixed_assets, current_assets,
+    prepaid_expenses, equity_capital, provisions, liabilities) -> None:
+    
+    statement = f"""
+    Company {company_name} has the following data:
 
-#     print(f"Company {company_name} has the following data:")
-#     print(f"FNR: {FNR} | legal structure: {legal_structure}")
-#     print(f"Their total balance sheet is {total_balance_sheet}")
-#     print(f"fixed assets: {fixed_assets}")
-#     print(f"current assets: {current_assets}")
-#     print(f"prepaid expenses: {prepaid_expenses}\n")
-#     print(f"equity capital: {equity_capital}")
-#     print(f"provisions: {provisions}")
-#     print(f"liabilities: {liabilities}")
+    FNR: {FNR} | legal structure: {legal_structure}
+    Their total balance sheet is {total_balance_sheet}
+    current assets: {current_assets}
+    prepaid expenses: {prepaid_expenses}
+    equity capital: {equity_capital}"
+    provisions: {provisions}
+    liabilities: {liabilities}
+    """
 
 with open(testing_dec_xml, "rb") as f:
     data = xmltodict.parse(f.read())
@@ -53,18 +55,8 @@ with open(testing_dec_xml, "rb") as f:
         provisions = equity_items["HGB_224_3_C"]["POSTENZEILE"]["BETRAG"]
         liabilities = equity_items["HGB_224_3_D"]["POSTENZEILE"]["BETRAG"]
 
-        print(f"Company {company_name} has the following data:")
-        print(f"FNR: {FNR} | legal structure: {legal_structure}")
-        print(f"Their total balance sheet is {total_balance_sheet}")
-        print(f"fixed assets: {fixed_assets}")
-        print(f"current assets: {current_assets}")
-        print(f"prepaid expenses: {prepaid_expenses}\n")
-        print(f"equity capital: {equity_capital}")
-        print(f"provisions: {provisions}")
-        print(f"liabilities: {liabilities}")
-
-        # print_statement(company_name, FNR, legal_structure, total_balance_sheet, fixed_assets, current_assets,
-        # prepaid_expenses, equity_capital, provisions, liabilities)
+        print_statement(company_name, FNR, legal_structure, total_balance_sheet, fixed_assets, current_assets,
+        prepaid_expenses, equity_capital, provisions, liabilities)
     
     else:
         raise Exception("Finanz Ministry document was found instead of Justice Ministry document!")
