@@ -60,5 +60,3 @@ with open(testing_dec_xml, "rb") as f:
     
     else:
         raise Exception("Finanz Ministry document was found instead of Justice Ministry document!")
-
-# Testing making changes with git push + authentication:
