@@ -223,6 +223,7 @@ HGB_Form_2  (Balance Sheet Form)
 
 ```
 
+(Comment => Is this meant to be for HGB_Form_3_5?)
 **HGB_Form_3: General Notes**
 ```less
 HGB_Form_3  (Notes / Anhang)
