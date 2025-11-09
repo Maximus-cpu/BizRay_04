@@ -15,7 +15,7 @@ cd <repository_directory_locally>
 #### Linux/Mac:
 ```bash
 py -m venv venv
-source venv/bin/activate
+source .venv/bin/activate
 ```
 #### Windows (cmd):
 ```bash

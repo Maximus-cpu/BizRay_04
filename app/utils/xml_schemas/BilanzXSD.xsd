@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:include schemaLocation="eBilanzPostenAllgemein.xsd"/>
+	<xs:element name="BILANZ">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="HGB_224_2"/>
+				<xs:element ref="HGB_224_3"/>
+				<xs:element name="HGB_199_Y" type="POSTENZEILE_SUB" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN"/>
+				<xs:element ref="HGB_224_2_A" minOccurs="0"/>
+				<xs:element ref="HGB_224_2_B" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTEN_FREI_SUB" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="HGB_224_2_C" type="POSTENZEILE_SUB" minOccurs="0"/>
+				<xs:element name="HGB_224_2_D" type="POSTENZEILE_SUB" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_A">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element ref="HGB_224_2_A_I" minOccurs="0"/>
+				<xs:element ref="HGB_224_2_A_II" minOccurs="0"/>
+				<xs:element ref="HGB_224_2_A_III" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_A_I">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element ref="HGB_224_2_A_I_1" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_A_I_2" minOccurs="0"/>
+				<xs:element name="FREI1" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="XXX_224_2_A_I_X" minOccurs="0"/>
+				<xs:element name="FREI2" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_A_I_3" minOccurs="0"/>
+				<xs:element name="FREI3" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_A_I_HGB_279" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_A_I_1" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="HGB_224_2_A_I_2" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="XXX_224_2_A_I_X" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="HGB_224_2_A_I_3" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="HGB_224_2_A_I_HGB_279" type="POSTENZEILE_SIMPLE"/>
+	<xs:element name="HGB_224_2_A_II">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element ref="HGB_224_2_A_II_1" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_A_II_2" minOccurs="0"/>
+				<xs:element name="FREI1" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_A_II_3" minOccurs="0"/>
+				<xs:element name="FREI2" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_A_II_4" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_A_II_1">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element ref="HGB_224_2_A_II_1_HGB_225" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="FREI" type="POSTENZEILE_SPIEGEL_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_A_II_1_HGB_225" type="POSTENZEILE_SPIEGEL"/>
+	<xs:element name="HGB_224_2_A_II_2" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="HGB_224_2_A_II_3" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="HGB_224_2_A_II_4" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="HGB_224_2_A_III">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element ref="HGB_224_2_A_III_1" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_A_III_2" minOccurs="0"/>
+				<xs:element name="FREI1" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_A_III_3" minOccurs="0"/>
+				<xs:element name="FREI2" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_A_III_4" minOccurs="0"/>
+				<xs:element name="FREI3" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_A_III_5" minOccurs="0"/>
+				<xs:element ref="HGB_224_2_A_III_6" minOccurs="0"/>
+				<xs:element name="FREI4" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_A_III_HGB_279" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_A_III_1">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element ref="HGB_224_2_A_III_5_HGB_225" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SPIEGEL_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_A_III_5_HGB_225" type="POSTENZEILE_SPIEGEL"/>
+	<xs:element name="HGB_224_2_A_III_2" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="HGB_224_2_A_III_3" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="HGB_224_2_A_III_4" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="HGB_224_2_A_III_5" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="HGB_224_2_A_III_6">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element ref="HGB_224_2_A_III_6_HGB_227" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SPIEGEL_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_A_III_6_HGB_227" type="POSTENZEILE_SPIEGEL"/>
+	<xs:element name="HGB_224_2_A_III_HGB_279" type="POSTENZEILE_SIMPLE"/>
+	<xs:element name="HGB_224_2_B">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN"/>
+				<xs:element ref="HGB_224_2_B_I" minOccurs="0"/>
+				<xs:element ref="HGB_224_2_B_II" minOccurs="0"/>
+				<xs:element ref="HGB_224_2_B_III" minOccurs="0"/>
+				<xs:element ref="HGB_224_2_B_IV" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTEN_FREI_SUB" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_B_I">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN"/>
+				<xs:element ref="HGB_224_2_B_I_1" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTEN_FREI_SUB" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_B_I_2" minOccurs="0"/>
+				<xs:element name="FREI1" type="POSTEN_FREI_SUB" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_B_I_3" minOccurs="0"/>
+				<xs:element name="FREI2" type="POSTEN_FREI_SUB" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_B_I_4" minOccurs="0"/>
+				<xs:element name="FREI3" type="POSTEN_FREI_SUB" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_B_I_5" minOccurs="0"/>
+				<xs:element name="FREI4" type="POSTEN_FREI_SUB" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_B_I_1">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN"/>
+				<xs:element ref="HGB_224_2_B_I_1_HGB_225" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SIMPLE_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_B_I_1_HGB_225" type="POSTENZEILE_SIMPLE"/>
+	<xs:element name="HGB_224_2_B_I_2">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN"/>
+				<xs:element ref="HGB_224_2_B_I_2_HGB_225" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SIMPLE_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_B_I_2_HGB_225" type="POSTENZEILE_SIMPLE"/>
+	<xs:element name="HGB_224_2_B_I_3">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN"/>
+				<xs:element ref="HGB_224_2_B_I_3_HGB_225" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SIMPLE_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_B_I_3_HGB_225" type="POSTENZEILE_SIMPLE"/>
+	<xs:element name="HGB_224_2_B_I_4">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN"/>
+				<xs:element ref="HGB_224_2_B_I_4_HGB_225" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SIMPLE_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_B_I_4_HGB_225" type="POSTENZEILE_SIMPLE"/>
+	<xs:element name="HGB_224_2_B_I_5">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN"/>
+				<xs:element ref="HGB_224_2_B_I_5_HGB_225a" minOccurs="0"/>
+				<xs:element ref="HGB_224_2_B_I_5_HGB_225b" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SIMPLE_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_B_I_5_HGB_225a" type="POSTENZEILE_SIMPLE"/>
+	<xs:element name="HGB_224_2_B_I_5_HGB_225b" type="POSTENZEILE_SIMPLE"/>
+	<xs:element name="HGB_224_2_B_II">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element ref="HGB_224_2_B_II_1" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_B_II_2" minOccurs="0"/>
+				<xs:element name="FREI1" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_B_II_3" minOccurs="0"/>
+				<xs:element name="FREI2" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_B_II_4" minOccurs="0"/>
+				<xs:element ref="HGB_224_2_B_II_HGB_279" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_B_II_1">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element name="HGB_224_2_B_II_1_HGB_225a" type="POSTENZEILE_SPIEGEL" minOccurs="0"/>
+				<xs:element name="HGB_224_2_B_II_1_HGB_225b" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SPIEGEL_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_B_II_2">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element name="HGB_224_2_B_II_2_HGB_225a" type="POSTENZEILE_SPIEGEL" minOccurs="0"/>
+				<xs:element name="HGB_224_2_B_II_2_HGB_225b" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SPIEGEL_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_B_II_3">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element name="HGB_224_2_B_II_3_HGB_225a" type="POSTENZEILE_SPIEGEL" minOccurs="0"/>
+				<xs:element name="HGB_224_2_B_II_3_HGB_225b" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SPIEGEL_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_B_II_4">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element name="HGB_224_2_B_II_4_HGB_229" type="POSTENZEILE_SPIEGEL" minOccurs="0"/>
+				<xs:element name="HGB_224_2_B_II_4_HGB_225b" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SPIEGEL_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_B_II_HGB_279" type="POSTENZEILE_SIMPLE"/>
+	<xs:element name="HGB_224_2_B_III">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN"/>
+				<xs:element ref="HGB_224_2_B_III_1" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTEN_FREI_SUB" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_B_III_2" minOccurs="0"/>
+				<xs:element name="FREI1" type="POSTEN_FREI_SUB" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_2_B_III_HGB_279" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_B_III_1">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN"/>
+				<xs:element name="HGB_224_2_B_III_2_HGB_225" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SIMPLE_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_2_B_III_2" type="POSTENZEILE_SUB"/>
+	<xs:element name="HGB_224_2_B_III_HGB_279" type="POSTENZEILE_SIMPLE"/>
+	<xs:element name="HGB_224_2_B_IV" type="POSTENZEILE_SUB"/>
+	<xs:element name="HGB_224_3">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN"/>
+				<xs:element ref="HGB_224_3_A"/>
+				<xs:element ref="XXX_224_3_B_X" minOccurs="0"/>
+				<xs:element ref="XXX_224_3_Y" minOccurs="0"/>
+				<xs:element ref="HGB_224_3_C" minOccurs="0"/>
+				<xs:element ref="XXX_224_3_X" minOccurs="0"/>
+				<xs:element ref="HGB_224_3_D"/>
+				<xs:element name="FREI" type="POSTEN_FREI_SUB" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="HGB_224_3_E" type="POSTENZEILE_SUB" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_3_A">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN"/>
+				<xs:choice> 
+					<xs:element ref="HGB_229_1_A_I"/> <!-- GMBH -->
+					<xs:element ref="HGB_229_1_A_II"/> <!-- AG -->
+					<xs:element ref="HGB_224_3_A_I"/> <!-- Genossenschaft -->
+					<xs:sequence> <!-- KG -->
+						<xs:element ref="XXX_224_3_A_I_X" minOccurs="0"/>
+						<xs:element ref="XXX_224_3_A_I_Y" minOccurs="0"/>
+						<xs:element ref="XXX_224_3_A_I_Z" minOccurs="0"/>
+					</xs:sequence> <!-- OG --> 
+					<xs:element ref="XXX_224_3_A_I_T" minOccurs="0"/> 
+					<xs:sequence> <!-- Einzelunternehmer -->
+						<xs:element ref="XXX_224_3_A_I_U" minOccurs="0"/>
+						<xs:element ref="XXX_224_3_A_I_V" minOccurs="0"/>
+						<xs:element ref="XXX_224_3_A_I_W" minOccurs="0"/>
+					</xs:sequence>
+				</xs:choice>
+				<xs:sequence>
+					<xs:element name="FREI" type="POSTEN_FREI_SUB" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element ref="HGB_224_3_A_II" minOccurs="0"/>
+					<xs:element name="XXX_224_3_D_X" type="POSTENZEILE_SPIEGEL_SUB" minOccurs="0"/>
+					<xs:element name="FREI1" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element ref="HGB_224_3_A_III" minOccurs="0"/>
+					<xs:element ref="HGB_224_3_A_V" minOccurs="0"/>
+					<xs:element ref="HGB_224_3_A_IV" minOccurs="0"/>
+					<xs:element name="FREI2" type="POSTEN_FREI_SUB" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_229_1_A_I"> <!-- GMBH -->
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN"/>
+				<xs:element name="HGB_224_3_A_I_a" type="POSTENZEILE_SUB"/>
+				<xs:element name="HGB_229_1_A_I_b" type="POSTENZEILE_NEGATIVE_SUB" minOccurs="0" />
+				<xs:element name="HGB_229_1_A_I_c" type="POSTENZEILE_NEGATIVE_SUB" minOccurs="0"/>
+				<xs:element name="HGB_229_1_A_I_d" type="POSTENZEILE_NEGATIVE_SUB" minOccurs="0"/>
+				<xs:element name="HGB_229_1_A_I_a" type="POSTENZEILE_SIMPLE"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_229_1_A_II"> <!-- AG -->
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN"/>
+				<xs:element name="HGB_224_3_A_I_b" type="POSTENZEILE_SUB"/>
+				<xs:element name="HGB_229_1_A_II_b" type="POSTENZEILE_NEGATIVE_SUB" minOccurs="0" />
+				<xs:element name="HGB_229_1_A_II_c" type="POSTENZEILE_NEGATIVE_SUB" minOccurs="0"/>
+				<xs:element name="HGB_229_1_A_II_a" type="POSTENZEILE_SIMPLE"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_3_A_I" type="POSTENZEILE_SUB"/>
+	<xs:element name="XXX_224_3_A_I_X"> <!-- KG _X -->
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN"/>
+				<xs:element name="XXX_224_3_A_I_X_u" type="POSTENZEILE_SUB" minOccurs="0"/>
+				<xs:element name="XXX_224_3_A_I_X_v" type="POSTENZEILE_SUB" minOccurs="0"/>
+				<xs:element name="XXX_224_3_A_I_X_w" type="POSTENZEILE_SUB" minOccurs="0"/>
+				<xs:element name="XXX_224_3_A_I_X_x" type="POSTENZEILE_SUB" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTEN_FREI_SUB" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="XXX_224_3_A_I_X_y" type="POSTENZEILE_SUB" minOccurs="0"/>
+				<xs:element name="FREI1" type="POSTEN_FREI_SUB" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="XXX_224_3_A_I_Y"> <!-- KG _Y -->
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN"/>
+				<xs:element name="XXX_224_3_A_I_Y_x" type="POSTENZEILE_SUB" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTEN_FREI_SUB" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="XXX_224_3_A_I_Y_y" type="POSTENZEILE_SUB" minOccurs="0"/>
+				<xs:element name="FREI1" type="POSTEN_FREI_SUB" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="XXX_224_3_A_I_Y_z" type="POSTENZEILE_SUB" minOccurs="0"/>
+				<xs:element name="FREI2" type="POSTEN_FREI_SUB" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element> <!-- KG _Z -->
+	<xs:element name="XXX_224_3_A_I_Z" type="POSTENZEILE_SUB"/>
+	<xs:element name="XXX_224_3_A_I_T"> <!-- OG -->
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN"/>
+				<xs:element name="XXX_224_3_A_I_T_u" type="POSTENZEILE_SUB"  minOccurs="0"/>
+				<xs:element name="XXX_224_3_A_I_T_v" type="POSTENZEILE_SUB" minOccurs="0"/>
+				<xs:element name="XXX_224_3_A_I_T_w" type="POSTENZEILE_SUB" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element> <!-- EU -->
+	<xs:element name="XXX_224_3_A_I_U" type="POSTENZEILE_SUB"/>
+	<xs:element name="XXX_224_3_A_I_V" type="POSTENZEILE_SUB"/>
+	<xs:element name="XXX_224_3_A_I_W" type="POSTENZEILE_SUB"/>
+	<xs:element name="HGB_224_3_A_II">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element ref="HGB_224_3_A_II_1" minOccurs="0"/>
+				<xs:element ref="HGB_224_3_A_II_2" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_3_A_II_1">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element ref="HGB_224_3_A_II_1_HGB_225" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SPIEGEL_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_3_A_II_1_HGB_225" type="POSTENZEILE_SPIEGEL"/>
+	<xs:element name="HGB_224_3_A_II_2" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="HGB_224_3_A_III">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element ref="HGB_224_3_A_III_1" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_3_A_III_2" minOccurs="0"/>
+				<xs:element name="FREI1" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_3_A_III_3" minOccurs="0"/>
+				<xs:element name="FREI2" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_3_A_III_1" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="HGB_224_3_A_III_2" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="HGB_224_3_A_III_3" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="HGB_224_3_A_V" type="POSTENZEILE_SPIEGEL_SUB"/>		
+	<xs:element name="HGB_224_3_A_IV">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN"/>
+				<xs:element ref="HGB_224_3_A_IV_x" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SIMPLE_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_3_A_IV_x" type="POSTENZEILE_SIMPLE"/>
+	<xs:element name="XXX_224_3_B_X" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="XXX_224_3_X" type="POSTENZEILE_SUB"/>
+	<xs:element name="XXX_224_3_Y" type="POSTENZEILE_SUB"/>
+	<xs:element name="HGB_224_3_C">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element ref="HGB_224_3_C_1" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_3_C_2" minOccurs="0"/>
+				<xs:element name="FREI1" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_3_C_3" minOccurs="0"/>
+				<xs:element name="FREI2" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_3_C_4" minOccurs="0"/>
+				<xs:element name="FREI3" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_3_C_HGB_279" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_3_C_1" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="HGB_224_3_C_2" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="HGB_224_3_C_3" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="HGB_224_3_C_4" type="POSTENZEILE_SPIEGEL_SUB"/>
+	<xs:element name="HGB_224_3_C_HGB_279" type="POSTENZEILE_SIMPLE"/>
+	<xs:element name="HGB_224_3_D">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element name="HGB_224_3_D_HGB_225a" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="HGB_224_3_D_HGB_225b" type="POSTENZEILE_SIMPLE" minOccurs="0"/>				
+				<xs:element ref="HGB_224_3_D_1" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_3_D_2" minOccurs="0"/>
+				<xs:element name="FREI1" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_3_D_3" minOccurs="0"/>
+				<xs:element name="FREI2" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_3_D_4" minOccurs="0"/>
+				<xs:element name="FREI3" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_3_D_5" minOccurs="0"/>
+				<xs:element name="FREI4" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_3_D_6" minOccurs="0"/>
+				<xs:element name="FREI5" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_3_D_7" minOccurs="0"/>
+				<xs:element name="FREI6" type="POSTEN_SPIEGEL_SUB_FREI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HGB_224_3_D_8" minOccurs="0"/>
+				<xs:element name="HGB_224_3_D_HGB_279" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_3_D_1">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element name="HGB_224_3_D_1_x" type="POSTENZEILE_SPIEGEL" minOccurs="0"/>
+				<xs:element name="HGB_224_3_D_1_HGB_225a" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="HGB_224_3_D_1_HGB_225b" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SPIEGEL_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_3_D_2">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element name="HGB_224_3_D_2_HGB_225a" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="HGB_224_3_D_2_HGB_225b" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SPIEGEL_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_3_D_3">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element name="HGB_224_3_D_3_HGB_225" type="POSTENZEILE_SPIEGEL"  minOccurs="0"/>
+				<xs:element name="HGB_224_3_D_3_HGB_225a" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="HGB_224_3_D_3_HGB_225b" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SPIEGEL_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_3_D_4">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element name="HGB_224_3_D_4_HGB_225" type="POSTENZEILE_SPIEGEL" minOccurs="0"/>
+				<xs:element name="HGB_224_3_D_4_HGB_225a" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="HGB_224_3_D_4_HGB_225b" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SPIEGEL_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_3_D_5">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element name="HGB_224_3_D_5_HGB_225" type="POSTENZEILE_SPIEGEL" minOccurs="0"/>
+				<xs:element name="HGB_224_3_D_5_HGB_225a" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="HGB_224_3_D_5_HGB_225b" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SPIEGEL_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="HGB_224_3_D_6">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element name="HGB_224_3_D_6_HGB_225a" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="HGB_224_3_D_6_HGB_225b" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SPIEGEL_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_3_D_7">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element name="HGB_224_3_D_7_HGB_225a" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="HGB_224_3_D_7_HGB_225b" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SPIEGEL_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_224_3_D_8">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POSTENZEILE" type="POSTEN_SPIEGEL"/>
+				<xs:element name="HGB_224_3_D_8_x" type="POSTENZEILE_SPIEGEL" minOccurs="0"/>
+				<xs:element name="HGB_224_3_D_8_y" type="POSTENZEILE_SPIEGEL" minOccurs="0"/>
+				<xs:element name="HGB_224_3_D_8_HGB_225a" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="HGB_224_3_D_8_HGB_225b" type="POSTENZEILE_SIMPLE" minOccurs="0"/>
+				<xs:element name="FREI" type="POSTENZEILE_SPIEGEL_FREI" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

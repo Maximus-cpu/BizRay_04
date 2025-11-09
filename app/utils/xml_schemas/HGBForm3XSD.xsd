@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:include schemaLocation="eBilanzPostenAllgemein.xsd"/>
+	<xs:complexType name="TEXTTYP">
+		<xs:sequence>
+			<xs:element name="TEXT" type="FORM3_TEXTTYP"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TEXTTYP_OPTIONAL">
+		<xs:sequence>
+			<xs:element name="TEXT" type="FORM3_TEXTTYP" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="FORM3_TEXTTYP">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ANZAHLTYP">
+		<xs:sequence>
+			<xs:element name="ANZAHL" type="xs:nonNegativeInteger"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BETRAG_TEXT_OPTIONAL">
+		<xs:sequence>
+			<xs:element name="BETRAG" type="negativepositiveBetrag"/>
+			<xs:element name="TEXT" type="FORM3_TEXTTYP" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BETRAG_TEXT">
+		<xs:sequence>
+			<xs:element name="BETRAG" type="negativepositiveBetrag"/>
+			<xs:element name="TEXT" type="FORM3_TEXTTYP"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BETRAG_OPTIONAL_TEXT_OPTIONAL">
+		<xs:sequence>
+			<xs:element name="BETRAG" type="negativepositiveBetrag" minOccurs="0"/>
+			<xs:element name="TEXT" type="FORM3_TEXTTYP" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BETRAGTYP">
+		<xs:sequence>
+			<xs:element name="BETRAG" type="negativepositiveBetrag"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="prozent">
+		<xs:restriction base="xs:decimal">
+			<xs:maxInclusive value="999.99999"/>
+			<xs:minInclusive value="0.00001"/>
+			<xs:fractionDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="HGB_Form_3">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="HGB_Form_3_1" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_2" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_4" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_5" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_6" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_10" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_28" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_7" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_8" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_11" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_17" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_27" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_9" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_16" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_13" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_26" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_21" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_25" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_Form_3_1">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TEXT" type="FORM3_TEXTTYP" minOccurs="0"/>
+				<xs:element name="HGB_Form_3_1_1" type="TEXTTYP"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_Form_3_2" type="TEXTTYP"/>
+	<xs:element name="HGB_Form_3_3_1" type="TEXTTYP"/>
+	<xs:element name="HGB_Form_3_4" type="TEXTTYP"/>
+	<xs:element name="HGB_Form_3_5" type="TEXTTYP"/>
+	<xs:element name="HGB_Form_3_6">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TEXT" type="FORM3_TEXTTYP"/>
+				<xs:element name="HGB_Form_3_6_3" type="TEXTTYP" minOccurs="0"/>
+				<xs:element name="HGB_Form_3_6_4" type="TEXTTYP" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_6_5" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_Form_3_6_5">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TEXT" type="FORM3_TEXTTYP"/>
+				<xs:element name="HGB_Form_3_6_1" type="TEXTTYP"/>
+				<xs:element name="HGB_Form_3_6_2" type="TEXTTYP"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_Form_3_10" type="TEXTTYP"/>
+	<xs:element name="HGB_Form_3_28" type="TEXTTYP"/>
+	<xs:element name="HGB_Form_3_7" type="TEXTTYP"/>
+	<xs:element name="HGB_Form_3_8">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TEXT" type="FORM3_TEXTTYP"/>
+				<xs:element ref="HGB_Form_3_8_1" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_8_3" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_8_2" minOccurs="0"/>
+				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_Form_3_8_1" type="TEXTTYP"/>
+	<xs:element name="HGB_Form_3_8_3" type="TEXTTYP"/>
+	<xs:element name="HGB_Form_3_8_2" type="BETRAG_TEXT_OPTIONAL"/>
+	<xs:element name="HGB_Form_3_11">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="BETRAG" type="negativepositiveBetrag"/>
+				<xs:element name="TEXT" type="FORM3_TEXTTYP" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_11_4" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_11_1" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_11_3" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_Form_3_11_4" type="BETRAGTYP"/>
+	<xs:element name="HGB_Form_3_11_1" type="BETRAGTYP"/>
+	<xs:element name="HGB_Form_3_11_3" type="BETRAG_OPTIONAL_TEXT_OPTIONAL"/>
+	<xs:element name="HGB_Form_3_17">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="HGB_Form_3_17_a" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_17_b" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_Form_3_17_a">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="HGB_Form_3_17_a_1"/>
+				<xs:element ref="HGB_Form_3_17_a_2"/>
+				<xs:element ref="HGB_Form_3_17_a_3"/>
+				<xs:element ref="HGB_Form_3_17_a_4"/>
+				<xs:element ref="HGB_Form_3_17_a_5"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_Form_3_17_a_1" type="BETRAGTYP"/>
+	<xs:element name="HGB_Form_3_17_a_2" type="BETRAG_TEXT_OPTIONAL"/>
+	<xs:element name="HGB_Form_3_17_a_3" type="TEXTTYP"/>
+	<xs:element name="HGB_Form_3_17_a_4" type="BETRAGTYP"/>
+	<xs:element name="HGB_Form_3_17_a_5" type="TEXTTYP"/>
+	<xs:element name="HGB_Form_3_17_b">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="HGB_Form_3_17_b_1"/>
+				<xs:element ref="HGB_Form_3_17_b_2"/>
+				<xs:element ref="HGB_Form_3_17_b_3"/>
+				<xs:element ref="HGB_Form_3_17_b_4"/>
+				<xs:element ref="HGB_Form_3_17_b_5"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_Form_3_17_b_1" type="BETRAGTYP"/>
+	<xs:element name="HGB_Form_3_17_b_2" type="BETRAG_TEXT_OPTIONAL"/>
+	<xs:element name="HGB_Form_3_17_b_3" type="TEXTTYP"/>
+	<xs:element name="HGB_Form_3_17_b_4" type="BETRAGTYP"/>
+	<xs:element name="HGB_Form_3_17_b_5" type="TEXTTYP"/>
+	<xs:element name="HGB_Form_3_27" type="BETRAG_TEXT"/>
+	<xs:element name="HGB_Form_3_9">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="HGB_Form_3_9_1"/>
+				<xs:element ref="HGB_Form_3_9_3"/>
+				<xs:element ref="HGB_Form_3_9_4"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_Form_3_9_1" type="BETRAGTYP"/>
+	<xs:element name="HGB_Form_3_9_3" type="BETRAGTYP"/>
+	<xs:element name="HGB_Form_3_9_4" type="TEXTTYP"/>
+	<xs:element name="HGB_Form_3_16" type="ANZAHLTYP"/>
+	<xs:element name="HGB_Form_3_13" type="TEXTTYP"/>
+	<xs:element name="HGB_Form_3_26">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TEXT" type="FORM3_TEXTTYP"/>
+				<xs:element ref="HGB_Form_3_26_1" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_26_2" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_Form_3_26_1" type="BETRAGTYP"/>
+	<xs:element name="HGB_Form_3_26_2" type="BETRAGTYP"/>
+	<xs:element name="HGB_Form_3_21" type="TEXTTYP"/>
+	<xs:element name="HGB_Form_3_16_1" type="ANZAHLTYP"/>
+	<xs:element name="HGB_Form_3_16_2" type="ANZAHLTYP"/>
+	<xs:element name="HGB_Form_3_16_3" type="ANZAHLTYP"/>
+	<xs:element name="HGB_Form_3_22" type="TEXTTYP"/>
+	<xs:element name="HGB_Form_3_25">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="HGB_Form_3_25_1" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_25_2" minOccurs="0"/>
+				<xs:element ref="HGB_Form_3_25_3" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HGB_Form_3_25_1" type="TEXTTYP"/>
+	<xs:element name="HGB_Form_3_25_2" type="BETRAGTYP"/>
+	<xs:element name="HGB_Form_3_25_3" type="TEXTTYP"/>
+</xs:schema>
