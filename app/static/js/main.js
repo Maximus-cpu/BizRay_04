@@ -255,15 +255,17 @@ function handleSignup(event) {
     const email = form.querySelector('#email').value.trim();
     const password = form.querySelector('#password').value;
     const confirmPassword = form.querySelector('#confirmPassword').value;
+    const termsCheckbox = form.querySelector('#termsCheckbox');
 
     const emailError = form.querySelector('#emailError');
     const passwordError = form.querySelector('#passwordError');
     const confirmPasswordError = form.querySelector('#confirmPasswordError');
+    const termsCheckboxError = form.querySelector('#termsCheckboxError');
 
     let isValid = true;
 
     // clear errors
-    [emailError, passwordError, confirmPasswordError].forEach(el => el && (el.textContent = ''));
+    [emailError, passwordError, confirmPasswordError, termsCheckboxError].forEach(el => el && (el.textContent = ''));
 
     if (!email) {
         emailError.textContent = 'Email is required';
@@ -281,6 +283,11 @@ function handleSignup(event) {
 
     if (password !== confirmPassword) {
         confirmPasswordError.textContent = 'Passwords do not match';
+        isValid = false;
+    }
+
+    if (!termsCheckbox.checked) {
+        termsCheckboxError.textContent = 'You must agree to the terms and conditions';
         isValid = false;
     }
 

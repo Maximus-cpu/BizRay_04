@@ -3,7 +3,7 @@ from app import db
 from app.models.user import User
 from sqlalchemy.exc import IntegrityError
 import re
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 
 user_bp = Blueprint("user", __name__, template_folder='../views')
 
@@ -35,10 +35,12 @@ def validate_password_strength(password):
 @user_bp.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
-        fullname = request.form.get('fullname', '').strip()
+        first_name = request.form.get('firstname', '').strip()
+        last_name = request.form.get('lastname', '').strip()
         email = request.form.get('email', '').strip()
         password = request.form.get('password', '')
         confirm_password = request.form.get('confirmPassword', '')
+        terms_checkbox = request.form.get('termsCheckbox', 'off') == 'on'
 
         # Server-side validation
         if not email or not password:
@@ -62,6 +64,10 @@ def signup():
                 flash(error, 'error')
             return render_template('signup.html', title='Sign Up', email=email)
 
+        # Validate terms and conditions checkbox
+        if not terms_checkbox:
+            flash('Please accept the terms and conditions', 'error')
+
         try:
             # Check if email already exists
             existing_user = User.query.filter_by(email=email.lower()).first()
@@ -70,7 +76,7 @@ def signup():
                 return render_template('signup.html', title='Sign Up', email=email)
 
             # Create a new user
-            user = User(email=email.lower())
+            user = User(email=email.lower(), first_name=first_name or None, last_name=last_name or None)
             user.set_password(password)
 
             db.session.add(user)

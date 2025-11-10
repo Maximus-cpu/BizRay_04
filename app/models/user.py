@@ -8,18 +8,26 @@ from sqlalchemy.orm import validates
 class User(db.Model):
     id = db.Column(db.String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     email = db.Column(db.String(120), unique=True, nullable=False)
-    fullname = db.Column(db.String(80), unique=True, nullable=True)
+    first_name = db.Column(db.String(80), unique=False, nullable=True)
+    last_name = db.Column(db.String(80), unique=False, nullable=True)
     password_hash = db.Column(db.String(255), nullable=False)
     failed_login_attempts = db.Column(db.Integer, default=0)
-    account_locked_until = db.Column(db.DateTime, nullable=True)
-    created_at = db.Column(db.DateTime, default=datetime.now(timezone.utc))
+    account_locked_until = db.Column(db.DateTime(timezone=True), nullable=True)
+    created_at = db.Column(db.DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
 
-    @validates('username')
-    def validate_username(self, key, username):
-        """Validate that the username is not empty"""
-        if not username or not username.strip():
-            raise ValueError("Username cannot be empty")
-        return username.strip()
+    @validates('first_name')
+    def validate_first_name(self, key, first_name):
+        """Validate that the first name does not exceed 80 characters"""
+        if len(first_name) > 80:
+            raise ValueError("First name cannot exceed 80 characters")
+        return first_name.strip()
+
+    @validates('last_name')
+    def validate_last_name(self, key, last_name):
+        """Validate that the last name does not exceed 80 characters"""
+        if len(last_name) > 80:
+            raise ValueError("Last name cannot exceed 80 characters")
+        return last_name.strip()
 
     @validates('email')
     def validate_email(self, key, email):
