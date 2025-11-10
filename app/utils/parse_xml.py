@@ -6,10 +6,10 @@ import xmlschema
 # * Purpose of this script:
 # First the normalization of the data in the xml files will be attempted to be automated with the xsd schema and the xmlschema package. 
 # If an exception happen it will instead be attempted manually with the lxml package
-schema_dir = "./data/xml_schemas"
+schema_dir = "./app/utils/xml_schemas"
 root_schema = os.path.join(schema_dir, "AllgemeineStruktur.xsd")
-dec_xml_dir = "./data/decoded_xml_files"
-output_dir = "./data/normalized_json_files"
+dec_xml_dir = "./app/utils/decoded_xml_files"
+output_dir = "./app/utils/normalized_json_files"
 
 os.makedirs(output_dir, exist_ok=True)
 

@@ -14,7 +14,7 @@ def decode_xml_file(xml_file: str, enc_xml_dir: str) -> None:
 
         if content_elem is not None and content_elem.text:
             data = base64.b64decode(content_elem.text)
-            out_dir = "./data/decoded_xml_files"
+            out_dir = "./app/utils/decoded_xml_files"
             os.makedirs(out_dir, exist_ok=True)
 
             out_path = os.path.join(out_dir,f"{os.path.splitext(xml_file)}_dec.xml")
@@ -28,7 +28,7 @@ def decode_xml_file(xml_file: str, enc_xml_dir: str) -> None:
     except etree.XMLSyntaxError as e:
         print(f"XML parsing failed for {xml_file}: {e}")
 
-enc_xml_dir = "./data/encoded_xml_files"
+enc_xml_dir = "./app/utils/encoded_xml_files"
 enc_xml_files = os.listdir(enc_xml_dir)
 
 for file in enc_xml_files:
