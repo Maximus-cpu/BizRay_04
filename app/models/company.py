@@ -5,14 +5,19 @@ import re
 class Company(db.Model):
     id = db.Column(db.String(7), primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    region = db.Column(db.String(100), nullable=False)
-    address = db.Column(db.String(255), nullable=False)
-    legal_form = db.Column(db.String(20), nullable=False)
+    region = db.Column(db.String(100), nullable=False) # region would not be a data field (Could be extracted fro Postal Code)
+    address = db.Column(db.String(255), nullable=False) # business address could be null (Postal Code, Country Code, Street)
+    legal_form = db.Column(db.String(20), nullable=False) # could be null
+    # would add European Unique Identifier EUID (corresponds to FNR with FNR being included inside of it)
+    # Optional: short description of company
+    # Management: Unlimited liable partner, Limited Partner, Authorized Signatory
+    
+    # Financial Data: (Not optional)
     revenue = db.Column(db.Float, nullable=False)
     risk_score = db.Column(db.Float, nullable=False)
-    industry = db.Column(db.String(50), nullable=False)
-    branch = db.Column(db.String(100), nullable=False)
-    employees_count = db.Column(db.Integer, nullable=False)
+    industry = db.Column(db.String(50), nullable=False) # would not be a data field
+    branch = db.Column(db.String(100), nullable=False) # would not be a data field
+    employees_count = db.Column(db.Integer, nullable=False) # optional
 
     @validates('id')
     def validate_id(self, key, company_id):
