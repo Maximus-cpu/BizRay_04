@@ -5,19 +5,32 @@ import re
 class Company(db.Model):
     id = db.Column(db.String(7), primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    region = db.Column(db.String(100), nullable=False) # region would not be a data field (Could be extracted fro Postal Code)
-    address = db.Column(db.String(255), nullable=False) # business address could be null (Postal Code, Country Code, Street)
-    legal_form = db.Column(db.String(20), nullable=False) # could be null
-    # would add European Unique Identifier EUID (corresponds to FNR with FNR being included inside of it)
-    # Optional: short description of company
-    # Management: Unlimited liable partner, Limited Partner, Authorized Signatory
+    legal_form = db.Column(db.String(40), nullable=True) # could be null
     
-    # Financial Data: (Not optional)
-    revenue = db.Column(db.Float, nullable=False)
-    risk_score = db.Column(db.Float, nullable=False)
-    industry = db.Column(db.String(50), nullable=False) # would not be a data field
-    branch = db.Column(db.String(100), nullable=False) # would not be a data field
-    employees_count = db.Column(db.Integer, nullable=False) # optional
+    # address = db.Column(db.String(255), nullable=False) # business address could be null (Postal Code, Country Code, Street)
+    # region = db.Column(db.String(100), nullable=False) # region would not be a data field (Could be extracted fro Postal Code)
+    # would render European Unique Identifier EUID (corresponds to FNR with it being in the format: ATBRA.FNR-000)
+    # company_description: short description of company
+    # Management: Unlimited liable partner, Limited Partner, Authorized Signatory
+    # industry = db.Column(db.String(50), nullable=False) # not be a data field for now
+    # branch = db.Column(db.String(100), nullable=False) # would not be a data field for now
+    # employees_count = db.Column(db.Integer, nullable=True) # optional field added later
+
+    # Financial Data from Snapshot: (Not optional)
+    total_balance_sheet = db.Column(db.Float, nullable=True)
+    fixed_assets = db.Column(db.Float, nullable=True)
+    current_assets = db.Column(db.Float, nullable=True)
+    prepaid_expenses = db.Column(db.Float, nullable=True)
+
+    equity_capital = db.Column(db.Float, nullable=True)
+    provisions = db.Column(db.Float, nullable=True)
+    liabilities = db.Column(db.Float, nullable=True)
+
+    # balance_sheet_profit = db.Column(db.Float, nullable=True)
+    # retained_earnings = db.Column(db.Float, nullable=True)
+    # net_income = db.Column(db.Float, nullable=True)
+
+    # risk_score = db.Column(db.Float, nullable=True)
 
     @validates('id')
     def validate_id(self, key, company_id):
