@@ -10,15 +10,7 @@
     <p class="auth-subtitle">Manage your account information</p>
 
     <!-- Display flash messages -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-    <div class="flash-messages">
-        {% for category, message in messages %}
-        <div class="alert alert-{{ category }}">{{ message }}</div>
-        {% endfor %}
-    </div>
-    {% endif %}
-    {% endwith %}
+    {% include 'partials/flash_messages.html' %}
 
     <div class="auth-form">
         <div class="form-group">
@@ -45,7 +37,9 @@
         <a href="{{ url_for('user.logout') }}" class="btn-primary">Log out</a>
 
         <!-- Delete Account button triggers modal -->
-        <button type="button" class="btn-primary" style="background: #dc3545;" onclick="showDeleteModal()">Delete Account</button>
+        <button type="button" class="btn-primary" style="background: #dc3545;" onclick="showDeleteModal()">Delete
+            Account
+        </button>
     </div>
 </div>
 
@@ -58,9 +52,12 @@
         <p class="auth-subtitle" style="margin-bottom:1.5rem;">Are you sure you want to delete your account?</p>
         <div style="display:flex; gap:1rem; justify-content:center;">
             <!-- Hidden form to submit deletion -->
-            <form id="deleteForm" action="{{ url_for('user.delete_account') }}" method="POST" style="display: none;"></form>
+            <form id="deleteForm" action="{{ url_for('user.delete_account') }}" method="POST"
+                  style="display: none;"></form>
 
-            <button type="button" class="btn-primary" style="background:#dc3545;" onclick="confirmDelete()">Yes, I am sure</button>
+            <button type="button" class="btn-primary" style="background:#dc3545;" onclick="confirmDelete()">Yes, I am
+                sure
+            </button>
             <button type="button" class="btn-primary" onclick="hideDeleteModal()">Cancel</button>
         </div>
     </div>
@@ -70,13 +67,16 @@
     function showDeleteModal() {
         document.getElementById('deleteModal').style.display = 'flex';
     }
+
     function hideDeleteModal() {
         document.getElementById('deleteModal').style.display = 'none';
     }
+
     function confirmDelete() {
         // Submit the hidden form
         document.getElementById('deleteForm').submit();
     }
+
     // Close modal when clicking outside
     window.addEventListener('click', function (event) {
         const modal = document.getElementById('deleteModal');

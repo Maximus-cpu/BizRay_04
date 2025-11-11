@@ -17,14 +17,16 @@ class User(db.Model):
 
     @validates('first_name')
     def validate_first_name(self, key, first_name):
-        """Validate that the first name does not exceed 80 characters"""
+        if first_name is None:
+            return None
         if len(first_name) > 80:
             raise ValueError("First name cannot exceed 80 characters")
         return first_name.strip()
 
     @validates('last_name')
     def validate_last_name(self, key, last_name):
-        """Validate that the last name does not exceed 80 characters"""
+        if last_name is None:
+            return None
         if len(last_name) > 80:
             raise ValueError("Last name cannot exceed 80 characters")
         return last_name.strip()

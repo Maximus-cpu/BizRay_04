@@ -7,15 +7,7 @@
 {% block body %}
 <div class="hero-content">
     <!-- Display flash messages -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-    <div class="flash-messages">
-        {% for category, message in messages %}
-        <div class="alert alert-{{ category }}">{{ message }}</div>
-        {% endfor %}
-    </div>
-    {% endif %}
-    {% endwith %}
+    {% include 'partials/flash_messages.html' %}
 
     <h1 class="hero-title">Discover Business Intelligence</h1>
     <p class="hero-subtitle">Search and explore comprehensive company information in one place</p>

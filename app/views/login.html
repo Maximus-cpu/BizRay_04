@@ -9,37 +9,30 @@
     <h1 class="auth-title">Welcome Back</h1>
     <p class="auth-subtitle">Log in to access your BizRay account</p>
 
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <div class="flash-messages">
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ category }}">{{ message }}</div>
-                {% endfor %}
-            </div>
-        {% endif %}
-    {% endwith %}
+    <!-- Display flash messages -->
+    {% include 'partials/flash_messages.html' %}
 
     <form id="loginForm" class="auth-form" action="{{ url_for('user.login') }}" method="post" novalidate>
         <div class="form-group">
-            <label for="email" class="form-label">Email Address</label>
+            <label for="email" class="form-label">Email Address <span class="required">*</span></label>
             <input type="email"
                    name="email"
                    id="email"
                    class="form-input"
                    placeholder="you@example.com"
                    value="{{ email or '' }}"
-                   required>
+                   required aria-required="true">
             <span class="form-error" id="emailError"></span>
         </div>
 
         <div class="form-group">
-            <label for="password" class="form-label">Password</label>
+            <label for="password" class="form-label">Password <span class="required">*</span></label>
             <input type="password"
                    name="password"
                    id="password"
                    class="form-input"
                    placeholder="Enter your password"
-                   required>
+                   required aria-required="true">
             <span class="form-error" id="passwordError"></span>
         </div>
 
@@ -50,7 +43,7 @@
             </label>
             <a href="{{ url_for('user.forgot_password') }}" class="link">Forgot password?</a>
         </div>
-
+        <span class="required-text"><span class="required">*</span> required field</span>
         <button type="submit" class="btn-submit">Log In</button>
     </form>
 

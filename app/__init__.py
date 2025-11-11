@@ -32,4 +32,38 @@ def create_app():
     app.register_blueprint(company_bp)
     app.register_blueprint(user_bp)
 
+    # Session expiration check before each request
+    @app.before_request
+    def check_session_expiration():
+        """Check if the session has expired before each request"""
+        from flask import session, request, redirect, url_for, flash
+        from datetime import datetime, timezone, timedelta
+
+        # Skip check for routes that don't require authentication
+        if request.endpoint and request.endpoint in ['user.login', 'user.signup', 'user.forgot_password', 'static']:
+            return None
+
+        # Check if the user is logged in
+        if 'user_id' in session:
+            last_activity = session.get('last_activity')
+
+            if last_activity:
+                last_activity_time = datetime.fromisoformat(last_activity)
+                current_time = datetime.now(timezone.utc)
+
+                if session.permanent:
+                    pass
+                else:
+                    # 2 hours expiration for non-permanent sessions
+                    time_elapsed = current_time - last_activity_time
+                    # TODO: CHANGE DEFAULT SESSION TIME TO LONGER AFTER DEMONSTRATION
+                    if time_elapsed > timedelta(seconds=10):
+                        session.clear()
+                        flash('Your session has expired, please log in again', 'error')
+                        return redirect(url_for('user.login'))
+
+            # Update last activity time
+            session['last_activity'] = datetime.now(timezone.utc).isoformat()
+        return None
+
     return app

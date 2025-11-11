@@ -138,10 +138,13 @@ def login():
             # Store user info in session
             session['user_id'] = user.id
             session['user_email'] = user.email
+            session['last_activity'] = datetime.now(timezone.utc).isoformat()
 
             # Set session to permanent if remember me is checked
             if remember_me:
                 session.permanent = True
+            else:
+                session.permanent = False
 
             flash('Logged in successfully!', 'success')
             return redirect(url_for('company.index'))
