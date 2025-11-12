@@ -3,34 +3,47 @@ from sqlalchemy.orm import validates
 import re
 
 class Company(db.Model):
-    id = db.Column(db.String(7), primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
-    legal_form = db.Column(db.String(40), nullable=True) # could be null
     
+    # Data Fields to add later:
     # address = db.Column(db.String(255), nullable=False) # business address could be null (Postal Code, Country Code, Street)
-    # region = db.Column(db.String(100), nullable=False) # region would not be a data field (Could be extracted fro Postal Code)
+    # region = db.Column(db.String(100), nullable=False) # region would be extracted fro Postal Code
     # would render European Unique Identifier EUID (corresponds to FNR with it being in the format: ATBRA.FNR-000)
     # company_description: short description of company
     # Management: Unlimited liable partner, Limited Partner, Authorized Signatory
-    # industry = db.Column(db.String(50), nullable=False) # not be a data field for now
-    # branch = db.Column(db.String(100), nullable=False) # would not be a data field for now
+    
+    # Even lower priority fields:
     # employees_count = db.Column(db.Integer, nullable=True) # optional field added later
 
+    id = db.Column(db.String(7), primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    legal_form = db.Column(db.String(40), nullable=True) # could be null
+
     # Financial Data from Snapshot: (Not optional)
-    total_balance_sheet = db.Column(db.Float, nullable=True)
+    balance_sheet_total= db.Column(db.Float, nullable=True)
+    
     fixed_assets = db.Column(db.Float, nullable=True)
+    intangible_assets = db.Column(db.Float, nullable=True)
+    tangible_assets = db.Column(db.Float, nullable=True)
+    financial_assets = db.Column(db.Float, nullable=True)
+
     current_assets = db.Column(db.Float, nullable=True)
+    stockpiles = db.Column(db.Float, nullable=True)
+    receivables = db.Column(db.Float, nullable=True)
+    securities_and_shares = db.Column(db.Float, nullable=True)
+    cash_and_bank_balances = db.Column(db.Float, nullable=True)
+    
     prepaid_expenses = db.Column(db.Float, nullable=True)
 
-    equity_capital = db.Column(db.Float, nullable=True)
-    provisions = db.Column(db.Float, nullable=True)
+    equity = db.Column(db.Float, nullable=True)
+    required_share_capital = db.Column(db.Float, nullable=True)
+    capital_reserves = db.Column(db.Float, nullable=True)
+    retained_earnings = db.Column(db.Float, nullable=True)
+    balance_sheet_profit = db.Column(db.Float, nullable=True)
+    profit_carried_forward = db.Column(db.Float, nullable=True)
+
+    accruals = db.Column(db.Float, nullable=True)
     liabilities = db.Column(db.Float, nullable=True)
-
-    # balance_sheet_profit = db.Column(db.Float, nullable=True)
-    # retained_earnings = db.Column(db.Float, nullable=True)
-    # net_income = db.Column(db.Float, nullable=True)
-
-    # risk_score = db.Column(db.Float, nullable=True)
+    long_term_liabilities = db.Column(db.Float, nullable=True)
 
     @validates('id')
     def validate_id(self, key, company_id):
