@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block title %}BizRay - Account{% endblock %}
+
+{% block main_class %}auth-container{% endblock %}
+
+{% block body %}
+<div class="auth-card">
+    <h1 class="auth-title">Account Settings</h1>
+    <p class="auth-subtitle">Manage your account information</p>
+
+    {% include 'partials/flash_messages.html' %}
+
+    <form id="accountForm" class="auth-form" action="{{ url_for('user.update_account') }}" method="POST">
+        <div class="form-group">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" name="firstName" id="firstName" class="form-input" value="{{ user.first_name or '' }}" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" name="lastName" id="lastName" class="form-input" value="{{ user.last_name or '' }}" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" name="email" id="email" class="form-input" value="{{ user.email }}" readonly>
+        </div>
+
+        <!-- On Edit -->
+        <div id="passwordFields" style="display: none;">
+            <div class="form-group">
+                <label for="newPassword" class="form-label">New Password</label>
+                <input type="password"
+                       name="newPassword"
+                       id="newPassword"
+                       class="form-input">
+                <span class="form-error" id="passwordError"></span>
+                <div class="password-requirements">
+                    <small>Password must contain:</small>
+                    <ul>
+                        <li id="req-length">At least 8 characters</li>
+                        <li id="req-uppercase">One uppercase letter</li>
+                        <li id="req-number">One number</li>
+                        <li id="req-special">One special character (!@#$%^&*...)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password"
+                       name="confirmPassword"
+                       id="confirmPassword"
+                       class="form-input">
+                <span class="form-error" id="confirmPasswordError"></span>
+            </div>
+        </div>
+
+        <!-- Action buttons -->
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
+            <button type="button" id="editBtn" class="btn-primary" onclick="enableEdit()">Edit</button>
+            <button type="submit" id="saveBtn" class="btn-primary" style="display: none;">Save Changes</button>
+            <button type="button" id="cancelBtn" class="btn-primary" style="display: none; background: #6b7280;"
+                    onclick="cancelEdit()">Cancel
+            </button>
+        </div>
+    </form>
+
+    <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem;">
+        <a href="{{ url_for('user.logout') }}" class="btn-primary">Log out</a>
+        <button type="button" class="btn-primary" style="background: #dc3545;" onclick="showDeleteModal()">Delete
+            Account
+        </button>
+    </div>
+</div>
+
+<!-- Delete Account Modal -->
+<div id="deleteModal"
+     style="position: fixed; top:0; left:0; width:100%; height:100%;
+            background-color: rgba(0,0,0,0.5); display:none; justify-content:center; align-items:center; z-index:1000;">
+    <div class="auth-card" style="max-width:400px; width:90%;">
+        <h2 class="auth-title" style="margin-bottom:1rem; text-align:center;">Confirm Account Deletion</h2>
+        <p class="auth-subtitle" style="margin-bottom:1.5rem;">Are you sure you want to delete your account?</p>
+        <div style="display:flex; gap:1rem; justify-content:center;">
+            <form id="deleteForm" action="{{ url_for('user.delete_account') }}" method="POST" style="display: none;"></form>
+            <button type="button" class="btn-primary" style="background:#dc3545;" onclick="confirmDelete()">Yes, I am sure
+            </button>
+            <button type="button" class="btn-primary" onclick="hideDeleteModal()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- Account Edit ---
+    function enableEdit() {
+        document.querySelectorAll('#accountForm input').forEach(input => {
+            if (input.id !== 'email') input.removeAttribute('readonly');
+        });
+        document.getElementById('passwordFields').style.display = 'block';
+        document.getElementById('editBtn').style.display = 'none';
+        document.getElementById('saveBtn').style.display = 'inline-block';
+        document.getElementById('cancelBtn').style.display = 'inline-block';
+    }
+
+    function cancelEdit() {
+        // Reload page to reset form
+        location.reload();
+    }
+
+    // --- Delete Modal ---
+    function showDeleteModal() {
+        document.getElementById('deleteModal').style.display = 'flex';
+    }
+
+    function hideDeleteModal() {
+        document.getElementById('deleteModal').style.display = 'none';
+    }
+
+    function confirmDelete() {
+        document.getElementById('deleteForm').submit();
+    }
+
+    window.addEventListener('click', function (event) {
+        const modal = document.getElementById('deleteModal');
+        if (event.target === modal) hideDeleteModal();
+    });
+</script>
+{% endblock %}

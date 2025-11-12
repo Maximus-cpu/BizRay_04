@@ -2,9 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>{% block title %}Default title{% endblock %}</title>
+    {% block head %}{% endblock %}
 </head>
 <body>
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="{{ url_for('company.index') }}" class="logo">BizRay</a>
+        <div class="nav-links">
+            <a href="{{ url_for('company.index') }}"
+               class="nav-link {% if request.endpoint == 'company.index' %}active{% endif %}">Home</a>
+            <a href="{{ url_for('company.search') }}"
+               class="nav-link {% if request.endpoint == 'company.search' %}active{% endif %}">Search</a>
+            {% if session.get('user_id') %}
+            <!-- Display these nav buttons when the user is logged in -->
+            <a href="{{ url_for('user.account') }}" class="btn-primary">Account</a>
+            {% else %}
+            <!-- Display these nav buttons when the user is not logged out -->
+            <a href="{{ url_for('user.login') }}"
+               class="nav-link {% if request.endpoint == 'user.login' %}active{% endif %}">Log in</a>
+            <a href="{{ url_for('user.signup') }}" class="btn-primary">Sign up</a>
+            {% endif %}
+        </div>
 
+    </div>
+</nav>
+<main class="{% block main_class %}{% endblock %}">
+    {% block body %}{% endblock %}
+</main>
+<script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
 </body>
 </html>

@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block title %}Search a company{% endblock %}
+
+{% block main_class %}search-page{% endblock %}
+
+{% block body %}
+<div class="search-header">
+    <div class="search-box">
+        <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <form id="searchForm" class="search-form" action="{{ url_for('company.search') }}" method="get"
+              onsubmit="handleSearch(event, this)">
+            <div class="input-stack">
+                <span class="ghost-text" aria-hidden="true"></span>
+                <input type="text"
+                       name="company_name"
+                       class="search-input"
+                       placeholder="Search for companies..."
+                       value="{{ company_name or '' }}"
+                       autocomplete="off">
+            </div>
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+        <div class="suggestions-box"></div>
+    </div>
+</div>
+
+<div class="search-content">
+    <div class="search-filters">
+        <h3 class="filter-title">Filters</h3>
+
+        <!-- Because we don't have management type for the 10 companies from the XML
+        <div class="filter-group">
+            <h4 class="filter-subtitle">Management</h4>
+            {% for option in ['Unlimitedly Liable Partner', 'Limited Partner', 'Authorized Signatory'] %}
+            <label class="checkbox-label">
+                <input type="checkbox" name="management" value="{{ option }}"
+                       {% if option in selected_managements %}checked{% endif %}>
+                <span>{{ option }}</span>
+            </label>
+            {% endfor %}
+        </div>
+        -->
+
+        <div class="filter-group">
+            <h4 class="filter-subtitle">Legal Form</h4>
+            {% for option in ['GmbH', 'AG', 'OG', 'KG', 'GmbH & Co KG', 'e.U.'] %}
+            <label class="checkbox-label">
+                <input type="checkbox" name="legal_form" value="{{ option }}"
+                       {% if option in selected_legal_forms %}checked{% endif %}>
+                <span>{{ option }}</span>
+            </label>
+            {% endfor %}
+        </div>
+
+        <!-- Because we don't have employee count for the 10 companies from the XML
+        <div class="filter-group">
+            <h4 class="filter-subtitle">Company Size</h4>
+            {% set sizes = {
+            '1-50': '1-50 employees',
+            '51-200': '51-200 employees',
+            '201-1000': '201-1000 employees',
+            '1000+': '1000+ employees'
+            } %}
+            {% for key, label in sizes.items() %}
+            <label class="checkbox-label">
+                <input type="checkbox" name="company_size" value="{{ key }}"
+                       {% if key in selected_sizes %}checked{% endif %}>
+                <span>{{ label }}</span>
+            </label>
+            {% endfor %}
+        </div>
+        -->
+    </div>
+
+    <div class="search-results">
+        <div class="results-grid">
+            {% if not search_performed %}
+            <p class="search-message">Search results will be shown here.</p>
+            {% elif results %}
+            {% for company in results %}
+            <a href="{{ url_for('company.company_details', company_id=company.id) }}" class="company-card">
+                <h3 class="company-name">{{ company.name | default('unknown company name', true) }}</h3>
+                <p class="company-industry">{{ company.legal_form | default('unknown legal form', true) }} • {{ company.management | default('unknown management type', true) }}</p>
+                <p class="company-description">FNR: {{ company.id }} • {{ street | default('unknown street', true) }}, {{ city | default('unknown city', true) }}</p>
+                <div class="company-meta">
+                    <span class="meta-item">{{ company.employees_count | default('unknown amount of', true) }} employees</span>
+                    <span class="meta-item">{{ region | default('unknown region', true) }}</span>
+                </div>
+            </a>
+            {% endfor %}
+
+            {% if pagination and pagination.pages > 1 %}
+            <div class="pagination">
+                {% if pagination.has_prev %}
+                <a class="page-link" href="{{ url_for('company.search', company_name=company_name, management=selected_managements, legal_form=selected_legal_forms, company_size=selected_sizes, page=pagination.prev_num) }}">Previous</a>
+                {% endif %}
+                <span class="page-info">Page {{ pagination.page }} of {{ pagination.pages }}</span>
+                {% if pagination.has_next %}
+                <a class="page-link" href="{{ url_for('company.search', company_name=company_name, management=selected_managements, legal_form=selected_legal_forms, company_size=selected_sizes, page=pagination.next_num) }}">Next</a>
+                {% endif %}
+            </div>
+            {% endif %}
+            {% else %}
+            <div class="no-results-container">
+                <div class="no-results-card">
+                    <h2 class="no-results-title">Results not found</h2>
+                    <p class="no-results-text">The search: <span class="no-results-query">{{ company_name }}</span> was not found.</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

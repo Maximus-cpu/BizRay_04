@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}BizRay - Sign up{% endblock %}
+
+{% block main_class %}auth-container{% endblock %}
+
+{% block body %}
+<div class="auth-card">
+    <h1 class="auth-title">Create an account</h1>
+    <p class="auth-subtitle">Start exploring business intelligence today</p>
+
+    <!-- Display flash messages -->
+    {% include 'partials/flash_messages.html' %}
+
+    <form id="signupForm" class="auth-form" action="{{ url_for('user.signup') }}" method="post" novalidate>
+        <div class="form-group">
+            <label for="firstname" class="form-label">First Name</label>
+            <input type="text" name="firstname" id="firstname" class="form-input" placeholder="John">
+        </div>
+
+        <div class="form-group">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input type="text" name="lastname" id="lastname" class="form-input" placeholder="Doe">
+        </div>
+
+        <div class="form-group">
+            <label for="email" class="form-label">Email address <span class="required">*</span></label>
+            <input type="email"
+                   name="email"
+                   id="email"
+                   class="form-input"
+                   placeholder="you@example.com"
+                   value="{{ email or '' }}"
+                   required aria-required="true">
+            <span class="form-error" id="emailError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="form-label">Password <span class="required">*</span></label>
+            <input type="password"
+                   name="password"
+                   id="password"
+                   class="form-input"
+                   placeholder="Create a password"
+                   required aria-required="true">
+            <span class="form-error" id="passwordError"></span>
+            <div class="password-requirements">
+                <small>Password must contain:</small>
+                <ul>
+                    <li id="req-length">At least 8 characters</li>
+                    <li id="req-uppercase">One uppercase letter</li>
+                    <li id="req-number">One number</li>
+                    <li id="req-special">One special character (!@#$%^&*...)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword" class="form-label">Confirm password <span class="required">*</span></label>
+            <input type="password"
+                   name="confirmPassword"
+                   id="confirmPassword"
+                   class="form-input"
+                   placeholder="Confirm your password"
+                   required aria-required="true">
+            <span class="form-error" id="confirmPasswordError"></span>
+        </div>
+
+        <div class="form-options">
+            <label class="checkbox-label">
+                <input type="checkbox" name="termsCheckbox" id="termsCheckbox" class="checkbox" required aria-required="true">
+                <span>I agree to the Terms of Service and Privacy Policy <span class="required">*</span></span>
+            </label>
+        </div>
+        <span class="form-error" id="termsCheckboxError"></span>
+        <span class="required-text"><span class="required">*</span> required field</span>
+        <button type="submit" class="btn-submit">Create account</button>
+    </form>
+
+    <div class="auth-footer">
+        <p>Already have an account? <a href="{{ url_for('user.login') }}" class="link-primary">Log in</a></p>
+    </div>
+</div>
+{% endblock %}

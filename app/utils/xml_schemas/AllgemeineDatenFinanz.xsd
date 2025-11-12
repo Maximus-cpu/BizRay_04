@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:include schemaLocation="eBilanzPostenAllgemein.xsd"/>
+	<xs:element name="KORREKTUR">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="J"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ANBRINGEN">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="BIL"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ADRESSE" type="zsAllgemein37"/>
+	<xs:element name="KUNDENINFO">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="20"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="FASTNR" type="fastnr"/>
+	<xs:element name="SATZNR">
+		<xs:simpleType>
+			<xs:restriction base="xs:positiveInteger">
+				<xs:maxInclusive value="999999999"/>
+				<xs:minInclusive value="1"/>
+				<xs:totalDigits value="9"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ORT" type="zsAllgemein40"/>
+	<xs:element name="PLZ" type="plz"/>
+	<xs:element name="JAHR" type="xs:gYear"/>
+	<!-- Strukturbeschreibung -->
+	<xs:element name="ALLG_FINANZ">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SATZNR"/>
+				<xs:element ref="ANBRINGEN"/>
+				<xs:element ref="JAHR"/>
+				<xs:element ref="FASTNR"/>
+				<xs:element ref="ADRESSE"/>
+				<xs:element ref="PLZ"/>
+				<xs:element ref="ORT"/>
+				<xs:element ref="GJ"/>
+				<xs:element ref="KORREKTUR" minOccurs="0"/>
+				<xs:element ref="KUNDENINFO" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="EINORDNUNG" type="einord" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

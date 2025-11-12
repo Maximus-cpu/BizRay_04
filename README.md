@@ -38,15 +38,31 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 pip install -r requirements.txt
 ```
 
-### 4. Run the Flask application
+#### !!! Important: If you are using Pycharm, it is usually necessary to navigate to:
+- Settings → Project: your_project → Python Interpreter
+- Click the ⚙️ icon (top right of the interpreter list).
+- Select Add Interpreter → Add Local Interpreter.
+- Create an environment from your local python installation.
+- Navigate to your virtual environment’s Python executable
+  - Windows: venv\Scripts\python.exe
+  - macOS/Linux: venv/bin/python
+- Click OK and apply the changes.
+
+### 4. Initialize the database (only required once)
+```bash
+flask db upgrade
+```
+- Whenever you pull new commits that include updates to the models or migration scripts (models and migrations folders), run this command again.
+
+### 5. Run the Flask application
 ```bash
 py run.py
 ```
 
-### 5. Open the web application
+### 6. Open the web application
 - Open http://127.0.0.1:5000 in your browser
 
-### 6. Deactivate virtual environment
+### 7. Deactivate virtual environment
 ```bash
 deactivate
 ```
