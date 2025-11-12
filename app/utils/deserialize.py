@@ -7,8 +7,8 @@ import time
 # start = time.time()
 
 dec_xml_dir = "./app/utils/decoded_xml_files"
-print(os.listdir(dec_xml_dir)[1])
-testing_dec_xml = os.path.join(dec_xml_dir, os.listdir(dec_xml_dir)[1])
+print(os.listdir(dec_xml_dir)[10])
+testing_dec_xml = os.path.join(dec_xml_dir, os.listdir(dec_xml_dir)[10])
 
 def print_statement(
     company_name, FNR, legal_structure, balance_sheet_total, fixed_assets, intangible_assets, tangible_assets, 
@@ -39,7 +39,6 @@ def print_statement(
     receivables: {receivables}
     securities and shares: {securities_and_shares}
     cash and bank balances: {cash_and_bank_balances}
-
 
     prepaid expenses: {prepaid_expenses}
 
@@ -99,6 +98,9 @@ with open(testing_dec_xml, "rb") as f:
         company = justice_ministry_dict["FIRMA"]
         FNR = company["FNR"]
         company_name = company["F_NAME"]["Z"]
+
+        if isinstance(company_name, list):
+            company_name = ", ".join(company_name)
         
         filing_year = justice_ministry_dict["GJ"]
         filing_year_begin = filing_year["BEGINN"]
@@ -146,7 +148,23 @@ with open(testing_dec_xml, "rb") as f:
         
         accruals = equity_dict.get("HGB_224_3_C", {}).get("POSTENZEILE", {}).get("BETRAG", 0.00)
         liabilities = equity_dict.get("HGB_224_3_D", {}).get("POSTENZEILE", {}).get("BETRAG", 0.00)
-        long_term_liabilities = equity_dict.get("HGB_224_3_E", {}).get("POSTENZEILE", {}).get("BETRAG", 0.00)
+
+        # Here we might have another edge case:
+        # long_term_liabilities could be found in:
+
+        # <HGB_224_3_D>
+		# 			<POSTENZEILE>
+		# 				<BETRAG>325473.20</BETRAG>
+		# 				<BETRAG_VJ>280457.77</BETRAG_VJ>
+		# 			</POSTENZEILE>
+		# 			<HGB_224_3_D_HGB_225b>
+		# 				<POSTENZEILE>
+		# 					<BETRAG>77226.66</BETRAG>
+		# 					<BETRAG_VJ>0.00</BETRAG_VJ>
+		# 				</POSTENZEILE>
+		# 			</HGB_224_3_D_HGB_225b>
+		# 		</HGB_224_3_D>
+        long_term_liabilities = equity_dict.get("HGB_224_3_D", {}).get("HGB_224_3_D_I", {}).get("POSTENZEILE", {}).get("BETRAG", 0.00)
 
         # Fields to calculate:
 
