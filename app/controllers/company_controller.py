@@ -19,8 +19,8 @@ def search():
     from sqlalchemy import and_
 
     # Allowed query params
-    allowed_params = {'company_name', 'fnr', 'industry', 'company_size', 'page'}
-    filter_params = {'company_name', 'fnr', 'industry', 'company_size'}
+    allowed_params = {'company_name', 'fnr', 'management', 'legal_form', 'company_size', 'page'}
+    filter_params = {'company_name', 'fnr', 'management', 'legal_form', 'company_size'}
     provided_params = set(request.args.keys())
 
     # Validate query params
@@ -34,7 +34,8 @@ def search():
     # Unpack parameters
     company_name = request.args.get('company_name', '').strip()
     fnr = request.args.get('fnr')
-    industry = request.args.getlist('industry')
+    management = request.args.getlist('management')
+    legal_form = request.args.getlist('legal_form')
     company_size = request.args.getlist('company_size')
 
     results = []
@@ -44,8 +45,10 @@ def search():
     # Apply filters based on provided parameters
     if company_name:
         filters.append(Company.name.ilike(f"%{company_name}%"))
-    if industry:
-        filters.append(Company.industry.in_(industry))
+    if management:
+        filters.append(Company.management.in_(management))
+    if legal_form:
+        filters.append(Company.legal_form.in_(legal_form))
     if company_size:
         filters.append(Company.employees_count.between(*map(int, company_size[0].split('-')))
                        if '-' in company_size[0]
@@ -67,7 +70,8 @@ def search():
         title='Search page',
         results=results,
         company_name=company_name,
-        selected_industries=industry,
+        selected_managements=management,
+        selected_legal_forms=legal_form,
         selected_sizes=company_size,
         search_performed=search_performed,
         pagination=pagination
@@ -86,6 +90,8 @@ def company_details(company_id):
 
     return render_template('company_details.html',
                            title=f'{company.name} • Details',
+                           street="-",
+                           city="-",
                            company=company
                            )
 

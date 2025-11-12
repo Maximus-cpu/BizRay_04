@@ -59,7 +59,7 @@ def create_app():
                     # TODO: CHANGE DEFAULT SESSION TIME TO LONGER AFTER DEMONSTRATION
                     if time_elapsed > timedelta(seconds=10):
                         session.clear()
-                        flash('Your session has expired, please log in again', 'error')
+                        flash('Your session has expired, please log in again.', 'error')
                         return redirect(url_for('user.login'))
 
             # Update last activity time

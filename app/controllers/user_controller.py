@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from app import db
 from app.models.user import User
-from sqlalchemy.exc import IntegrityError
+from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 import re
 from datetime import datetime, timezone
 
@@ -82,20 +82,21 @@ def signup():
             db.session.add(user)
             db.session.commit()
 
-            flash('Account created successfully! Please log in.', 'success')
-            return redirect(url_for('user.login'))
-
         except IntegrityError:
             db.session.rollback()
-            flash('An account with this email already exists', 'error')
+            flash('An error occurred when creating your account.', 'error')
             return render_template('signup.html', title='Sign Up', email=email)
         except ValueError as e:
+            db.session.rollback()
             flash(str(e), 'error')
             return render_template('signup.html', title='Sign Up', email=email)
-        except Exception as e:
+        except SQLAlchemyError:
             db.session.rollback()
             flash('An error occurred. Please try again.', 'error')
             return render_template('signup.html', title='Sign Up', email=email)
+
+        flash('Account created successfully! Please log in.', 'success')
+        return redirect(url_for('user.login'))
 
     # GET request
     return render_template('signup.html', title='Sign Up')
@@ -187,6 +188,58 @@ def forgot_password():
         return redirect(url_for('user.login'))
 
     return render_template('forgot_password.html', title='Forgot Password')
+
+@user_bp.route('/update_account', methods=['POST'])
+def update_account():
+    user_id = session.get('user_id')
+    if not user_id:
+        flash('You must be logged in to update your account.', 'error')
+        return redirect(url_for('user.login'))
+
+    user = User.query.get(user_id)
+    if not user:
+        flash('User not found.', 'error')
+        return redirect(url_for('user.login'))
+
+    first_name = request.form.get('firstName', '').strip() or None
+    last_name = request.form.get('lastName', '').strip() or None
+    new_password = request.form.get('newPassword', '')
+    confirm_password = request.form.get('confirmPassword', '')
+
+    if new_password or confirm_password:
+        if new_password != confirm_password:
+            flash('Passwords do not match.', 'error')
+            return redirect(url_for('user.account'))
+
+        # Validate password strength
+        password_errors = validate_password_strength(new_password)
+        if password_errors:
+            for error in password_errors:
+                flash(error, 'error')
+            return redirect(url_for('user.account'))
+
+        try:
+            user.set_password(new_password)
+        except ValueError as e:
+            flash(str(e), 'error')
+            return redirect(url_for('user.account'))
+    try:
+        user.first_name = first_name
+        user.last_name = last_name
+        db.session.commit()
+
+        flash('Account updated successfully!', 'success')
+    except IntegrityError:
+        db.session.rollback()
+        flash('An error occurred when updating your account. Please try again.', 'error')
+    except ValueError as e:
+        db.session.rollback()
+        flash(str(e), 'error')
+    except SQLAlchemyError:
+        db.session.rollback()
+        flash('An error occurred. Please try again.', 'error')
+    finally:
+        return redirect(url_for('user.account'))
 
 @user_bp.route('/delete_account', methods=['POST'])
 def delete_account():

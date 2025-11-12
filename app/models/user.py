@@ -74,7 +74,6 @@ class User(db.Model):
         if self.account_locked_until is None:
             return False
 
-        # POTENTIALLY PROBLEMATIC
         if datetime.now(timezone.utc) < self.account_locked_until:
             return True
 

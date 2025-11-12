@@ -7,10 +7,12 @@
 {% block body %}
 <div class="company-header">
     <div class="company-header-content">
-        <div class="company-logo-placeholder">CO</div>
+        <div class="company-logo-placeholder">
+            <img src="{{ url_for('static', filename='images/default_company_logo.jpg') }}" alt="Logo">
+        </div>
         <div>
-            <h1 class="company-title">Company Name</h1>
-            <p class="company-tagline">Brief overview of the company and its focus</p>
+            <h1 class="company-title">{{ company.name | default(' -', true) }}</h1>
+            <p class="company-tagline">Overview of the company and its focus</p>
         </div>
     </div>
 </div>
@@ -21,9 +23,7 @@
         <section class="info-section">
             <h2 class="section-title">About</h2>
             <p class="section-text">
-                Short description of what the company is and what it does. Include
-                identity and registry highlights like Firmenbuch Number (FNR), Legal
-                Structure, and EUID when available.
+                {{ company.description | default(' -', true) }}
             </p>
         </section>
 
@@ -33,43 +33,43 @@
             <div class="stats-list">
                 <div class="stat-row">
                     <span class="stat-label">Balance Sheet Total</span>
-                    <span class="stat-value">10.000.000.000</span>
+                    <span class="stat-value">{{ company.total_balance_sheet | default(' -', true) }}</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Fixed Assets</span>
-                    <span class="stat-value">5.000.000.000</span>
+                    <span class="stat-value">{{ company.fixed_assets | default(' -', true) }}</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Current Assets</span>
-                    <span class="stat-value">3.000.000.000</span>
+                    <span class="stat-value">{{ company.current_assets | default(' -', true) }}</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Prepaid Expenses</span>
-                    <span class="stat-value">1.000.000.000</span>
+                    <span class="stat-value">{{ company.prepaid_expenses | default(' -', true) }}</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Equity</span>
-                    <span class="stat-value">2.000.000.000</span>
+                    <span class="stat-value">{{ company.equity_capital | default(' -', true) }}</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Provisions</span>
-                    <span class="stat-value">1.000.000.000</span>
+                    <span class="stat-value">{{ company.provisions | default(' -', true) }}</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Liabilities</span>
-                    <span class="stat-value">1.000.000.000</span>
+                    <span class="stat-value">{{ company.liabilities | default(' -', true) }}</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Balance Sheet Profit</span>
-                    <span class="stat-value">1.000.000.000</span>
+                    <span class="stat-value">{{ company.balance_sheet_profit | default(' -', true) }}</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Retained Earnings</span>
-                    <span class="stat-value">1.000.000.000</span>
+                    <span class="stat-value">{{ company.retained_earnings | default(' -', true) }}</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Current Year Result</span>
-                    <span class="stat-value">1.000.000.000</span>
+                    <span class="stat-value">{{ company.ongoing_result | default(' -', true) }}</span>
                 </div>
             </div>
         </section>
@@ -94,8 +94,8 @@
         <div class="sidebar-card">
             <h3 class="sidebar-title">Contact</h3>
             <div class="contact-info">
-                <div class="contact-item"><strong>Address:</strong> Street Name Only</div>
-                <div class="contact-item"><strong>City:</strong> City Name</div>
+                <div class="contact-item"><strong>Address:</strong>{{ street | default(' -', true) }}</div>
+                <div class="contact-item"><strong>City:</strong>{{ city | default(' -', true) }}</div>
             </div>
         </div>
         <div class="sidebar-card">
@@ -103,15 +103,19 @@
             <div class="info-grid">
                 <div class="info-item">
                     <div class="info-label">Firmenbuch Number (FNR)</div>
-                    <div class="info-value">—</div>
+                    <div class="info-value">{{ company.id | default(' -', true) }}</div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">Legal Structure</div>
-                    <div class="info-value">—</div>
+                    <div class="info-value">{{ company.legal_form | default(' -', true) }}</div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">EUID</div>
-                    <div class="info-value">—</div>
+                    <div class="info-value">{{ company.euid | default(' -', true) }}</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Total Employees</div>
+                    <div class="info-value">{{ company.employees_count | default(' -', true) }}</div>
                 </div>
             </div>
         </div>

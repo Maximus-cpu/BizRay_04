@@ -13,7 +13,7 @@ with app.app_context():
     print(f"Tables found in database: {tables}")
 
     #Company seeder
-    seed_companies()
+    #seed_companies()
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -208,50 +208,44 @@ function validatePasswordStrength(password) {
 }
 
 // Real-time password strength indicator
-function initPasswordStrengthIndicator() {
-    const passwordInput = document.getElementById('password');
-    if (!passwordInput) return;
+function initPasswordStrengthIndicator(inputId) {
+    const input = document.getElementById(inputId);
+    if (!input) return;
 
+    // Locate the requirements elements near the password input
     const requirements = {
-        length: document.getElementById('req-length'),
-        uppercase: document.getElementById('req-uppercase'),
-        number: document.getElementById('req-number'),
-        special: document.getElementById('req-special')
+        length: input.closest('form').querySelector('#req-length'),
+        uppercase: input.closest('form').querySelector('#req-uppercase'),
+        number: input.closest('form').querySelector('#req-number'),
+        special: input.closest('form').querySelector('#req-special')
     };
 
-    passwordInput.addEventListener('input', () => {
-        const password = passwordInput.value;
+    input.addEventListener('input', () => {
+        const password = input.value;
 
+        // Length check
         if (requirements.length) {
-            if (password.length >= 8) {
-                requirements.length.classList.add('met');
-            } else {
-                requirements.length.classList.remove('met');
-            }
+            password.length >= 8
+                ? requirements.length.classList.add('met')
+                : requirements.length.classList.remove('met');
         }
-
+        // Uppercase letter check
         if (requirements.uppercase) {
-            if (/[A-Z]/.test(password)) {
-                requirements.uppercase.classList.add('met');
-            } else {
-                requirements.uppercase.classList.remove('met');
-            }
+            /[A-Z]/.test(password)
+                ? requirements.uppercase.classList.add('met')
+                : requirements.uppercase.classList.remove('met');
         }
-
+        // Number check
         if (requirements.number) {
-            if (/[0-9]/.test(password)) {
-                requirements.number.classList.add('met');
-            } else {
-                requirements.number.classList.remove('met');
-            }
+            /[0-9]/.test(password)
+                ? requirements.number.classList.add('met')
+                : requirements.number.classList.remove('met');
         }
-
+        // Special character check
         if (requirements.special) {
-            if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-                requirements.special.classList.add('met');
-            } else {
-                requirements.special.classList.remove('met');
-            }
+            /[!@#$%^&*(),.?":{}|<>]/.test(password)
+                ? requirements.special.classList.add('met')
+                : requirements.special.classList.remove('met');
         }
     });
 }
@@ -594,7 +588,8 @@ async function calculateAndUpdateFinancialRiskIndicators() {
 document.addEventListener('DOMContentLoaded', () => {
     attachSearchFilterHandler('#searchForm', '.search-filters');
     initSearchAutocomplete();
-    initPasswordStrengthIndicator();
+    initPasswordStrengthIndicator('password');
+    initPasswordStrengthIndicator('newPassword');
 
     // Hide Flask flash messages
     document.querySelectorAll('.alert').forEach(alert => {

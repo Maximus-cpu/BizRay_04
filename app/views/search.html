@@ -34,11 +34,22 @@
         <h3 class="filter-title">Filters</h3>
 
         <div class="filter-group">
-            <h4 class="filter-subtitle">Industry</h4>
-            {% for option in ['Technology', 'Finance', 'Healthcare', 'Retail'] %}
+            <h4 class="filter-subtitle">Management</h4>
+            {% for option in ['Unlimitedly Liable Partner', 'Limited Partner', 'Authorized Signatory'] %}
             <label class="checkbox-label">
                 <input type="checkbox" name="industry" value="{{ option }}"
-                       {% if option in selected_industries %}checked{% endif %}>
+                       {% if option in selected_managements %}checked{% endif %}>
+                <span>{{ option }}</span>
+            </label>
+            {% endfor %}
+        </div>
+
+        <div class="filter-group">
+            <h4 class="filter-subtitle">Legal Form</h4>
+            {% for option in ['GmbH', 'AG', 'OG', 'KG', 'GmbH & Co KG'] %}
+            <label class="checkbox-label">
+                <input type="checkbox" name="industry" value="{{ option }}"
+                       {% if option in selected_legal_forms %}checked{% endif %}>
                 <span>{{ option }}</span>
             </label>
             {% endfor %}
@@ -69,13 +80,12 @@
             {% elif results %}
             {% for company in results %}
             <a href="{{ url_for('company.company_details', company_id=company.id) }}" class="company-card">
-                <h3 class="company-name">{{ company.name }}</h3>
-                <p class="company-industry">{{ company.industry }} • {{ company.branch }}</p>
-                <p class="company-description">Revenue: €{{ "%.2f"|format(company.revenue) }} • Risk: {{
-                    "%.2f"|format(company.risk_score) }}%</p>
+                <h3 class="company-name">{{ company.name | default('unknown company name', true) }}</h3>
+                <p class="company-industry">{{ company.legal_form | default('unknown legal form', true) }} • {{ company.management | default('unknown management type', true) }}</p>
+                <p class="company-description">FNR: {{ company.id }} • {{ street | default('unknown street', true) }}, {{ city | default('unknown city', true) }}</p>
                 <div class="company-meta">
-                    <span class="meta-item">{{ company.employees_count }} employees</span>
-                    <span class="meta-item">{{ company.region }}</span>
+                    <span class="meta-item">{{ company.employees_count | default('unknown amount of', true) }} employees</span>
+                    <span class="meta-item">{{ region | default('unknown region', true) }}</span>
                 </div>
             </a>
             {% endfor %}
@@ -83,11 +93,11 @@
             {% if pagination and pagination.pages > 1 %}
             <div class="pagination">
                 {% if pagination.has_prev %}
-                <a class="page-link" href="{{ url_for('company.search', company_name=company_name, industry=selected_industries, company_size=selected_sizes, page=pagination.prev_num) }}">Previous</a>
+                <a class="page-link" href="{{ url_for('company.search', company_name=company_name, management=selected_managements, legal_form=selected_legal_forms, company_size=selected_sizes, page=pagination.prev_num) }}">Previous</a>
                 {% endif %}
                 <span class="page-info">Page {{ pagination.page }} of {{ pagination.pages }}</span>
                 {% if pagination.has_next %}
-                <a class="page-link" href="{{ url_for('company.search', company_name=company_name, industry=selected_industries, company_size=selected_sizes, page=pagination.next_num) }}">Next</a>
+                <a class="page-link" href="{{ url_for('company.search', company_name=company_name, management=selected_managements, legal_form=selected_legal_forms, company_size=selected_sizes, page=pagination.next_num) }}">Next</a>
                 {% endif %}
             </div>
             {% endif %}
