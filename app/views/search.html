@@ -33,28 +33,31 @@
     <div class="search-filters">
         <h3 class="filter-title">Filters</h3>
 
+        <!-- Because we don't have management type for the 10 companies from the XML
         <div class="filter-group">
             <h4 class="filter-subtitle">Management</h4>
             {% for option in ['Unlimitedly Liable Partner', 'Limited Partner', 'Authorized Signatory'] %}
             <label class="checkbox-label">
-                <input type="checkbox" name="industry" value="{{ option }}"
+                <input type="checkbox" name="management" value="{{ option }}"
                        {% if option in selected_managements %}checked{% endif %}>
                 <span>{{ option }}</span>
             </label>
             {% endfor %}
         </div>
+        -->
 
         <div class="filter-group">
             <h4 class="filter-subtitle">Legal Form</h4>
-            {% for option in ['GmbH', 'AG', 'OG', 'KG', 'GmbH & Co KG'] %}
+            {% for option in ['GmbH', 'AG', 'OG', 'KG', 'GmbH & Co KG', 'e.U.'] %}
             <label class="checkbox-label">
-                <input type="checkbox" name="industry" value="{{ option }}"
+                <input type="checkbox" name="legal_form" value="{{ option }}"
                        {% if option in selected_legal_forms %}checked{% endif %}>
                 <span>{{ option }}</span>
             </label>
             {% endfor %}
         </div>
 
+        <!-- Because we don't have employee count for the 10 companies from the XML
         <div class="filter-group">
             <h4 class="filter-subtitle">Company Size</h4>
             {% set sizes = {
@@ -71,6 +74,7 @@
             </label>
             {% endfor %}
         </div>
+        -->
     </div>
 
     <div class="search-results">

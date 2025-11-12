@@ -88,6 +88,8 @@ def company_details(company_id):
     if not company:
         abort(404)
 
+    # TODO: Derive street and city from company address and pass it to the template
+    # TODO: Do the same for Company Search
     return render_template('company_details.html',
                            title=f'{company.name} • Details',
                            street="-",

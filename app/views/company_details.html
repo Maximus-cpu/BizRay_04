@@ -33,7 +33,7 @@
             <div class="stats-list">
                 <div class="stat-row">
                     <span class="stat-label">Balance Sheet Total</span>
-                    <span class="stat-value">{{ company.total_balance_sheet | default(' -', true) }}</span>
+                    <span class="stat-value">{{ company.balance_sheet_total | default(' -', true) }}</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Fixed Assets</span>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Equity</span>
-                    <span class="stat-value">{{ company.equity_capital | default(' -', true) }}</span>
+                    <span class="stat-value">{{ company.equity | default(' -', true) }}</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Provisions</span>
