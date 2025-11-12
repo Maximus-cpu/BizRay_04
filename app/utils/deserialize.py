@@ -11,7 +11,7 @@ print(os.listdir(dec_xml_dir)[10])
 testing_dec_xml = os.path.join(dec_xml_dir, os.listdir(dec_xml_dir)[10])
 
 def print_statement(
-    company_name, FNR, legal_structure, balance_sheet_total, fixed_assets, intangible_assets, tangible_assets, 
+    company_name, FNR, legal_structure_full, legal_structure, balance_sheet_total, fixed_assets, intangible_assets, tangible_assets, 
     financial_assets, current_assets, stockpiles, receivables, securities_and_shares, cash_and_bank_balances, 
     prepaid_expenses, equity, required_share_capital, capital_reserves, retained_earnings, balance_sheet_profit, 
     profit_carried_forward, accruals, liabilities, long_term_liabilities, filing_year_begin, filing_year_end
@@ -24,7 +24,7 @@ def print_statement(
     For the year: {filing_year_begin} to {filing_year_end}
 
     FNR: {FNR}
-    Legal structure: {legal_structure} => {company_legal_structure_map.get(legal_structure)}
+    Legal structure: {legal_structure} => {legal_structure_full}
 
     ------Financial Statement------
 
@@ -176,7 +176,7 @@ with open(testing_dec_xml, "rb") as f:
         # working_capital
 
         print_statement(
-            company_name, FNR, legal_structure_full, balance_sheet_total, fixed_assets, intangible_assets, tangible_assets, financial_assets,
+            company_name, FNR, legal_structure_full, legal_structure, balance_sheet_total, fixed_assets, intangible_assets, tangible_assets, financial_assets,
             current_assets, stockpiles, receivables, securities_and_shares, cash_and_bank_balances, prepaid_expenses, equity, required_share_capital, 
             capital_reserves, retained_earnings, balance_sheet_profit, profit_carried_forward, accruals, liabilities, long_term_liabilities, 
             filing_year_begin, filing_year_end
