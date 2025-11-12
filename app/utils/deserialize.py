@@ -86,7 +86,7 @@ def deserialize_financial_statement(xml_file_path: str) -> dict:
             securities_and_shares = current_assets_items.get("HGB_224_2_B_III", {}).get("POSTENZEILE", {}).get("BETRAG", 0.00)
             cash_and_bank_balances = current_assets_items.get("HGB_224_2_B_IV", {}).get("POSTENZEILE", {}).get("BETRAG", 0.00)
 
-            prepaid_expenses = assets_dict["HGB_224_2_C"]["POSTENZEILE"]["BETRAG"]
+            prepaid_expenses = assets_dict.get("HGB_224_2_C", {}).get("POSTENZEILE", {}).get("BETRAG", 0.00)
 
             equity_items = equity_dict["HGB_224_3_A"]
             equity = equity_items["POSTENZEILE"]["BETRAG"]

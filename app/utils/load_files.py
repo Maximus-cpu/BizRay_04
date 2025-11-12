@@ -1,6 +1,6 @@
 def load_companies(company_dict):
-    from app.models.company import Company
     from app import db
+    from app.models.company import Company
     # Dictionary needs to be structured like the Company Model
 
     company = Company(**company_dict)  # uses python's built in unpacking operator
