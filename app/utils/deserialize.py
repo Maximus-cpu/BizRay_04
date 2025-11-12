@@ -1,7 +1,6 @@
 import os
 import xmltodict
 import dotenv
-from pprint import pprint
 import time
 
 # start = time.time()
