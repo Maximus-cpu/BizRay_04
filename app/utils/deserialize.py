@@ -7,8 +7,7 @@ import time
 # start = time.time()
 
 dec_xml_dir = "./app/utils/decoded_xml_files"
-print(os.listdir(dec_xml_dir)[1])
-testing_dec_xml = os.path.join(dec_xml_dir, os.listdir(dec_xml_dir)[1])
+testing_dec_xml = os.path.join(dec_xml_dir, os.listdir(dec_xml_dir)[2])
 
 def print_statement(
     company_name, FNR, legal_structure, balance_sheet_total, fixed_assets, intangible_assets, tangible_assets, 
@@ -21,12 +20,11 @@ def print_statement(
     Financial Statement for the company: 
     {company_name}
 
+    ------------------Start-----------------
     For the year: {filing_year_begin} to {filing_year_end}
 
     FNR: {FNR}
     Legal structure: {legal_structure} => {company_legal_structure_map.get(legal_structure)}
-
-    ------Financial Statement------
 
     total balance sheet: {balance_sheet_total}
     fixed assets: {fixed_assets}
