@@ -12,27 +12,28 @@ testing_dec_xml = os.path.join(dec_xml_dir, os.listdir(dec_xml_dir)[10])
 def deserialize_financial_statement(xml_file_path: str) -> dict:
     print(f"Deserializing financial statement from:\n{xml_file_path}\n")
 
-    company_legal_structure_map = {
-        "GmbH": "Gesellschaft mit beschränkter Haftung",
-        "AG": "Aktiengesellschaft",
-        "OG": "Offene Gesellschaft",
-        "KG": "Kommanditgesellschaft",
-        "GmbH & Co KG": "Kommanditgesellschaft mit einer GmbH als Komplementärin",
-        "e.U.": "Eingetragener Unternehmer",
-        "Einzelunternehmen": "Einzelunternehmen",
-        "GesbR": "Gesellschaft bürgerlichen Rechts",
-        "Genossenschaft": "Genossenschaft",
-        "Erwerbs- und Wirtschaftsgenossenschaft": "Erwerbs- und Wirtschaftsgenossenschaft",
-        "Verein": "Verein (gemeinnützige Organisation)",
-        "Stiftung": "Stiftung",
-        "Privatstiftung": "Privatstiftung",
-        "SE": "Europäische Gesellschaft (Societas Europaea)",
-        "SCE": "Europäische Genossenschaft (Societas Cooperativa Europaea)",
-        "OG mbH": "Offene Gesellschaft mit beschränkter Haftung",
-        "PartG": "Partnerschaftsgesellschaft",
-        "GmbH & Co OG": "Offene Gesellschaft mit einer GmbH als Gesellschafterin",
-        "GmbH & Co OHG": "Offene Handelsgesellschaft mit einer GmbH als Komplementärin"
-    }
+    # * Company legal structure mapping for full names (saved for later)
+    # company_legal_structure_map = {
+    #     "GmbH": "Gesellschaft mit beschränkter Haftung",
+    #     "AG": "Aktiengesellschaft",
+    #     "OG": "Offene Gesellschaft",
+    #     "KG": "Kommanditgesellschaft",
+    #     "GmbH & Co KG": "Kommanditgesellschaft mit einer GmbH als Komplementärin",
+    #     "e.U.": "Eingetragener Unternehmer",
+    #     "Einzelunternehmen": "Einzelunternehmen",
+    #     "GesbR": "Gesellschaft bürgerlichen Rechts",
+    #     "Genossenschaft": "Genossenschaft",
+    #     "Erwerbs- und Wirtschaftsgenossenschaft": "Erwerbs- und Wirtschaftsgenossenschaft",
+    #     "Verein": "Verein (gemeinnützige Organisation)",
+    #     "Stiftung": "Stiftung",
+    #     "Privatstiftung": "Privatstiftung",
+    #     "SE": "Europäische Gesellschaft (Societas Europaea)",
+    #     "SCE": "Europäische Genossenschaft (Societas Cooperativa Europaea)",
+    #     "OG mbH": "Offene Gesellschaft mit beschränkter Haftung",
+    #     "PartG": "Partnerschaftsgesellschaft",
+    #     "GmbH & Co OG": "Offene Gesellschaft mit einer GmbH als Gesellschafterin",
+    #     "GmbH & Co OHG": "Offene Handelsgesellschaft mit einer GmbH als Komplementärin"
+    # }
 
     with open(xml_file_path, "rb") as f:
         data = xmltodict.parse(f.read())
@@ -60,8 +61,11 @@ def deserialize_financial_statement(xml_file_path: str) -> dict:
             filing_year = justice_ministry_dict["GJ"]
             filing_year_begin = filing_year["BEGINN"]
             filing_year_end = filing_year["ENDE"]
+
+            # * Tag used to retrieve legal structure of company is not always consistent. SIGNA gets GES isntead of GmbH
+            # * We will have to extract it from the company name instead.
             legal_structure = filing_year["FORM"]
-            legal_structure_full = company_legal_structure_map.get(legal_structure, legal_structure)
+            # legal_structure_full = company_legal_structure_map.get(legal_structure, legal_structure)
 
             financial_statement = document["HGB_Form_2"]
             assets_dict = financial_statement["HGB_224_2"]
@@ -128,9 +132,9 @@ def deserialize_financial_statement(xml_file_path: str) -> dict:
             # working_capital
 
             return {
-                "company_name": company_name,
                 "FNR": FNR,
-                "legal_structure_full": legal_structure_full,
+                "company_name": company_name,
+                # "legal_structure_full": legal_structure_full,
                 "legal_structure": legal_structure,
                 "balance_sheet_total": float(balance_sheet_total),
                 "fixed_assets": float(fixed_assets),
@@ -152,8 +156,10 @@ def deserialize_financial_statement(xml_file_path: str) -> dict:
                 "accruals": float(accruals),
                 "liabilities": float(liabilities),
                 "long_term_liabilities": float(long_term_liabilities),
-                "filing_year_begin": filing_year_begin,
-                "filing_year_end": filing_year_end
+
+                # * Are going to have to add these to the DB Model later
+                # "filing_year_begin": filing_year_begin,
+                # "filing_year_end": filing_year_end
             }
         
         else:
