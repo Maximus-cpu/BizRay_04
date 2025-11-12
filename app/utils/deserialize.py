@@ -131,10 +131,10 @@ def deserialize_financial_statement(xml_file_path: str) -> dict:
             # working_capital
 
             return {
-                "FNR": FNR,
-                "company_name": company_name,
+                "id": FNR,
+                "name": company_name,
                 # "legal_structure_full": legal_structure_full,
-                "legal_structure": legal_structure,
+                "legal_form": legal_structure,
                 "balance_sheet_total": float(balance_sheet_total),
                 "fixed_assets": float(fixed_assets),
                 "intangible_assets": float(intangible_assets),
