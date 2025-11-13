@@ -18,7 +18,7 @@ db.sqlite3
 /media/
 staticfiles/
 
-# decoded_xml_files/
+decoded_xml_files/
 encoded_xml_files/
 normalized_json_files/
 
