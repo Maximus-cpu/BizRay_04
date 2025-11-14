@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="https://finanzonline.bmf.gv.at/bilanz" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://finanzonline.bmf.gv.at/bilanz" elementFormDefault="qualified">
+	<xs:include schemaLocation="eBilanzPostenAllgemein.xsd"/>
+	<xs:include schemaLocation="AllgemeineDatenJustiz.xsd"/>
+	<xs:include schemaLocation="AllgemeineDatenFinanz.xsd"/>
+	<xs:include schemaLocation="BilanzXSD.xsd"/>
+	<xs:include schemaLocation="GuVXSD.xsd"/>
+	<xs:include schemaLocation="HGBForm3XSD.xsd"/>
+	<xs:include schemaLocation="HGBForm2XSD.xsd"/>
+	<xs:include schemaLocation="HGBForm242_1XSD.xsd"/>
+	<xs:element name="ANZAHL">
+		<xs:simpleType>
+			<xs:restriction base="xs:positiveInteger">
+				<xs:maxInclusive value="300"/>
+				<xs:minInclusive value="1"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ART_IDENTIFIKATIONSBEGRIFF">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="FASTNR"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="IDENTIFIKATIONSBEGRIFF" type="fastnr"/>
+	<xs:element name="DATUM_ERSTELLUNG">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:date">
+					<xs:attribute name="type" type="datumtype" use="required"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UHRZEIT_ERSTELLUNG">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:time">
+					<xs:attribute name="type" type="uhrzeittype" use="required"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="VERS">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minExclusive value="00.00"/>
+				<xs:maxInclusive value="99.99"/>
+				<xs:fractionDigits value="2"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="PAKET_NR">
+		<xs:simpleType>
+			<xs:restriction base="xs:positiveInteger">
+				<xs:maxInclusive value="999999999"/>
+				<xs:minInclusive value="1"/>
+				<xs:totalDigits value="9"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<!-- Strukturbeschreibung -->
+	<xs:element name="UEBERMITTLUNG">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="INFO_DATEN" minOccurs="0"/>
+				<xs:element ref="BILANZ_GLIEDERUNG" maxOccurs="300"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BILANZ_GLIEDERUNG">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice>
+					<xs:element ref="ALLG_FINANZ"/>
+					<xs:element ref="ALLG_JUSTIZ"/>
+				</xs:choice>
+				<xs:sequence>
+					<xs:choice>
+						<xs:sequence>
+							<xs:element ref="BILANZ"/>
+							<xs:choice>
+								<xs:element ref="GUV" minOccurs="0"/>
+								<xs:element ref="GUV_U" minOccurs="0"/>
+							</xs:choice>
+							<xs:element ref="HGB_Form_242_1" minOccurs="0"/>
+						</xs:sequence>
+						<xs:sequence>
+							<xs:element ref="HGB_Form_2"/>
+							<xs:element ref="HGB_Form_3" minOccurs="0"/>
+						</xs:sequence>
+					</xs:choice>
+					<xs:element ref="VERMERKE" minOccurs="0"/>
+					<xs:element ref="SPIEGELUEBERSCHRIFTEN" minOccurs="0"/>
+				</xs:sequence>
+			</xs:sequence>
+			<xs:attribute name="ART" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="HGB"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="INFO_DATEN">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ART_IDENTIFIKATIONSBEGRIFF"/>
+				<xs:element ref="IDENTIFIKATIONSBEGRIFF"/>
+				<xs:element ref="PAKET_NR"/>
+				<xs:element ref="DATUM_ERSTELLUNG"/>
+				<xs:element ref="UHRZEIT_ERSTELLUNG"/>
+				<xs:element ref="VERS"/>
+				<xs:element ref="ANZAHL"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SPIEGELUEBERSCHRIFTEN">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="UEBER_RS" minOccurs="0"/>
+				<xs:element ref="UEBER_RL" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UEBER_RS">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SPALTE_1" minOccurs="0"/>
+				<xs:element ref="SPALTE_2" minOccurs="0"/>
+				<xs:element ref="SPALTE_3" minOccurs="0"/>
+				<xs:element ref="SPALTE_4" minOccurs="0"/>
+				<xs:element ref="SPALTE_5" minOccurs="0"/>
+				<xs:element ref="SPALTE_6" minOccurs="0"/>
+				<xs:element ref="SPALTE_7" minOccurs="0"/>
+				<xs:element ref="SPALTE_8" minOccurs="0"/>
+				<xs:element ref="SPALTE_9" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UEBER_RL">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SPALTE_1" minOccurs="0"/>
+				<xs:element ref="SPALTE_2" minOccurs="0"/>
+				<xs:element ref="SPALTE_3" minOccurs="0"/>
+				<xs:element ref="SPALTE_4" minOccurs="0"/>
+				<xs:element ref="SPALTE_5" minOccurs="0"/>
+				<xs:element ref="SPALTE_6" minOccurs="0"/>
+				<xs:element ref="SPALTE_7" minOccurs="0"/>
+				<xs:element ref="SPALTE_8" minOccurs="0"/>
+				<xs:element ref="SPALTE_9" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="VERMERKE">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ANHANG" type="PDF" minOccurs="0"/>
+				<xs:element name="BILANZ_ANHANG" type="PDF" minOccurs="0"/>
+				<xs:element name="GUV_ANHANG" type="PDF" minOccurs="0"/>
+				<xs:element name="LAGEBERICHT" type="PDF" minOccurs="0"/>
+				<xs:element name="E_BESCHLUSS" type="PDF" minOccurs="0"/>
+				<xs:element name="BESTAETIGUNGSVERMERK" type="PDF" minOccurs="0"/>
+				<xs:element name="AUFSICHTSRATSBERICHT" type="PDF" minOccurs="0"/>
+				<xs:element name="WP_BERICHT" type="PDF" minOccurs="0"/>
+				<xs:element name="FINANZ_SPEZ_ANHANG" type="PDF" minOccurs="0"/>
+				<xs:element name="CORP_GOV_BERICHT" type="PDF" minOccurs="0"/>
+				<xs:element name="NICHTFINANZ_BERICHT" type="PDF" minOccurs="0"/>
+				<xs:element name="ZAHL_ST_STELLEN" type="PDF" minOccurs="0"/>
+				<xs:element name="SONSTIGE_ANGABEN" type="PDF" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
